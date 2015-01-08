@@ -1,0 +1,365 @@
+:m0h    clear the search
+yW            copie un nom compose: border-bottom, copier avec w est plus complique : y3w
+P           paste the content before
+db            delete the back word previously
+dj            supprime la ligne où est le curseur et la ligne en dessous, en entier et passe en mode insert
+
+HTML
+vit           Selectionne a l’interieur d’un tag // visual in tag
+vat           selection tout le tag
+cit           change in tab, and inser mode
+
+Replace each match of the last search pattern with 'bar'.
+:%s//bar/g
+
+
+———————————————————SPLIT
+ctrl+w++ ou ctrl+w+= ou ctrl+w+- ou ctrl+w+< et ctrl+w+> pour les vsplit.
+Crtl+w+n        new split
+ctrl+w+s aussi pour splitter
+ctrl+w+v pour splitter verticalement
+vim -o fichier1 fichier2... fichierN pour ouvrir N fichiers en mode split
+ctrl+w+<fleches> marche aussi pour se deplacer d'une fenetre a une autre.
+Pour créer une division verticale, utilisez :vsp ou ctrl-w v. 
+:sp pour créer une division verticale 
+intervertir les fenetres ctrl-w r
+déplacer la fenêtre courante à la position la plus élevée? Tapez ctrl-w K.
+redimensionner une fenêtre pour qu’elle soit plus petite ou plus grande? Tapez :resize 10
+ les fenêtres de même (‘equal’) taille à nouveau? Tapez ctrl-w =.
+  fenêtre courante aussi grande que possible afin de vous concentrer dessus? Tapez ctrl-w _.
+   
+
+
+
+   yW           copie un nom compose: border-bottom, copier avec w est plus complique : y3w
+   P            paste the content before
+   O            insert the content before the line
+   { ou }         passe d’un paragraphe a l’autre
+   3gg            It going to the third line to begin the same for 5G
+   db           delete the back word previously
+   4cc            delete 4 lines, and put in insert mode
+   command + g        affiche le nombre de ligne du document en court
+   dj             supprime la ligne où est le curseur et la ligne en dessous, en entier et passe en mode insert
+   fa             vous amène à la prochaine occurrence de a sur la ligne courante. 
+   , (resp. ;)      recherche l’occurrence suivante (resp. précédente).
+   vfp            selectionne, jusqu’a la lettre p // visual fs
+
+   ———————————————————MACRO and REGISTERS
+   :reg or :registers   for see the registers
+   q            start the macro
+
+   qa           create a new macro in register a, then type your macro in registers 
+   exemple avec une liste html : 
+   <li>ddddddasd<li>
+   <li>ddddd<li>
+   <li>ddddd<li>
+   <li>ddddd<li>
+   qa
+   df>
+   ddddd><li>
+   f< // move the cursor
+   ddddd><li>
+   d$
+   ddddd
+   j0   // for to go to the next <li>
+   q // we stop registring
+
+   242@a    // For start the macro a 242 time
+
+   ———————————————————SEARCH
+   :m0h   clear the search
+   /\n      search the with caratere
+   /.[aouers] search for any caractere, follow by a leat 1 caractere between the brackets
+
+   delete every thinks from the cursor to the the particular search I want. So if I tape 
+   d and /fire or c and /fire or y and /fire.
+   exemple:
+   // Routers map faux-URLs to actions, and fire events when routes are
+   to
+   // fire events when routes are
+
+   ———————————————————BUFFERS
+   :ls          How many files we have in memory // visionner les buffers
+   :bnext       navigue to the next buffer
+   :bp          navigue to the previous buffer
+   :b#          last buffer we are visiting
+   :bf          first before in the list
+   :bd          delete a buffer
+   We can create a macro that works for all buffer or tab
+
+   ———————————————————COMMAND LINE
+   :!                   for use the command line
+   :read or r !date           paste a date inside the file
+   :r !curl — silent https://….     insert a file with curl
+   se ft=javascript           set a fyle type to the javascript it’s more readeble for some coffescript file for instance
+
+   ———————————————————MOVE COMMAND
+   ^d           to move half of screen “down”
+   ^u           to move half of screen “up”
+   ^f           to move entire screen “forward”
+   ^b           to move entire screen “back”
+   ———— cursor move
+   M            to move the cursor to the middle the window
+   H            to move the cursor to the top the window “to home the window”
+   L            to move the cursor to the bottom the window
+   ———— cursor move and line in the window
+   zt           put the line and the cursor in top the window, for have all window
+   zb           put the line and the cursor in bottom the window
+   zz           put the line and the cursor in middle the window
+
+   ——————————————————— MARKS
+
+   ma     set mark a at current cursor location
+   'a     jump to line of mark a (first non-blank character in line)
+   ‘’     allez a l’emplacement precedent, we can use twice time
+   ]'     jump to next line with a lowercase mark
+   ['     jump to previous line with a lowercase mark
+
+   Auto-completion  Commencez à écrire le début d’un mot déjà présent dans l’un des buffers (fichers) ouvert et tapes <C-p>. Magique.
+
+   blocs rectangulaires   sont très commodes pour commenter plusieurs lignes de codes. Typiquement: ^<C-V><C-d>I-- [ESC]
+
+   vi)      selectionne  tout ce qui est entre parenthese, ou ]}’), etc…
+
+   %      Aller à la parenthèse, accolade, crochet correspondante.
+
+   * (resp. #)    Aller à la prochaine (resp. précédente) occurrence du mot sous le curseur
+
+   :tabdo %s/foo/bar/g  recherche et remplace dans tous les onglets ouvert de la session
+
+   V == selectionne une ligne
+   t + caratere == pour positionner le curseur sur le caractere suivant
+   :h x == affiche l'aide d'une commande
+
+   ci" == efface le texte a  l'interieur des guillemet, et passe en insertion
+   ca' : «correct a quote», supprime "NOT NULL" (quotes inclus), et passe en insertion
+   ct= : «correct to '='», supprime depuis la position courante du curseur jusqu'au signe '=' non inclus, et passe en insertion
+   cf= : «correct find '='», supprime depuis la position courante du curseur jusqu'au signe '=' inclus, et passe en insertion
+
+   dw/cw : «delete/correct word» efface/corrige depuis la position du curseur jusqu'à la fin du mot
+   daw : «correct a word», le curseur doit se trouver sur le mot à corriger (alors qu'avec dw il faudrait que le curseur se trouve sur la première lettre du mot)
+
+   ==   Réindente la ligne sous le curseur
+   gg=G   Réindente tout le document
+   =i{  =a{ Réindente tout le bloc courant, accolades exclues (inner-bloc) ou inclues (a)
+   K    Va essayer de trouver la documentation correspondant au mot sous le curseur
+   %    matching bracket
+
+   CTRL+a   Incrémente le nombre sous le curseur
+   CTRL+x   Décrémente le nombre sous le curseur
+
+   tt   :tabedit
+   gf   Ouvre le fichier dont le nom est sous le curseur
+   d<mouvement> Du curseur à la cible du déplacement : d5j supprime les cinq ligne ci-dessous
+   nG              Aller à la ligne n. Exemple: 1G va sur la première ligne
+   ny   Copie les lignes avec n lignes
+   ndd    Supprimes les lignes courantes et la copie dans le presse-papiers
+   :%s/chercher/remplacer 
+
+
+
+
+    http://yannesposito.com/Scratch/fr/blog/Learn-Vim-Progressively/#navigation
+
+    Vim ou l’éditeur qui vallait 3 milliards :
+
+    Meilleur, plus fort, plus rapide.
+
+    Apprenez vim et ce sera votre dernier éditeur. Aucun éditeur que je connaisse ne le surpasse. Sa prise en mais est difficile, mais payante.
+
+    Je vous conseille de l’apprendre en 4 étapes :
+
+    La survie
+    Se sentir à son aise
+    Se sentir meilleur, plus fort et plus rapide
+    Tirer parti des super-pouvoirs de vim
+    À la fin de ces leçons vous serez transformé.
+
+    Avant de commencer, un message pour vous prévenir. Apprendre vim sera difficile au début. Ça prendra du temps. Vous devrez vous entraîner. Apprendre vim ressemble beaucoup à apprendre un instrument de musique. N’espérez pas être plus efficace avec vim qu’avec un autre éditeur avant au moins trois jours. En fait ça sera certainement plus 2 semaines que 3 jours.
+
+    2ème Niveau – Se sentir à son aise
+
+    Vous connaissez les commandes de survie. Passons à des commandes pour être un peu plus à notre aise. Je vous suggère :
+
+    Les variantes de l’insertion
+
+    a → Comme i, mais après la position du curseur.
+    o → Comme i, mais à la ligne suivante.
+    O → Comme o mais ajoute la ligne avant.
+    cw → Remplacer la fin du mot.
+    Déplacements basiques
+
+    0 → Aller à la première colonne.
+    ^ → Aller au premier caractère de la ligne.
+    $ → Aller à la fin de la ligne.
+    g_ → Aller au dernier caractère de la ligne.
+    /pattern → Rechercher pattern dans le fichier.
+    Copier/Coller
+
+    P → Coller avant. Souvenez vous, p colle après la position du curseur.
+    yy → Copier la ligne courante. C’est plus simple et équivalent à ddP
+    Annuler/Refaire
+
+    u → Annuler (undo)
+    <C-r> → Refaire
+
+    ———— Ouvrir/Sauvegarder/Quitter/Changer de fichier (buffer)
+
+    :e <path/to/file> → Ouvrir.
+    :w → Sauvegarder.
+    :save as <path/to/file> → Sauvegarder sous …
+    :x, ZZ ou :wq → Sauvegarder et quitter (:x sauvegarde seulement si nécessaire).
+    :q! → Quitter sans sauvegarder. De même :qa! quitte même si d’autres fichiers (buffers) ont des modifications non sauvegardées.
+    :bn (resp. :bp) → Affiche le fichier suivant (resp. précédent).
+    Prenez le temps de bien intégrer ces commandes. Une fois fait, vous devriez être capable de faire tout ce qu’on peut attendre d’un éditeur de texte classique.
+
+    3ième Niveau – Meilleur. Plus fort. Plus rapide.
+
+    Bravo ! Si vous êtes arrivé jusqu’ici nous allons pouvoir commencer à apprendre les choses vraiment intéressantes. Pour cette section, je vais seulement parler de commandes disponible dans vi et vim. Vim est la contraction de “vi improved”, ou en Français, “vi amélioré”.
+
+    Meilleur
+
+    Voyons comment nous pouvons éviter les répétitions avec vi :
+
+    . → Le caractère point répètera la dernière commande. Très utile.
+    N<commande> → répètera la commande N fois.
+    Quelques exemples, ouvrez un fichier (non vide) avec vim et tapez :
+
+    2dd → Supprimera 2 lignes
+    3p → copiera 3 fois d’affiler le texte copié
+    100idesu [ESC] → écrira “desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu”
+    . → Juste après la dernière commande réécrira les 100 “desu”.
+    3. → Écrira 3 “desu” et non pas 300. Bien vu n’est-ce pas ?
+    Plus fort
+
+    Savoir se déplacer efficacement avec vim est très important. Ne sautez pas cette section.
+
+    NG → Aller à la ligne N
+    gg → raccourci pour 1G, retourner au début du fichier
+    G → Aller à la dernière ligne.
+    Déplacement autour des mots:
+
+    w → aller au début du mot suivant
+    e → aller à la fin du mot courant
+    Par défaut les mots sont seulement composés de lettres (et du caractère souligné _). Appelons un MOT un ensemble de lettre séparé par des caractères blancs (espaces, tabulation). Si vous voulez considérer des MOTS alors il suffit d’utiliser les majuscules.
+
+    W → aller au début du MOT suivant
+    E → aller à la fin du MOT courant
+    Word moves example
+    Passons aux commandes de déplacement les plus efficaces :
+
+    % : Aller à la parenthèse, accolade, crochet correspondante.
+    * (resp. #) : Aller à la prochaine (resp. précédente) occurrence du mot sous le curseur
+    Croyez moi, ces trois dernières commandes valent de l’or. Retenez les et vous gagnerez beaucoup de temps.
+
+    Plus rapide
+
+    Vous vous souvenez que j’ai dit que les déplacements étaient très importants en vi. Voilà pourquoi. Une façon de travailler avec vim est de se dire que l’on fait des “phrases”. Le verbe étant la commande et les compléments définissent la zone d’action. De façon générale :
+
+    <position de depart><commande><position d'arrivee>
+
+    Par exemple : 0y$ signifie :
+
+    0 → Aller au début de la ligne,
+    y → copie à partir d’ici,
+    $ → jusqu’à la fin de cette ligne.
+    On peut donc faire des choses comme ye, copie à partir de la position courante du curseur jusqu’à là fin du mot. Mais aussi: y2/toto copie jusqu’à la seconde prochaine occurrence de “toto”.
+
+    Ce qui est vrai pour y (yank → copier), est aussi vrai pour d (delete → supprimer), v (sélection visuelle), gU (uppercase → majuscule),gu (lowercase → minuscule), etc…
+
+    4ième Niveau – Les super pouvoirs de Vim
+
+    Jusqu’ici vous avez appris les commandes les plus courantes. Mais voici les killer features de vim. Celles que je n’ai retrouvé que dans vim (ou presque).
+
+    Déplacement sur la ligne : 0 ^ $ g_ f F t T , ;
+
+    0 → aller à la colonne 0,
+    ^ → aller au premier caractère de la ligne
+    $ → aller à la dernière colonne de la ligne
+    g_ → aller au dernier caractère de la ligne
+    fa → vous amène à la prochaine occurrence de a sur la ligne courante. , (resp. ;) recherche l’occurrence suivante (resp. précédente).
+    t, → vous amène juste avant le ,.
+    3fa → recherche la 3ième occurrence de a.
+    F et T → comme f et t mais en arrière.
+    Line moves
+    Un truc pratique : dt" → supprime tout jusqu’au prochain ".
+
+    Selection de zone <action>a<object> ou <action>i<object>
+
+    Ces commandes sont utilisable seulement en mode visuel ou après un “opérateur”. Mais elles sont très puissantes. Leur forme générale est:
+
+    <action>a<objet> et <action>i<objet>
+
+    Où action peut être par exemple d (delete), y (yank), v (select in visual mode), etc… Un objet peut être: w un mot, W un MOT (mot étendu), s une phrase, p un paragraphe. Mais aussi des caractère plus naturels comme ", ', ), }, ].
+
+    Supposons que le curseur soit positionné sur le premier o dans (map (+) ("foo")).
+
+    vi" → sélectionnera foo.
+    va" → sélectionnera "foo".
+    vi) → sélectionnera "foo".
+    va) → sélectionnera ("foo").
+    v2i) → sélectionnera map (+) ("foo")
+    v2a) → sélectionnera (map (+) ("foo"))
+    Text objects selection
+    Sélection de blocs rectangulaires : <C-V>.
+
+    Les blocs rectangulaires sont très commodes pour commenter plusieurs lignes de codes. Typiquement: ^<C-V><C-d>I-- [ESC]
+
+    ^ → aller au premier caractère de la ligne
+    <C-V> → Commencer la sélection du bloc
+    <C-d> → se déplacer vers le bas (pourrait être jjj ou % etc…)
+    I-- [ESC] → écrit -- pour commenter le reste de la ligne.
+    Rectangular blocks
+    Remarquez que sous windows, vous devez utiliser <C-q> plutôt que <C-v> si votre “presse papier” n’est pas vide.
+
+    Complétion : <C-n> et <C-p>.
+
+    En mode Insert, commencez à écrire le début d’un mot déjà présent dans l’un des buffers (fichers) ouvert et tapes <C-p>. Magique.
+
+    Completion
+    Macros : qa faire quelque chose q, @a, @@
+
+    qa enregistre tout ce que vous faite et enregistre le tout dans le registre a. Ensuite @a va rejouer la macro enregistrée dans le registre a comme si c’est vous qui tapiez au clavier. @@ est un raccourci pour rejouer la dernière macro exécutée.
+
+    Exemple : Sur une ligne contenant seulement un 1 tapez :
+
+    qaYp<C-a>q →
+    qa → début de l’enregistrement.
+    Yp → copier cette ligne.
+    <C-a> → incrémente le nombre.
+    q → arrête d’enregistrer.
+    @a → écrit un 2 sous le 1.
+    Écrivez 100@@. Cela va créer une liste de nombre croissants jusqu’à 103.
+    Macros
+    Sélection visuelle : v,V,<C-v>
+
+    On a déjà vu un exemple avec <C-V>. Mais il y a aussi, v et V. Et une fois la sélection visuelle faite vous pouvez par exemple:
+
+    J → joindre toutes les lignes pour en faire une seule
+    < (resp. >) → indenter à gauche (resp. à droite).
+    = → auto indenter
+    Autoindent
+    Ajouter quelque chose à la fin de toutes les lignes sélectionnées visuellement :
+
+    <C-v>
+    aller jusqu’à la ligne désirée (jjj ou <C-d> ou /pattern ou % etc…)
+    $ aller à la fin
+    A, écrire le texte, Echap.
+    Ajouter à la fin de plusieurs lignes
+    Splits : :split et vsplit.
+
+    Je vous conseille de faire un :help split. Celà permet de manipuler plusieurs buffer sur la même fenêtre. Voici les commandes principales :
+
+    :split → crée un split (:vsplit crée un split vertical)
+    <C-w><dir> → où dir est l’un de hjkl ou ←↓↑→ permet de changer de split.
+    <C-w>_ (resp. <C-w>|) → Maximise la taille du split (resp. split vertical)
+    <C-w>+ (resp. <C-w>-) → Agrandi (resp. diminue) le split
+    Split
+    Conclusion
+
+    Voilà, je vous ai donné 90% des commandes que j’utilise tous les jours. N’essayez pas de toutes les apprendre en une journée. Il faut le temps de s’habituer à chaque nouvelle commande. Je vous conseille de ne pas apprendre plus d’une ou deux commandes par jour.
+
+    Apprendre Vim est plus une question d’entraînement que de mémorisation. Heureusement vim est founi avec un très bon tutoriel et une excellente documentation. Lancez vimtutor jusqu’à ce que vous vous sentiez à l’aise avec les commandes basiques. De plus, vous devriez aussi lire en détail la page suivate : :help usr_02.txt.
+
+    Ensuite vous découvrirez !, les folds, les registres, les plugins et tout un tas d’autres choses. Apprenez vim comme vous apprendriez le piano et vous devriez très bien vous en sortir.
+
