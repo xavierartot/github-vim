@@ -7,8 +7,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'rizzatti/funcoo.vim'
-Plugin 'rizzatti/dash.vim'
-Plugin 'vim-less'
+" Plugin 'rizzatti/dash.vim'
+"Plugin 'vim-less'
+Plugin 'groenewege/vim-less'
 Plugin 'Markdown'
 Plugin 'fugitive.vim'
 Plugin 'ragtag.vim'
@@ -16,10 +17,10 @@ Plugin 'gmarik/vundle'
 "Plugin 'css_color.vim'
 
 " snipmate
-"Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
-"Plugin 'honza/vim-snippets'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+" Plugin 'honza/vim-snippets'
 
 " Track the engine.
 Plugin 'SirVer/ultisnips'
@@ -214,3 +215,14 @@ set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
+
+" https://www.reddit.com/r/vim/comments/2t4axi/open_a_less_file_without_the_extension/
+autocmd FileType less setlocal suffixesadd=.less
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"stylus file
+autocmd BufNewFile,BufRead *.styl set filetype=stylus
