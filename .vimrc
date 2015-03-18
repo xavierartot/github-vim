@@ -17,9 +17,9 @@ Plugin 'gmarik/vundle'
 "Plugin 'css_color.vim'
 
 " snipmate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'garbas/vim-snipmate'
 " Plugin 'honza/vim-snippets'
 
 " Track the engine.
@@ -33,13 +33,18 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+
 " All of your Plugins must be added before the following line
 call vundle#end() " required
 
 filetype plugin indent on " required
 syntax on
 " les themes se trouvent dans ~/.vim/colors/
-colorscheme sorcerer
+"colorscheme sorcerer
+colorscheme slate
+set bg=light 
 
 "Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -163,9 +168,9 @@ xnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
 " manage tab pages
-nnoremap tt :tabedit<Space>
-nnoremap Z  :tabprev<CR>
-nnoremap X  :tabnext<CR>
+"nnoremap tt :tabedit<Space>
+"nnoremap Z  :tabprev<CR>
+"nnoremap X  :tabnext<CR>
 
 " scrolling
 " nnoremap <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
@@ -218,6 +223,7 @@ set foldlevel=1         "this is just what i use
 
 " https://www.reddit.com/r/vim/comments/2t4axi/open_a_less_file_without_the_extension/
 autocmd FileType less setlocal suffixesadd=.less
+autocmd FileType scss setlocal suffixesadd=.scss
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -226,3 +232,26 @@ nnoremap <C-H> <C-W><C-H>
 
 "stylus file
 autocmd BufNewFile,BufRead *.styl set filetype=stylus
+
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+
+" manage buffers 
+nmap tt :e<Space>
+nmap Z  :bp<CR>
+nmap X  :bn<CR>
+
+" autocompletion by langage: <C-xo>
+set omnifunc=syntaxcomplete#Complete
+
+" Proper Ctags locations
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'  
+" Default is 40, seems too wide
+let g:tagbar_width=26                          
+" Display panel with y (or ,y)
+nmap <Leader>t :TagbarToggle       
+
+ " When writing a file, if there are errors, have Syntastic plugin mark them
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+
