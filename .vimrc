@@ -5,10 +5,9 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'rizzatti/funcoo.vim'
-" Plugin 'rizzatti/dash.vim'
-"Plugin 'vim-less'
+"Plugin 'rizzatti/dash.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'Markdown'
 Plugin 'fugitive.vim'
@@ -16,25 +15,20 @@ Plugin 'ragtag.vim'
 Plugin 'gmarik/vundle'
 "Plugin 'css_color.vim'
 
-" snipmate
-"Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
-" Plugin 'honza/vim-snippets'
-
 " Track the engine.
 Plugin 'SirVer/ultisnips'
+
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
-
 Plugin 'tpope/vim-obsession.git'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
-
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
+Plugin 'tristen/vim-sparkup'
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
@@ -151,7 +145,8 @@ inoremap <right> <NOP>
 inoremap <left>  <NOP>
 
 " hit Enter to go to end of file.
-nnoremap <CR> G
+" but bad idea, because I use it with ex-mode
+"nnoremap <CR> G
 " hit Backspace to go to beginning of file.
 nnoremap <BS> gg
 
@@ -199,7 +194,7 @@ augroup END
 
 " nerdtree
 let NERDTreeShowBookmarks = 1
-let NERDTreeWinSize       = 52
+let NERDTreeWinSize       = 22
 let NERDTreeShowHidden    = 1
 "nnoremap <silent> n :NERDTreeToggle<CR>
 
@@ -238,8 +233,10 @@ let g:airline#extensions#tabline#enabled = 1
 
 " manage buffers 
 nmap tt :e<Space>
-nmap Z  :bp<CR>
-nmap X  :bn<CR>
+"nnoremap Z  :tabprev<CR>
+"nnoremap X  :tabnext<CR>
+nmap Z :bp<CR>
+nmap X :bn<CR>
 
 " autocompletion by langage: <C-xo>
 set omnifunc=syntaxcomplete#Complete
@@ -249,9 +246,10 @@ let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 " Default is 40, seems too wide
 let g:tagbar_width=26                          
 " Display panel with y (or ,y)
-nmap <Leader>t :TagbarToggle       
+nmap <Leader>t :TagbarToggle<CR>
 
  " When writing a file, if there are errors, have Syntastic plugin mark them
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
-
+" hide the error for ng-*
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
