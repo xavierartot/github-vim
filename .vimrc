@@ -21,14 +21,22 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-obsession.git'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'tristen/vim-sparkup'
+"js
+Plugin 'marijnh/tern_for_vim'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+
+"Bundle 'https://github.com/gorodinskiy/vim-coloresque.git'
+Plugin 'gorodinskiy/vim-coloresque.git'
+"auto complete
+"Plugin 'Shougo/neocomplete'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
@@ -63,9 +71,16 @@ set nowritebackup
 set directory=~/.vim/swap,~/tmp,.
 set noswapfile
 
-set undodir=~/.vim/undo
-set undofile
-set undoreload=10000
+"set undodir=~/.vim/undo
+"set undofile
+"set undoreload=10000
+"http://nathan-long.com/blog/vim-a-few-of-my-favorite-things/
+if exists("&undodir")
+    set undofile          "Persistent undo! Pure money.
+    let &undodir=&directory
+    set undolevels=500
+    set undoreload=5000
+endif
 
 set foldlevel=100
 set foldmethod=marker
@@ -208,6 +223,7 @@ let g:syntastic_disabled_filetypes = ['html', 'sass', 'less']
 let g:syntastic_stl_format         = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 let g:syntastic_jsl_conf           = '$HOME/.jshintrc'
 let g:syntastic_jshint_conf        = '$HOME/.jshintrc'
+let syntastic_mode_map = { 'passive_filetypes': ['html'] } " turn off html
 
 "folding settings
 "`za` - toggles; `zc` - closes; `zo` - opens; `zR` - open all; `zM` - close all
@@ -232,14 +248,19 @@ autocmd BufNewFile,BufRead *.styl set filetype=stylus
 let g:airline#extensions#tabline#enabled = 1
 
 " manage buffers 
-nmap tt :e<Space>
-"nnoremap Z  :tabprev<CR>
-"nnoremap X  :tabnext<CR>
-nmap Z :bp<CR>
-nmap X :bn<CR>
+nmap tt :tabedit<Space>
+nnoremap Z  :tabprev<CR>
+nnoremap X  :tabnext<CR>
+"nmap tt :e<Space>
+"nmap Z :bp<CR>
+"nmap X :bn<CR>
 
 " autocompletion by langage: <C-xo>
 set omnifunc=syntaxcomplete#Complete
+
+" autocomplete Tern
+let g:tern_map_keys=1
+let g:tern_show_argument_hints="on_hold"
 
 " Proper Ctags locations
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'  
@@ -253,3 +274,8 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 " hide the error for ng-*
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+let g:syntastic_less_checkers = ['']
+
+"map echape
+imap jj <esc>
+
