@@ -37,6 +37,13 @@ Plugin 'gorodinskiy/vim-coloresque.git'
 "auto complete
 "Plugin 'Shougo/neocomplete'
 
+Plugin 'vasconcelloslf/vim-interestingwords'
+"Git
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+"work with a theme dark
+"Plugin 'FriedSock/smeargle'
+ 
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
@@ -126,6 +133,8 @@ set shortmess=atI
 "set syntax=on
 set timeoutlen=250
 set wildmenu
+
+set complete=.,w,b,u,t,i,kspell
 
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 let mapleader = "\<Space>"
@@ -219,11 +228,11 @@ let g:Powerline_symbols = 'fancy'
 " syntastic
 let g:syntastic_enable_signs       = 1
 let g:syntastic_auto_loc_list      = 1
-let g:syntastic_disabled_filetypes = ['html', 'sass', 'less']
+"let g:syntastic_disabled_filetypes = ['html', 'sass', 'less']
 let g:syntastic_stl_format         = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 let g:syntastic_jsl_conf           = '$HOME/.jshintrc'
 let g:syntastic_jshint_conf        = '$HOME/.jshintrc'
-let syntastic_mode_map = { 'passive_filetypes': ['html'] } " turn off html
+"let syntastic_mode_map = { 'passive_filetypes': ['html'] } " turn off html
 
 "folding settings
 "`za` - toggles; `zc` - closes; `zo` - opens; `zR` - open all; `zM` - close all
@@ -246,6 +255,32 @@ autocmd BufNewFile,BufRead *.styl set filetype=stylus
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
+"let g:airline_powerline_fonts = 1
+"let g:airline_symbols
+"let g:AirlineTheme = molokai
+"
+
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.whitespace = 'Ξ'
+
+set t_Co=256
 
 " manage buffers 
 nmap tt :tabedit<Space>
@@ -279,3 +314,10 @@ let g:syntastic_less_checkers = ['']
 "map echape
 imap jj <esc>
 
+"Plugin interestingwords
+nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
+nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
+nnoremap <silent> n :call WordNavigation('forward')<cr>
+nnoremap <silent> N :call WordNavigation('backward')<cr>
+let g:interestingWordsGUIColors = ['#99B3FF', '#B399FF', '#E699FF', '#FF99B3', '#99FFE6', '#FFD65C', '#99FFB3', '#E6FF99', '#FFB399', '#5CD6FF', '#99FF99', '#FFF6CC']
+let g:interestingWordsRandomiseColors = 1
