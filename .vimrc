@@ -17,9 +17,9 @@ Plugin 'gmarik/vundle'
 
 " Track the engine.
 Plugin 'SirVer/ultisnips'
-
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
+
 Plugin 'tpope/vim-obsession.git'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
@@ -72,15 +72,12 @@ set autowrite
 
 set backupcopy=yes
 set backupdir=$HOME/.vim/backup
-set nobackup
-set nowritebackup
-
+"set nobackup
+"set nowritebackup
 set directory=~/.vim/swap,~/tmp,.
-set noswapfile
+set swapfile
+set dir=~/tmp
 
-"set undodir=~/.vim/undo
-"set undofile
-"set undoreload=10000
 "http://nathan-long.com/blog/vim-a-few-of-my-favorite-things/
 if exists("&undodir")
     set undofile          "Persistent undo! Pure money.
@@ -226,13 +223,17 @@ let NERDTreeShowHidden    = 1
 let g:Powerline_symbols = 'fancy'
  
 " syntastic
+ " When writing a file, if there are errors, have Syntastic plugin mark them
 let g:syntastic_enable_signs       = 1
 let g:syntastic_auto_loc_list      = 1
 "let g:syntastic_disabled_filetypes = ['html', 'sass', 'less']
 let g:syntastic_stl_format         = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 let g:syntastic_jsl_conf           = '$HOME/.jshintrc'
 let g:syntastic_jshint_conf        = '$HOME/.jshintrc'
-"let syntastic_mode_map = { 'passive_filetypes': ['html'] } " turn off html
+let syntastic_mode_map = { 'passive_filetypes': ['html'] } " turn off html
+" hide the error for ng-*
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+let g:syntastic_less_checkers = ['']
 
 "folding settings
 "`za` - toggles; `zc` - closes; `zo` - opens; `zR` - open all; `zM` - close all
@@ -304,12 +305,6 @@ let g:tagbar_width=26
 " Display panel with y (or ,y)
 nmap <Leader>t :TagbarToggle<CR>
 
- " When writing a file, if there are errors, have Syntastic plugin mark them
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-" hide the error for ng-*
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-let g:syntastic_less_checkers = ['']
 
 "map echape
 imap jj <esc>
@@ -321,3 +316,4 @@ nnoremap <silent> n :call WordNavigation('forward')<cr>
 nnoremap <silent> N :call WordNavigation('backward')<cr>
 let g:interestingWordsGUIColors = ['#99B3FF', '#B399FF', '#E699FF', '#FF99B3', '#99FFE6', '#FFD65C', '#99FFB3', '#E6FF99', '#FFB399', '#5CD6FF', '#99FF99', '#FFF6CC']
 let g:interestingWordsRandomiseColors = 1
+
