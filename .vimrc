@@ -20,6 +20,11 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
+"http://www.terminally-incoherent.com/blog/2014/04/02/3-tiny-vim-plugins-that-will-make-your-life-easier/
+"html
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'edsono/vim-matchit'
+Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-obsession.git'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
@@ -44,6 +49,7 @@ Plugin 'tpope/vim-fugitive'
 "work with a theme dark
 "Plugin 'FriedSock/smeargle'
  
+Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
@@ -179,9 +185,9 @@ nnoremap <Leader>v V
 
 " automatically jump to end of text you pasted:
 " i can paste multiple lines multiple times with simple ppppp.
-xnoremap <silent> y y`]
-xnoremap <silent> p p`]
-nnoremap <silent> p p`]
+"xnoremap <silent> y y`]
+"xnoremap <silent> p p`]
+"nnoremap <silent> p p`]
 
 " manage tab pages
 "nnoremap tt :tabedit<Space>
@@ -307,7 +313,7 @@ nmap <Leader>t :TagbarToggle<CR>
 
 
 "map echape
-imap jj <esc>
+imap jk <esc>
 
 "Plugin interestingwords
 nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
@@ -317,3 +323,7 @@ nnoremap <silent> N :call WordNavigation('backward')<cr>
 let g:interestingWordsGUIColors = ['#99B3FF', '#B399FF', '#E699FF', '#FF99B3', '#99FFE6', '#FFD65C', '#99FFB3', '#E6FF99', '#FFB399', '#5CD6FF', '#99FF99', '#FFF6CC']
 let g:interestingWordsRandomiseColors = 1
 
+nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>m :CtrlPMRUFiles<CR>
+nnoremap <leader>t :CtrlPTag<CR>
