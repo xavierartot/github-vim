@@ -30,7 +30,7 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
 Plugin 'tristen/vim-sparkup'
 "js
 Plugin 'marijnh/tern_for_vim'
@@ -42,7 +42,7 @@ Plugin 'gorodinskiy/vim-coloresque.git'
 "auto complete
 "Plugin 'Shougo/neocomplete'
 
-Plugin 'vasconcelloslf/vim-interestingwords'
+"Plugin 'vasconcelloslf/vim-interestingwords'
 "Git
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
@@ -92,9 +92,7 @@ if exists("&undodir")
     set undoreload=5000
 endif
 
-set foldlevel=100
-set foldmethod=marker
-set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
+
 
 if has("mouse")
   set mouse=a
@@ -142,17 +140,12 @@ set complete=.,w,b,u,t,i,kspell
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 let mapleader = "\<Space>"
 
-" visual mode
-nnoremap v <C-V>
-nnoremap <C-V> v
-xnoremap v <C-V>
-xnoremap <C-V> v
 
 " drag visual block
-xnoremap <C-K> xkP`[V`]
-xnoremap <C-J> xp`[V`]
-xnoremap <C-L> >gv
-xnoremap <C-H> <gv
+"xnoremap <C-K> xkP`[V`]
+"xnoremap <C-J> xp`[V`]
+"xnoremap <C-L> >gv
+"xnoremap <C-H> <gv
 
 " H and L to beginning and end of line
 noremap K H
@@ -175,13 +168,12 @@ inoremap <left>  <NOP>
 " but bad idea, because I use it with ex-mode
 "nnoremap <CR> G
 " hit Backspace to go to beginning of file.
-nnoremap <BS> gg
+"nnoremap <BS> gg
 
 " type <Space>w to save file (lot faster than :w<Enter>):
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>s :wq<CR>
-nnoremap <Leader>v V
 
 " automatically jump to end of text you pasted:
 " i can paste multiple lines multiple times with simple ppppp.
@@ -241,12 +233,6 @@ let syntastic_mode_map = { 'passive_filetypes': ['html'] } " turn off html
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_less_checkers = ['']
 
-"folding settings
-"`za` - toggles; `zc` - closes; `zo` - opens; `zR` - open all; `zM` - close all
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
 
 " https://www.reddit.com/r/vim/comments/2t4axi/open_a_less_file_without_the_extension/
 autocmd FileType less setlocal suffixesadd=.less
@@ -305,25 +291,100 @@ let g:tern_map_keys=1
 let g:tern_show_argument_hints="on_hold"
 
 " Proper Ctags locations
-let g:tagbar_ctags_bin='/usr/local/bin/ctags'  
+"let g:tagbar_ctags_bin='/usr/local/bin/ctags'  
 " Default is 40, seems too wide
-let g:tagbar_width=26                          
+"let g:tagbar_width=26                          
 " Display panel with y (or ,y)
-nmap <Leader>t :TagbarToggle<CR>
+"nmap <Leader>t :TagbarToggle<CR>
 
 
 "map echape
 imap jk <esc>
 
 "Plugin interestingwords
-nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
-nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
-nnoremap <silent> n :call WordNavigation('forward')<cr>
-nnoremap <silent> N :call WordNavigation('backward')<cr>
-let g:interestingWordsGUIColors = ['#99B3FF', '#B399FF', '#E699FF', '#FF99B3', '#99FFE6', '#FFD65C', '#99FFB3', '#E6FF99', '#FFB399', '#5CD6FF', '#99FF99', '#FFF6CC']
-let g:interestingWordsRandomiseColors = 1
+"nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
+"nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
+"nnoremap <silent> n :call WordNavigation('forward')<cr>
+"nnoremap <silent> N :call WordNavigation('backward')<cr>
+"let g:interestingWordsGUIColors = ['#99B3FF', '#B399FF', '#E699FF', '#FF99B3', '#99FFE6', '#FFD65C', '#99FFB3', '#E6FF99', '#FFB399', '#5CD6FF', '#99FF99', '#FFF6CC']
+"let g:interestingWordsRandomiseColors = 1
 
 nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRUFiles<CR>
 nnoremap <leader>t :CtrlPTag<CR>
+
+"MatchTagAlways
+let g:mta_use_matchparen_group = 1
+let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'php' : 1, 'css' : 1, 'scss' : 1 }
+
+
+" visual mode
+nnoremap v <C-V>
+nnoremap <C-V> v
+"xnoremap v <C-V>
+"xnoremap <C-V> v
+nnoremap <Leader>v V
+" Fix linewise visual selection of various text objects
+"nnoremap VV V
+nmap Vit vitVkoj
+nmap Vat vatV
+nmap Vab vabV
+nmap VaB vaBV
+
+
+" Don't move on *
+" I'd use a function for this but Vim clobbers the last search when you're in
+" a function so fuck it, practicality beats purity.
+nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
+
+
+"folding settings
+"`za` - toggles; `zc` - closes; `zo` - opens; `zR` - open all; `zM` - close all
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+"FOLD
+"set foldlevel=100
+"set foldmethod=marker
+"set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
+
+set foldlevelstart=0
+
+" Space to toggle folds.
+"nnoremap <Space> za
+"vnoremap <Space> za
+
+" Make zO recursively open whatever fold we're in, even if it's partially open.
+nnoremap zO zczO
+
+" "Focus" the current line.  Basically:
+"
+" 1. Close all folds.
+" 2. Open just the folds containing the current line.
+" 3. Move the line to a little bit (15 lines) above the center of the screen.
+" 4. Pulse the cursor line.  My eyes are bad.
+"
+" This mapping wipes out the z mark, which I never use.
+"
+" I use :sus for the rare times I want to actually background Vim.
+"nnoremap <c-z> mzzMzvzz15<c-e>`z:Pulse<cr>
+
+function! MyFoldText() " {{{
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+    " expand tabs into spaces
+    let onetab = strpart('          ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
+
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+endfunction " }}}
+set foldtext=MyFoldText()
+
