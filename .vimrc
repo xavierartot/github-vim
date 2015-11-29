@@ -5,9 +5,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'rizzatti/funcoo.vim'
-"Plugin 'rizzatti/dash.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'Markdown'
 Plugin 'fugitive.vim'
@@ -20,6 +18,9 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
+Plugin 'rstacruz/vim-ultisnips-css'
+"Plugin 'rstacruz/vim-hyperstyle'
+
 "http://www.terminally-incoherent.com/blog/2014/04/02/3-tiny-vim-plugins-that-will-make-your-life-easier/
 "html
 Plugin 'Valloric/MatchTagAlways'
@@ -30,7 +31,6 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-"Plugin 'majutsushi/tagbar'
 Plugin 'tristen/vim-sparkup'
 "js
 Plugin 'marijnh/tern_for_vim'
@@ -42,19 +42,32 @@ Plugin 'gorodinskiy/vim-coloresque.git'
 "auto complete
 "Plugin 'Shougo/neocomplete'
 
-"Plugin 'vasconcelloslf/vim-interestingwords'
 "Git
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
-"work with a theme dark
-"Plugin 'FriedSock/smeargle'
  
 Plugin 'kien/ctrlp.vim'
+
+"visual increment a column visual-increment.vim - use CTRL+A/X to create increasing sequence of numbers or letters via visual mode
+Plugin 'triglav/vim-visual-increment'
+
+Plugin '4Evergreen4/vim-hardy' 
+
+"JSON
+Plugin 'elzr/vim-json'
+
+"CTAGS
+"https://github.com/craigemery/vim-autotag
+"Plugin 'craigemery/vim-autotag' 
+"https://github.com/ludovicchabant/vim-gutentags
+Plugin 'ludovicchabant/vim-gutentags' 
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
 
+
 filetype plugin indent on " required
+filetype indent on
 syntax on
 " les themes se trouvent dans ~/.vim/colors/
 "colorscheme sorcerer
@@ -66,6 +79,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+"set smartindent
 set autoindent
 set expandtab
 set shiftwidth=2
@@ -237,14 +251,14 @@ let g:syntastic_less_checkers = ['']
 " https://www.reddit.com/r/vim/comments/2t4axi/open_a_less_file_without_the_extension/
 autocmd FileType less setlocal suffixesadd=.less
 autocmd FileType scss setlocal suffixesadd=.scss
+"stylus file
+autocmd BufNewFile,BufRead *.styl set filetype=stylus
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-"stylus file
-autocmd BufNewFile,BufRead *.styl set filetype=stylus
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
@@ -285,6 +299,10 @@ nnoremap X  :tabnext<CR>
 
 " autocompletion by langage: <C-xo>
 set omnifunc=syntaxcomplete#Complete
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " autocomplete Tern
 let g:tern_map_keys=1
@@ -388,3 +406,10 @@ function! MyFoldText() " {{{
 endfunction " }}}
 set foldtext=MyFoldText()
 
+"nnoremap <Leader>w :w<CR>
+map <Leader>y :r! date +\%s<cr>
+
+"indent a json file
+nmap =j :%!python -m json.tool<CR>
+
+map <Leader>c :%s///gn<ENTER>
