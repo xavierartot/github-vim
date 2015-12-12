@@ -7,7 +7,11 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'rizzatti/funcoo.vim'
 Plugin 'groenewege/vim-less'
-Plugin 'Markdown'
+
+"Plugin 'Markdown'
+"Plugin 'JamshedVesuna/vim-markdown-preview' 
+Plugin 'suan/vim-instant-markdown' 
+
 Plugin 'fugitive.vim'
 Plugin 'ragtag.vim'
 Plugin 'gmarik/vundle'
@@ -20,6 +24,8 @@ Plugin 'honza/vim-snippets'
 
 Plugin 'rstacruz/vim-ultisnips-css'
 "Plugin 'rstacruz/vim-hyperstyle'
+"autocompletion with the tab for all langage
+Plugin 'ervandew/supertab' 
 
 "http://www.terminally-incoherent.com/blog/2014/04/02/3-tiny-vim-plugins-that-will-make-your-life-easier/
 "html
@@ -45,8 +51,10 @@ Plugin 'gorodinskiy/vim-coloresque.git'
 "Git
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'Xuyuanp/nerdtree-git-plugin' 
  
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+
 
 "visual increment a column visual-increment.vim - use CTRL+A/X to create increasing sequence of numbers or letters via visual mode
 Plugin 'triglav/vim-visual-increment'
@@ -60,7 +68,21 @@ Plugin 'elzr/vim-json'
 "https://github.com/craigemery/vim-autotag
 "Plugin 'craigemery/vim-autotag' 
 "https://github.com/ludovicchabant/vim-gutentags
-Plugin 'ludovicchabant/vim-gutentags' 
+"Plugin 'ludovicchabant/vim-gutentags' 
+
+"nice icons in NERDTree
+"Plugin 'ryanoasis/vim-devicons'
+
+"write a gist file
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+Plugin 'Wildog/airline-weather.vim'
+
+"WordPress
+Plugin 'dsawardekar/wordpress.vim' 
+Plugin 'tyru/open-browser.vim'
+Plugin 'shawncplus/phpcomplete.vim' 
+Plugin 'StanAngeloff/php.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
@@ -81,11 +103,11 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "set smartindent
 set autoindent
-set expandtab
-set shiftwidth=2
 set smartindent
-set smarttab
+set expandtab
 set tabstop=2
+set smarttab
+set shiftwidth=2
 
 set autoread
 set autowrite
@@ -120,8 +142,10 @@ set novisualbell
 
 "set number
 set numberwidth=4
-set relativenumber
-autocmd BufEnter * set relativenumber
+"set relativenumber
+"autocmd BufEnter * set relativenumber
+set relativenumber 
+set number    
 
 set showcmd
 set showmatch
@@ -317,7 +341,7 @@ let g:tern_show_argument_hints="on_hold"
 
 
 "map echape
-imap jk <esc>
+"imap jk <esc>
 
 "Plugin interestingwords
 "nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
@@ -413,3 +437,22 @@ map <Leader>y :r! date +\%s<cr>
 nmap =j :%!python -m json.tool<CR>
 
 map <Leader>c :%s///gn<ENTER>
+
+"Gist
+let g:gist_use_password_in_gitconfig = 1
+
+
+"meteo
+let g:weather#area = 'austin,texas'
+let g:weather#appid = '067fc5292f804270b643c1e9512c16cd'
+let g:weather#unit = 'metric'
+let g:weather#cache_file = '~/.cache/.weather'
+let g:weather#cache_ttl = '3600' "every hour 
+let g:weather#format = '%s %.0f'
+
+"mardown
+"let vim_markdown_preview_github=1
+"let vim_markdown_preview_hotkey='<C-m>'
+
+"Ctrlp ignore folder
+let g:ctrlp_custom_ignore = 'dist\|node_modules\|DS_Store\|git'
