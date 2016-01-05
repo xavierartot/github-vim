@@ -84,6 +84,9 @@ Plugin 'tyru/open-browser.vim'
 Plugin 'shawncplus/phpcomplete.vim' 
 Plugin 'StanAngeloff/php.vim'
 
+"Translate
+"Plugin 'iadept/vim-gtranslate' 
+
 " All of your Plugins must be added before the following line
 call vundle#end() " required
 
@@ -278,6 +281,7 @@ autocmd FileType scss setlocal suffixesadd=.scss
 "stylus file
 autocmd BufNewFile,BufRead *.styl set filetype=stylus
 
+"se deplace entre les fenetres
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -350,11 +354,6 @@ let g:tern_show_argument_hints="on_hold"
 "nnoremap <silent> N :call WordNavigation('backward')<cr>
 "let g:interestingWordsGUIColors = ['#99B3FF', '#B399FF', '#E699FF', '#FF99B3', '#99FFE6', '#FFD65C', '#99FFB3', '#E6FF99', '#FFB399', '#5CD6FF', '#99FF99', '#FFF6CC']
 "let g:interestingWordsRandomiseColors = 1
-
-nnoremap <leader>f :CtrlP<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>m :CtrlPMRUFiles<CR>
-nnoremap <leader>t :CtrlPTag<CR>
 
 "MatchTagAlways
 let g:mta_use_matchparen_group = 1
@@ -456,3 +455,23 @@ let g:weather#format = '%s %.0f'
 
 "Ctrlp ignore folder
 let g:ctrlp_custom_ignore = 'dist\|node_modules\|DS_Store\|git'
+"let g:ctrlp_map = '<s-f>'   "use Shift + f or F open ctrlp
+"let g:ctrlp_cmd = 'CtrlP'    " use Ctrlp command open ctrlp
+"if you want use leader t open a new tab
+"nnoremap <leader>t :tabnew<cr>
+nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>m :CtrlPMRUFiles<CR>
+nnoremap <leader>t :CtrlPTag<CR>
+
+
+let g:vim_json_syntax_conceal = 0
+
+let g:syntastic_php_phpcs_args = '--standard=WordPress-Core'
+
+let g:github_token = 'f4c7b9e07a1b7775ba6f16f419b717317be7b3ef'
+
+
+"let g:langpair="ru" 
+"let g:vtranslate="T" 
+
