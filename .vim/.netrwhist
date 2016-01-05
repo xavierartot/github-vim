@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Applications/MAMP/htdocs/malia/wp-content/themes/roots/assets/less'
 let g:netrw_dirhist_2='/Applications/MAMP/htdocs/malia/wp-content/themes/roots/assets/less/layouts'
 let g:netrw_dirhist_3='/Users/xavi/bash-wordpress'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='/Applications/MAMP/htdocs/theme-projet/wp-content/themes/
 let g:netrw_dirhist_6='/Users/xavi/sites/meteor/resolutions'
 let g:netrw_dirhist_7='/Users/xavi/sites/meteor/simple-todos'
 let g:netrw_dirhist_8='/Users/xavi/Documents/web-dev/VVV/.vagrant'
+let g:netrw_dirhist_9='/Users/xavi/github-vim'
