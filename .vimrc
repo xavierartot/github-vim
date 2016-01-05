@@ -70,8 +70,6 @@ Plugin 'elzr/vim-json'
 "https://github.com/ludovicchabant/vim-gutentags
 "Plugin 'ludovicchabant/vim-gutentags' 
 
-"nice icons in NERDTree
-"Plugin 'ryanoasis/vim-devicons'
 
 "write a gist file
 Plugin 'mattn/webapi-vim'
@@ -83,6 +81,9 @@ Plugin 'dsawardekar/wordpress.vim'
 Plugin 'tyru/open-browser.vim'
 Plugin 'shawncplus/phpcomplete.vim' 
 Plugin 'StanAngeloff/php.vim'
+
+"nice icons in NERDTree
+Plugin 'ryanoasis/vim-devicons'
 
 "Translate
 "Plugin 'iadept/vim-gtranslate' 
@@ -162,8 +163,11 @@ set laststatus=2
 set statusline=\%L%m%r%h\ %w\ \ pwd:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 set clipboard+=unnamed
+
+"font for vim-devicons
 set encoding=utf-8
-set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+"set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
 set hidden
 set history=256
 set matchtime=5
@@ -290,7 +294,8 @@ nnoremap <C-H> <C-W><C-H>
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
+
 "let g:airline_symbols
 "let g:AirlineTheme = molokai
 "
@@ -471,7 +476,24 @@ let g:syntastic_php_phpcs_args = '--standard=WordPress-Core'
 
 let g:github_token = 'f4c7b9e07a1b7775ba6f16f419b717317be7b3ef'
 
-
 "let g:langpair="ru" 
 "let g:vtranslate="T" 
 
+" open browser
+" http://www.vim.org/scripts/script.php?script_id=3133
+" Search word under cursor. 
+nmap <leader>o <Plug>(openbrowser-search) 
+" open link
+nmap <leader>l  <Plug>(openbrowser-smart-search) 
+
+" Put at the very end of your .vimrc file.
+
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
