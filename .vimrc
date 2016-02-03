@@ -28,23 +28,31 @@ Plugin 'rstacruz/vim-ultisnips-css'
 Plugin 'ervandew/supertab' 
 
 "http://www.terminally-incoherent.com/blog/2014/04/02/3-tiny-vim-plugins-that-will-make-your-life-easier/
-"html
+
+"syntax
+Plugin 'scrooloose/syntastic'
+
+"
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'edsono/vim-matchit'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-obsession.git'
 Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
 Plugin 'tristen/vim-sparkup'
-"js
+
+"javascripts
 Plugin 'marijnh/tern_for_vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
+Plugin 'burnettk/vim-angular' 
+Plugin 'othree/javascript-libraries-syntax.vim'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 
 "Bundle 'https://github.com/gorodinskiy/vim-coloresque.git'
 Plugin 'gorodinskiy/vim-coloresque.git'
+
 "auto complete
 "Plugin 'Shougo/neocomplete'
 
@@ -53,12 +61,14 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Xuyuanp/nerdtree-git-plugin' 
  
+"file
 Plugin 'ctrlpvim/ctrlp.vim'
 
 
 "visual increment a column visual-increment.vim - use CTRL+A/X to create increasing sequence of numbers or letters via visual mode
 Plugin 'triglav/vim-visual-increment'
 
+"Arduino
 Plugin '4Evergreen4/vim-hardy' 
 
 "JSON
@@ -68,22 +78,23 @@ Plugin 'elzr/vim-json'
 "https://github.com/craigemery/vim-autotag
 "Plugin 'craigemery/vim-autotag' 
 "https://github.com/ludovicchabant/vim-gutentags
-"Plugin 'ludovicchabant/vim-gutentags' 
+Plugin 'ludovicchabant/vim-gutentags' 
 
 
 "write a gist file
 Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-Plugin 'Wildog/airline-weather.vim'
+"Plugin 'mattn/gist-vim'
+"Plugin 'Wildog/airline-weather.vim'
 
-"WordPress
+"WordPress & PHP
 Plugin 'dsawardekar/wordpress.vim' 
-Plugin 'tyru/open-browser.vim'
 Plugin 'shawncplus/phpcomplete.vim' 
 Plugin 'StanAngeloff/php.vim'
 
+Plugin 'tyru/open-browser.vim'
+
 "nice icons in NERDTree
-Plugin 'ryanoasis/vim-devicons'
+"Plugin 'ryanoasis/vim-devicons'
 
 "Translate
 "Plugin 'iadept/vim-gtranslate' 
@@ -166,8 +177,8 @@ set clipboard+=unnamed
 
 "font for vim-devicons
 set encoding=utf-8
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
-"set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
 set hidden
 set history=256
 set matchtime=5
@@ -225,11 +236,6 @@ nnoremap <Leader>s :wq<CR>
 "xnoremap <silent> y y`]
 "xnoremap <silent> p p`]
 "nnoremap <silent> p p`]
-
-" manage tab pages
-"nnoremap tt :tabedit<Space>
-"nnoremap Z  :tabprev<CR>
-"nnoremap X  :tabnext<CR>
 
 " scrolling
 " nnoremap <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
@@ -337,6 +343,9 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
+au FileType javascript call JavaScriptFold()
+let javascript_ignore_javaScriptdoc =1
+
 " autocomplete Tern
 let g:tern_map_keys=1
 let g:tern_show_argument_hints="on_hold"
@@ -362,7 +371,7 @@ let g:tern_show_argument_hints="on_hold"
 
 "MatchTagAlways
 let g:mta_use_matchparen_group = 1
-let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'php' : 1, 'css' : 1, 'scss' : 1 }
+let g:mta_filetypes = { 'javascript' : 1,'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'php' : 1, 'css' : 1, 'scss' : 1 }
 
 
 " visual mode
@@ -373,10 +382,10 @@ nnoremap <C-V> v
 nnoremap <Leader>v V
 " Fix linewise visual selection of various text objects
 "nnoremap VV V
-nmap Vit vitVkoj
-nmap Vat vatV
-nmap Vab vabV
-nmap VaB vaBV
+"nmap Vit vitVkoj
+"nmap Vat vatV
+"nmap Vab vabV
+"nmap VaB vaBV
 
 
 " Don't move on *
@@ -440,19 +449,20 @@ map <Leader>y :r! date +\%s<cr>
 "indent a json file
 nmap =j :%!python -m json.tool<CR>
 
+"count the match
 map <Leader>c :%s///gn<ENTER>
 
 "Gist
-let g:gist_use_password_in_gitconfig = 1
+"let g:gist_use_password_in_gitconfig = 1
 
 
 "meteo
-let g:weather#area = 'austin,texas'
-let g:weather#appid = '067fc5292f804270b643c1e9512c16cd'
-let g:weather#unit = 'metric'
-let g:weather#cache_file = '~/.cache/.weather'
-let g:weather#cache_ttl = '3600' "every hour 
-let g:weather#format = '%s %.0f'
+"let g:weather#area = 'austin,texas'
+"let g:weather#appid = '067fc5292f804270b643c1e9512c16cd'
+"let g:weather#unit = 'metric'
+"let g:weather#cache_file = '~/.cache/.weather'
+"let g:weather#cache_ttl = '3600' "every hour 
+"let g:weather#format = '%s %.0f'
 
 "mardown
 "let vim_markdown_preview_github=1
@@ -474,7 +484,7 @@ let g:vim_json_syntax_conceal = 0
 
 let g:syntastic_php_phpcs_args = '--standard=WordPress-Core'
 
-let g:github_token = 'f4c7b9e07a1b7775ba6f16f419b717317be7b3ef'
+"let g:github_token = 'f4c7b9e07a1b7775ba6f16f419b717317be7b3ef'
 
 "let g:langpair="ru" 
 "let g:vtranslate="T" 
@@ -497,3 +507,10 @@ augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+if exists("g:loaded_webdevicons")
+    call webdevicons#refresh()
+endif
+
+"Plugin javascript-libraries-syntax.vim
+let g:used_javascript_libs = 'jQuery,AngularJS,AngularUI,AngularUI Router,React'
