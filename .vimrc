@@ -78,7 +78,7 @@ Plugin 'elzr/vim-json'
 "https://github.com/craigemery/vim-autotag
 "Plugin 'craigemery/vim-autotag' 
 "https://github.com/ludovicchabant/vim-gutentags
-Plugin 'ludovicchabant/vim-gutentags' 
+"Plugin 'ludovicchabant/vim-gutentags' 
 
 
 "write a gist file
@@ -226,10 +226,6 @@ inoremap <left>  <NOP>
 " hit Backspace to go to beginning of file.
 "nnoremap <BS> gg
 
-" type <Space>w to save file (lot faster than :w<Enter>):
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>s :wq<CR>
 
 " automatically jump to end of text you pasted:
 " i can paste multiple lines multiple times with simple ppppp.
@@ -328,13 +324,22 @@ let g:airline_symbols.paste = 'Þ'
 
 set t_Co=256
 
-" manage buffers 
-nmap tt :tabedit<Space>
-nnoremap Z  :tabprev<CR>
-nnoremap X  :tabnext<CR>
-"nmap tt :e<Space>
-"nmap Z :bp<CR>
-"nmap X :bn<CR>
+" manage by tab
+"nmap tt :tabedit<Space>
+"nnoremap Z  :tabprev<CR>
+"nnoremap X  :tabnext<CR>
+"
+" manage by buffers with CtrlP I can just type enter to open an new buffer in a
+" tab style
+nnoremap tt :e<Space>
+nnoremap Z :bp<CR>
+nnoremap X :bn<CR>
+" type <Space>w to save file (lot faster than :w<Enter>):
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :bd<CR>
+"quit the windows no name
+nnoremap <Leader>1 :q<CR> 
+nnoremap <Leader>s :wq<CR>
 
 " autocompletion by langage: <C-xo>
 set omnifunc=syntaxcomplete#Complete
