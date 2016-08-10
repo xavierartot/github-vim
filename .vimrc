@@ -6,7 +6,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'rizzatti/funcoo.vim'
-Plugin 'groenewege/vim-less'
 
 "Plugin 'Markdown'
 "Plugin 'JamshedVesuna/vim-markdown-preview' 
@@ -15,25 +14,26 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'fugitive.vim'
 Plugin 'ragtag.vim'
 Plugin 'gmarik/vundle'
-"Plugin 'css_color.vim'
+
+"css
+Plugin 'rstacruz/vim-ultisnips-css'
+"Plugin 'rstacruz/vim-hyperstyle'
+"Plugin 'groenewege/vim-less'
+Plugin 'gorodinskiy/vim-coloresque.git'
 
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
-Plugin 'rstacruz/vim-ultisnips-css'
-"Plugin 'rstacruz/vim-hyperstyle'
+
+"http://www.terminally-incoherent.com/blog/2014/04/02/3-tiny-vim-plugins-that-will-make-your-life-easier/
+"syntax
+Plugin 'scrooloose/syntastic'
 "autocompletion with the tab for all langage
 Plugin 'ervandew/supertab' 
 
-"http://www.terminally-incoherent.com/blog/2014/04/02/3-tiny-vim-plugins-that-will-make-your-life-easier/
-
-"syntax
-Plugin 'scrooloose/syntastic'
-
 "
-Plugin 'Valloric/MatchTagAlways'
 Plugin 'edsono/vim-matchit'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-obsession.git'
@@ -46,12 +46,12 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'burnettk/vim-angular' 
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'Valloric/MatchTagAlways'
 
 Plugin 'scrooloose/nerdtree'
+"comment
 Plugin 'scrooloose/nerdcommenter'
 
-"Bundle 'https://github.com/gorodinskiy/vim-coloresque.git'
-Plugin 'gorodinskiy/vim-coloresque.git'
 
 "auto complete
 "Plugin 'Shougo/neocomplete'
@@ -69,7 +69,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'triglav/vim-visual-increment'
 
 "Arduino
-Plugin '4Evergreen4/vim-hardy' 
+"Plugin '4Evergreen4/vim-hardy' 
 
 "JSON
 Plugin 'elzr/vim-json'
@@ -127,8 +127,8 @@ set shiftwidth=2
 set autoread
 set autowrite
 
-set backupcopy=yes
-set backupdir=$HOME/.vim/backup
+"set backupcopy=yes
+"set backupdir=$HOME/.vim/backup
 "set nobackup
 "set nowritebackup
 set directory=~/.vim/swap,~/tmp,.
