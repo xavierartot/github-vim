@@ -15,6 +15,9 @@ Plugin 'fugitive.vim'
 Plugin 'ragtag.vim'
 Plugin 'gmarik/vundle'
 
+"highlight a word
+Plugin 'vasconcelloslf/vim-interestingwords'
+
 "css
 Plugin 'rstacruz/vim-ultisnips-css'
 "Plugin 'rstacruz/vim-hyperstyle'
@@ -65,7 +68,8 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 
-"visual increment a column visual-increment.vim - use CTRL+A/X to create increasing sequence of numbers or letters via visual mode
+"visual increment a column visual-increment.vim - 
+"use CTRL+A/X to create increasing sequence of numbers or letters via visual mode
 Plugin 'triglav/vim-visual-increment'
 
 "Arduino
@@ -91,6 +95,7 @@ Plugin 'dsawardekar/wordpress.vim'
 Plugin 'shawncplus/phpcomplete.vim' 
 Plugin 'StanAngeloff/php.vim'
 
+"open a word or a link in the browser
 Plugin 'tyru/open-browser.vim'
 
 "nice icons in NERDTree
@@ -519,3 +524,68 @@ endif
 
 "Plugin javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'jQuery,AngularJS,AngularUI,AngularUI Router,React'
+
+
+"" Highlight Word {{{
+" This mini-plugin provides a few mappings for highlighting words temporarily.
+" Sometimes you're looking at a hairy piece of code and would like a certain
+" word or two to stand out temporarily.  You can search for it, but that only
+" gives you one color of highlighting.  Now you can use <leader>N where N is
+" a number from 2-7 to highlight the current word in a specific color.
+"https://bitbucket.org/sjl/dotfiles/src/562b7094aad5c602c6228c1d89f69d0abb3bab6b/vim/vimrc?at=default&fileviewer=file-view-default#vimrc-2779
+
+"function! HiInterestingWord(n) " {{{
+    "" Save our location.
+    "normal! mz
+
+    "" Yank the current word into the z register.
+    "normal! "zyiw
+
+    "" Calculate an arbitrary match ID.  Hopefully nothing else is using it.
+    "let mid = 86750 + a:n
+
+    "" Clear existing matches, but don't worry if they don't exist.
+    "silent! call matchdelete(mid)
+
+    "" Construct a literal pattern that has to match at boundaries.
+    "let pat = '\V\<' . escape(@z, '\') . '\>'
+
+    "" Actually match the words.
+    "call matchadd("InterestingWord" . a:n, pat, 1, mid)
+
+    "" Move back to our original location.
+    "normal! `z
+"endfunction " }}}
+
+"" Mappings {{{
+
+""nnoremap <silent> <leader>1 :call HiInterestingWord(1)<cr>
+"nnoremap <silent> <leader>2 :call HiInterestingWord(2)<cr>
+"nnoremap <silent> <leader>3 :call HiInterestingWord(3)<cr>
+"nnoremap <silent> <leader>4 :call HiInterestingWord(4)<cr>
+"nnoremap <silent> <leader>5 :call HiInterestingWord(5)<cr>
+"nnoremap <silent> <leader>6 :call HiInterestingWord(6)<cr>
+"nnoremap <silent> <leader>7 :call HiInterestingWord(1)<cr>
+"nnoremap <silent> <leader>8 :call HiInterestingWord(8)<cr>
+
+"" }}}
+"" Default Highlights {{{
+
+"hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
+"hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
+"hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
+"hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
+"hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
+"hi def InterestingWord7 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
+"hi def InterestingWord8 guifg=#000000 ctermfg=16 guibg=#173448 ctermbg=195
+
+"" }}}
+
+"" }}} end Highlights 
+
+"Highlights plugin
+nnoremap <silent> <leader>2 :call InterestingWords('n')<cr>
+nnoremap <silent> <leader>3 :call UncolorAllWords()<cr>
+nnoremap <silent> n :call WordNavigation('forward')<cr>
+nnoremap <silent> N :call WordNavigation('backward')<cr>
+let g:interestingWordsGUIColors = ['#aeee00', '#8cffba', '#b88853 ', '#ff9eb8 ', '#ff2c4b ', '#ffa724 ']
