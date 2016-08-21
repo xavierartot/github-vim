@@ -101,6 +101,8 @@ Plugin 'StanAngeloff/php.vim'
 "open a word or a link in the browser
 Plugin 'tyru/open-browser.vim'
 
+"documentation
+Plugin 'keith/investigate.vim' 
 "nice icons in NERDTree
 "Plugin 'ryanoasis/vim-devicons'
 
@@ -283,7 +285,9 @@ let syntastic_mode_map = { 'passive_filetypes': ['html'] } " turn off html
 " hide the error for ng-*
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_less_checkers = ['']
-
+" This does what it says on the tin. It will check your file on open too, not just on save.
+" You might not want this, so just leave it out if you don't.
+let g:syntastic_check_on_open=1
 
 " https://www.reddit.com/r/vim/comments/2t4axi/open_a_less_file_without_the_extension/
 autocmd FileType less setlocal suffixesadd=.less
@@ -357,13 +361,6 @@ nnoremap <Leader>s :wq<CR>
 "map echape
 "imap jk <esc>
 
-"Plugin interestingwords
-"nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
-"nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
-"nnoremap <silent> n :call WordNavigation('forward')<cr>
-"nnoremap <silent> N :call WordNavigation('backward')<cr>
-"let g:interestingWordsGUIColors = ['#99B3FF', '#B399FF', '#E699FF', '#FF99B3', '#99FFE6', '#FFD65C', '#99FFB3', '#E6FF99', '#FFB399', '#5CD6FF', '#99FF99', '#FFF6CC']
-"let g:interestingWordsRandomiseColors = 1
 
 "MatchTagAlways
 let g:mta_use_matchparen_group = 1
@@ -454,6 +451,7 @@ map <Leader>c :%s///gn<ENTER>
 "mardown
 "let vim_markdown_preview_github=1
 "let vim_markdown_preview_hotkey='<C-m>'
+let g:instant_markdown_autostart = 1
 
 "Ctrlp ignore folder
 let g:ctrlp_custom_ignore = 'dist\|node_modules\|DS_Store\|git'
@@ -537,12 +535,21 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.styl set filetype=stylus
 endif
 
-"Highlights plugin
+"Highlights plugin, I changed the value directly in the plugin
+"line 223
 nnoremap <silent> <leader>2 :call InterestingWords('n')<cr>
 nnoremap <silent> <leader>3 :call UncolorAllWords()<cr>
 nnoremap <silent> n :call WordNavigation('forward')<cr>
 nnoremap <silent> N :call WordNavigation('backward')<cr>
 let g:interestingWordsGUIColors = ['#aeee00', '#8cffba', '#b88853 ', '#ff9eb8 ', '#ff2c4b ', '#ffa724 ']
+let g:interestingWordsRandomiseColors = 1
+
+"Plugin interestingwords
+"nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
+"nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
+"nnoremap <silent> n :call WordNavigation('forward')<cr>
+"nnoremap <silent> N :call WordNavigation('backward')<cr>
+"let g:interestingWordsGUIColors = ['#99B3FF', '#B399FF', '#E699FF', '#FF99B3', '#99FFE6', '#FFD65C', '#99FFB3', '#E6FF99', '#FFB399', '#5CD6FF', '#99FF99', '#FFF6CC']
 
 """"""""""""""""""""""""""""""""""""""""""""AUTOCOMPLETE 
 "neocomplete
@@ -551,9 +558,16 @@ let g:interestingWordsGUIColors = ['#aeee00', '#8cffba', '#b88853 ', '#ff9eb8 ',
 "autocomplete 
 "let g:UltiSnipsExpandTrigger = "<nop>"
 "inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" : "\<CR>"
+
 "https://github.com/SirVer/ultisnips/issues/376
 let g:ycm_key_list_select_completion=["<tab>"]
 let g:ycm_key_list_previous_completion=["<S-tab>"]
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+"name a dir
+let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-snippets/snippets"
+"let g:UltiSnipsSnippetDirectories=["snippets"]
 
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
@@ -577,9 +591,24 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
+" autocomplete Tern, work will with npm install jshint -g
+let g:tern_map_keys=1
+let g:tern_show_argument_hints="on_hold"
+
+""""""""""""""""" end autocomplete
+
+"documentation plugin investigate.vim
+nnoremap <leader>z :call investigate#Investigate('n')<CR>
+vnoremap <leader>z :call investigate#Investigate('v')<CR>
+" mdn in french
+"let g:investigate_url_for_js="https://developer.mozilla.org/fr/search?q="
+let g:investigate_url_for_js="https://developer.mozilla.org/fr/"
+
 au FileType javascript call JavaScriptFold()
 let javascript_ignore_javaScriptdoc =1
 
-" autocomplete Tern
-let g:tern_map_keys=1
-let g:tern_show_argument_hints="on_hold"
+
+
+
+
+
