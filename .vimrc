@@ -33,8 +33,6 @@ Plugin 'honza/vim-snippets'
 "http://www.terminally-incoherent.com/blog/2014/04/02/3-tiny-vim-plugins-that-will-make-your-life-easier/
 "syntax
 Plugin 'scrooloose/syntastic'
-"autocompletion with the tab for all langage
-Plugin 'ervandew/supertab' 
 
 "
 Plugin 'edsono/vim-matchit'
@@ -58,6 +56,9 @@ Plugin 'scrooloose/nerdcommenter'
 
 "auto complete
 "Plugin 'Shougo/neocomplete'
+"autocompletion with the tab for all langage
+"Plugin 'ervandew/supertab' 
+Plugin 'Valloric/YouCompleteMe' 
 
 "Git
 Plugin 'airblade/vim-gitgutter'
@@ -67,6 +68,8 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 "file
 Plugin 'ctrlpvim/ctrlp.vim'
 
+"jade
+Plugin 'digitaltoad/vim-pug'
 
 "visual increment a column visual-increment.vim - 
 "use CTRL+A/X to create increasing sequence of numbers or letters via visual mode
@@ -92,7 +95,7 @@ Plugin 'mattn/webapi-vim'
 
 "WordPress & PHP
 Plugin 'dsawardekar/wordpress.vim' 
-Plugin 'shawncplus/phpcomplete.vim' 
+"Plugin 'shawncplus/phpcomplete.vim' 
 Plugin 'StanAngeloff/php.vim'
 
 "open a word or a link in the browser
@@ -116,10 +119,6 @@ syntax on
 colorscheme slate
 set bg=light 
 
-"Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "set smartindent
 set autoindent
@@ -346,19 +345,6 @@ nnoremap <Leader>q :bd<CR>
 nnoremap <Leader>1 :q<CR> 
 nnoremap <Leader>s :wq<CR>
 
-" autocompletion by langage: <C-xo>
-set omnifunc=syntaxcomplete#Complete
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-au FileType javascript call JavaScriptFold()
-let javascript_ignore_javaScriptdoc =1
-
-" autocomplete Tern
-let g:tern_map_keys=1
-let g:tern_show_argument_hints="on_hold"
 
 " Proper Ctags locations
 "let g:tagbar_ctags_bin='/usr/local/bin/ctags'  
@@ -465,15 +451,6 @@ map <Leader>c :%s///gn<ENTER>
 "Gist
 "let g:gist_use_password_in_gitconfig = 1
 
-
-"meteo
-"let g:weather#area = 'austin,texas'
-"let g:weather#appid = '067fc5292f804270b643c1e9512c16cd'
-"let g:weather#unit = 'metric'
-"let g:weather#cache_file = '~/.cache/.weather'
-"let g:weather#cache_ttl = '3600' "every hour 
-"let g:weather#format = '%s %.0f'
-
 "mardown
 "let vim_markdown_preview_github=1
 "let vim_markdown_preview_hotkey='<C-m>'
@@ -525,63 +502,40 @@ endif
 "Plugin javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'jQuery,AngularJS,AngularUI,AngularUI Router,React'
 
+" ----------------------------------------------------------------------------
+" Filetypes
+" ----------------------------------------------------------------------------
+if has("autocmd")
+  " Enable file type detection
+  filetype on
 
-"" Highlight Word {{{
-" This mini-plugin provides a few mappings for highlighting words temporarily.
-" Sometimes you're looking at a hairy piece of code and would like a certain
-" word or two to stand out temporarily.  You can search for it, but that only
-" gives you one color of highlighting.  Now you can use <leader>N where N is
-" a number from 2-7 to highlight the current word in a specific color.
-"https://bitbucket.org/sjl/dotfiles/src/562b7094aad5c602c6228c1d89f69d0abb3bab6b/vim/vimrc?at=default&fileviewer=file-view-default#vimrc-2779
+  " Syntax of these languages is fussy over tabs Vs spaces
+  "autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  "autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+  "autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
 
-"function! HiInterestingWord(n) " {{{
-    "" Save our location.
-    "normal! mz
+  " Customisations based on house-style (arbitrary)
+  " autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  " autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  " autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
 
-    "" Yank the current word into the z register.
-    "normal! "zyiw
+  " Treat .rss files as XML
+  autocmd BufNewFile,BufRead *.rss setfiletype xml
 
-    "" Calculate an arbitrary match ID.  Hopefully nothing else is using it.
-    "let mid = 86750 + a:n
+  " .md files are markdown files
+  autocmd BufNewFile,BufRead *.md setlocal ft=markdown
 
-    "" Clear existing matches, but don't worry if they don't exist.
-    "silent! call matchdelete(mid)
+  " .twig files use HTML syntax
+  " autocmd BufNewFile,BufRead *.twig setlocal ft=html
 
-    "" Construct a literal pattern that has to match at boundaries.
-    "let pat = '\V\<' . escape(@z, '\') . '\>'
+  " .jade files use Jade syntax
+  autocmd BufNewFile,BufRead *.jade setlocal ft=pug
 
-    "" Actually match the words.
-    "call matchadd("InterestingWord" . a:n, pat, 1, mid)
-
-    "" Move back to our original location.
-    "normal! `z
-"endfunction " }}}
-
-"" Mappings {{{
-
-""nnoremap <silent> <leader>1 :call HiInterestingWord(1)<cr>
-"nnoremap <silent> <leader>2 :call HiInterestingWord(2)<cr>
-"nnoremap <silent> <leader>3 :call HiInterestingWord(3)<cr>
-"nnoremap <silent> <leader>4 :call HiInterestingWord(4)<cr>
-"nnoremap <silent> <leader>5 :call HiInterestingWord(5)<cr>
-"nnoremap <silent> <leader>6 :call HiInterestingWord(6)<cr>
-"nnoremap <silent> <leader>7 :call HiInterestingWord(1)<cr>
-"nnoremap <silent> <leader>8 :call HiInterestingWord(8)<cr>
-
-"" }}}
-"" Default Highlights {{{
-
-"hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
-"hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
-"hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
-"hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
-"hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
-"hi def InterestingWord7 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
-"hi def InterestingWord8 guifg=#000000 ctermfg=16 guibg=#173448 ctermbg=195
-
-"" }}}
-
-"" }}} end Highlights 
+  " .styl files use Stylus syntax
+  autocmd BufNewFile,BufReadPost *.styl set filetype=stylus
+  autocmd BufNewFile,BufReadPost *.css set filetype=css
+  autocmd BufNewFile,BufRead *.styl set filetype=stylus
+endif
 
 "Highlights plugin
 nnoremap <silent> <leader>2 :call InterestingWords('n')<cr>
@@ -589,3 +543,43 @@ nnoremap <silent> <leader>3 :call UncolorAllWords()<cr>
 nnoremap <silent> n :call WordNavigation('forward')<cr>
 nnoremap <silent> N :call WordNavigation('backward')<cr>
 let g:interestingWordsGUIColors = ['#aeee00', '#8cffba', '#b88853 ', '#ff9eb8 ', '#ff2c4b ', '#ffa724 ']
+
+""""""""""""""""""""""""""""""""""""""""""""AUTOCOMPLETE 
+"neocomplete
+"let g:neocomplete#enable_at_startup = 1
+"
+"autocomplete 
+"let g:UltiSnipsExpandTrigger = "<nop>"
+"inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" : "\<CR>"
+"https://github.com/SirVer/ultisnips/issues/376
+let g:ycm_key_list_select_completion=["<tab>"]
+let g:ycm_key_list_previous_completion=["<S-tab>"]
+
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+let g:UltiSnipsExpandTrigger="<nop>"
+let g:ulti_expand_or_jump_res = 0
+function! <SID>ExpandSnippetOrReturn()
+  let snippet = UltiSnips#ExpandSnippetOrJump()
+  if g:ulti_expand_or_jump_res > 0
+    return snippet
+  else
+    return "\<CR>"
+  endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=<SID>ExpandSnippetOrReturn()<CR>" : "\<CR>"
+
+
+" autocompletion by langage: <C-xo>
+set omnifunc=syntaxcomplete#Complete
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+au FileType javascript call JavaScriptFold()
+let javascript_ignore_javaScriptdoc =1
+
+" autocomplete Tern
+let g:tern_map_keys=1
+let g:tern_show_argument_hints="on_hold"
