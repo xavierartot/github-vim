@@ -58,6 +58,8 @@ Plugin 'scrooloose/nerdcommenter'
 "Plugin 'Shougo/neocomplete'
 "autocompletion with the tab for all langage
 "Plugin 'ervandew/supertab' 
+
+"YouCompleteMe: brew install cmake
 Plugin 'Valloric/YouCompleteMe' 
 
 "Git
@@ -292,8 +294,15 @@ let g:syntastic_check_on_open=1
 " https://www.reddit.com/r/vim/comments/2t4axi/open_a_less_file_without_the_extension/
 autocmd FileType less setlocal suffixesadd=.less
 autocmd FileType scss setlocal suffixesadd=.scss
-"stylus file
 autocmd BufNewFile,BufRead *.styl set filetype=stylus
+
+"https://github.com/honza/vim-snippets/issues/517
+augroup markdown
+    au! BufNewFile,BufRead *.md,*.markdown,*.mmd setlocal filetype=markdown
+    au BufNewFile,BufRead *.md,*.markdown,*.mmd UltiSnipsAddFiletypes markdown
+augroup END
+
+"stylus file
 
 "se deplace entre les fenetres
 nnoremap <C-J> <C-W><C-J>
@@ -520,8 +529,8 @@ if has("autocmd")
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
 
-  " .md files are markdown files
-  autocmd BufNewFile,BufRead *.md setlocal ft=markdown
+  "" .md files are markdown files
+  "autocmd BufNewFile,BufRead *.md setlocal ft=markdown
 
   " .twig files use HTML syntax
   " autocmd BufNewFile,BufRead *.twig setlocal ft=html
@@ -559,9 +568,11 @@ let g:interestingWordsRandomiseColors = 1
 "let g:UltiSnipsExpandTrigger = "<nop>"
 "inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" : "\<CR>"
 
-"https://github.com/SirVer/ultisnips/issues/376
-let g:ycm_key_list_select_completion=["<tab>"]
-let g:ycm_key_list_previous_completion=["<S-tab>"]
+"YouCompleteMe
+"if you trigger ./ the file come in the menu
+"Ctrl + %20 display the documention
+"let g:ycm_key_list_select_completion=["<tab>"]
+"let g:ycm_key_list_previous_completion=["<S-tab>"]
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -569,19 +580,9 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-snippets/snippets"
 "let g:UltiSnipsSnippetDirectories=["snippets"]
 
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
-let g:UltiSnipsExpandTrigger="<nop>"
-let g:ulti_expand_or_jump_res = 0
-function! <SID>ExpandSnippetOrReturn()
-  let snippet = UltiSnips#ExpandSnippetOrJump()
-  if g:ulti_expand_or_jump_res > 0
-    return snippet
-  else
-    return "\<CR>"
-  endif
-endfunction
-inoremap <expr> <CR> pumvisible() ? "<C-R>=<SID>ExpandSnippetOrReturn()<CR>" : "\<CR>"
+let g:UltiSnipsExpandTrigger="<CR>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
 " autocompletion by langage: <C-xo>
@@ -594,6 +595,10 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " autocomplete Tern, work will with npm install jshint -g
 let g:tern_map_keys=1
 let g:tern_show_argument_hints="on_hold"
+"http://lanyrd.com/2013/insert-mode-features-and-ternvim/schpdr/#link-rpxy
+"other mapping 
+":TernDef
+":TernDocBrowse  jump to the documentation
 
 """"""""""""""""" end autocomplete
 
