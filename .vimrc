@@ -21,14 +21,15 @@ Plugin 'vasconcelloslf/vim-interestingwords'
 "css
 Plugin 'rstacruz/vim-ultisnips-css'
 "Plugin 'rstacruz/vim-hyperstyle'
-"Plugin 'groenewege/vim-less'
 Plugin 'gorodinskiy/vim-coloresque.git'
 
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
-
+"YouCompleteMe: brew install cmake
+"Plugin 'Valloric/YouCompleteMe' 
+Plugin 'ervandew/supertab'  
 
 "http://www.terminally-incoherent.com/blog/2014/04/02/3-tiny-vim-plugins-that-will-make-your-life-easier/
 "syntax
@@ -43,11 +44,13 @@ Plugin 'tristen/vim-sparkup'
 
 "javascripts
 Plugin 'marijnh/tern_for_vim'
-Plugin 'jelera/vim-javascript-syntax'
+"help for the symtax color 
+Plugin 'jelera/vim-javascript-syntax' 
+Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'burnettk/vim-angular' 
-Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'Valloric/MatchTagAlways'
+Plugin 'HerringtonDarkholme/yats.vim' 
 
 Plugin 'scrooloose/nerdtree'
 "comment
@@ -59,8 +62,6 @@ Plugin 'scrooloose/nerdcommenter'
 "autocompletion with the tab for all langage
 "Plugin 'ervandew/supertab' 
 
-"YouCompleteMe: brew install cmake
-Plugin 'Valloric/YouCompleteMe' 
 
 "Git
 Plugin 'airblade/vim-gitgutter'
@@ -228,12 +229,6 @@ inoremap <down>  <NOP>
 inoremap <right> <NOP>
 inoremap <left>  <NOP>
 
-" hit Enter to go to end of file.
-" but bad idea, because I use it with ex-mode
-"nnoremap <CR> G
-" hit Backspace to go to beginning of file.
-"nnoremap <BS> gg
-
 
 " automatically jump to end of text you pasted:
 " i can paste multiple lines multiple times with simple ppppp.
@@ -241,13 +236,8 @@ inoremap <left>  <NOP>
 "xnoremap <silent> p p`]
 "nnoremap <silent> p p`]
 
-" scrolling
-" nnoremap <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
-" nnoremap <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
-
-" pasting
-nnoremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
-nnoremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
+" pasting avoid to use p and o
+"nnoremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
 
 " clean whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -283,7 +273,7 @@ let g:syntastic_auto_loc_list      = 1
 let g:syntastic_stl_format         = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 let g:syntastic_jsl_conf           = '$HOME/.jshintrc'
 let g:syntastic_jshint_conf        = '$HOME/.jshintrc'
-let syntastic_mode_map = { 'passive_filetypes': ['html'] } " turn off html
+"let syntastic_mode_map = { 'passive_filetypes': ['html'] } " turn off html
 " hide the error for ng-*
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_less_checkers = ['']
@@ -373,7 +363,7 @@ nnoremap <Leader>s :wq<CR>
 
 "MatchTagAlways
 let g:mta_use_matchparen_group = 1
-let g:mta_filetypes = { 'javascript' : 1,'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'php' : 1, 'css' : 1, 'scss' : 1 }
+let g:mta_filetypes = { 'ts' : 1, 'javascript' : 1,'html' : 1, 'xhtml' : 1, 'xml' : 1, 'pug' : 1, 'php' : 1, 'css' : 1, 'scss' : 1, 'less' : 1 }
 
 
 " visual mode
@@ -446,7 +436,8 @@ endfunction " }}}
 set foldtext=MyFoldText()
 
 "nnoremap <Leader>w :w<CR>
-map <Leader>y :r! date +\%s<cr>
+"map <Leader>y :r! date +\%s<cr>
+
 
 "indent a json file
 nmap =j :%!python -m json.tool<CR>
@@ -483,12 +474,6 @@ let g:syntastic_php_phpcs_args = '--standard=WordPress-Core'
 "let g:langpair="ru" 
 "let g:vtranslate="T" 
 
-" open browser
-" http://www.vim.org/scripts/script.php?script_id=3133
-" Search word under cursor. 
-nmap <leader>o <Plug>(openbrowser-search) 
-" open link
-nmap <leader>l  <Plug>(openbrowser-smart-search) 
 
 " Put at the very end of your .vimrc file.
 
@@ -560,30 +545,113 @@ let g:interestingWordsRandomiseColors = 1
 "nnoremap <silent> N :call WordNavigation('backward')<cr>
 "let g:interestingWordsGUIColors = ['#99B3FF', '#B399FF', '#E699FF', '#FF99B3', '#99FFE6', '#FFD65C', '#99FFB3', '#E6FF99', '#FFB399', '#5CD6FF', '#99FF99', '#FFF6CC']
 
-""""""""""""""""""""""""""""""""""""""""""""AUTOCOMPLETE 
-"neocomplete
-"let g:neocomplete#enable_at_startup = 1
-"
-"autocomplete 
+""""""""""""""""""""""""""""""""""""""""""""AUTOCOMPLETE Youclompleteme and UltiSnips
+""neocomplete
+""let g:neocomplete#enable_at_startup = 1
+""
+""autocomplete 
+""let g:UltiSnipsExpandTrigger = "<nop>"
+""inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" : "\<CR>"
+
+""YouCompleteMe
+""if you trigger ./ the file come in the menu
+""Ctrl + %20 display the documention et autocompletion
+""
+"":h complete_ctrl-y
+"let g:ycm_min_num_of_chars_for_completion = 0
+"let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+"let g:ycm_autoclose_preview_window_after_insertion = 1
+"let g:ycm_autoclose_preview_window_after_completion = 1
+""let g:ycm_completion_confirm_key = '<CR>'
+"inoremap <expr> <Enter> pumvisible() ? "<Esc>a" : "<Enter>"
+""let g:ycm_add_preview_to_completeopt = 1
+""set completeopt-=preview
+
+""nnoremap <c-I>:let g:ycm_auto_trigger=0<CR>    " turn off YCM
+""nnoremap <c-i>:let g:ycm_auto_trigger=1<CR>    "turn on YCM
+""invoque the completion 
+"let g:ycm_key_invoke_completion = '<C-Space>'
+
+""let g:ycm_key_list_previous_completion=["<S-tab>"]
+""https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support#vim 
+""typescript
+"if !exists("g:ycm_semantic_triggers")
+"  let g:ycm_semantic_triggers = {}
+"endif
+"let g:ycm_semantic_triggers['typescript'] = ['.']
+"  let g:ycm_filetype_blacklist = {
+"        \ 'tagbar' : 1,
+"        \ 'qf' : 1,
+"        \ 'notes' : 1,
+"        \ 'markdown' : 0,
+"        \ 'unite' : 1,
+"        \ 'vimwiki' : 1,
+"        \ 'pandoc' : 1,
+"        \ 'infolog' : 1,
+"        \ 'mail' : 1
+"        \}
+"" If you want :UltiSnipsEdit to split your window.
+"let g:UltiSnipsEditSplit="vertical"
+""name a dir
+"let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-snippets/snippets"
+""let g:UltiSnipsSnippetDirectories=["snippets"]
+
+"let g:UltiSnipsExpandTrigger = "<c-j>"
+"let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+"let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+
+
+"" autocompletion by langage: <C-xo>
+"set omnifunc=syntaxcomplete#Complete
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+""autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+"" autocomplete Tern, work will with npm install jshint -g
+"let g:tern_map_keys=1
+"let g:tern_show_argument_hints="on_hold"
+""http://lanyrd.com/2013/insert-mode-features-and-ternvim/schpdr/#link-rpxy
+""other mapping 
+"":TernDef
+"":TernDocBrowse  jump to the documentation
+
+"""""""""""""""""" end autocomplete
+
+" OPEN BROWSER
+" http://www.vim.org/scripts/script.php?script_id=3133
+" Search word under cursor. 
+nmap <leader>o <Plug>(openbrowser-search) 
+" open link
+nmap <leader>l  <Plug>(openbrowser-smart-search) 
+"OPEN JAVASCRIPT DOCUMENTATION plugin investigate.vim
+nnoremap <leader>z :call investigate#Investigate('n')<CR>
+vnoremap <leader>z :call investigate#Investigate('v')<CR>
+" mdn in french
+let g:investigate_url_for_js="https://developer.mozilla.org/fr/search?q="
+"let g:investigate_url_for_js="https://developer.mozilla.org/fr/"
+"let g:investigate_url_for_javascript="https://developer.mozilla.org/fr/"
+
+au FileType javascript call JavaScriptFold()
+let javascript_ignore_javaScriptdoc =1
+
+
+
+
+""autocomplete 
 "let g:UltiSnipsExpandTrigger = "<nop>"
 "inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" : "\<CR>"
-
-"YouCompleteMe
-"if you trigger ./ the file come in the menu
-"Ctrl + %20 display the documention
-"let g:ycm_key_list_select_completion=["<tab>"]
-"let g:ycm_key_list_previous_completion=["<S-tab>"]
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 "name a dir
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-snippets/snippets"
 "let g:UltiSnipsSnippetDirectories=["snippets"]
+"Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 
-let g:UltiSnipsExpandTrigger="<CR>"
-let g:UltiSnipsJumpForwardTrigger="<c-k>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " autocompletion by langage: <C-xo>
 set omnifunc=syntaxcomplete#Complete
@@ -599,21 +667,4 @@ let g:tern_show_argument_hints="on_hold"
 "other mapping 
 ":TernDef
 ":TernDocBrowse  jump to the documentation
-
-""""""""""""""""" end autocomplete
-
-"documentation plugin investigate.vim
-nnoremap <leader>z :call investigate#Investigate('n')<CR>
-vnoremap <leader>z :call investigate#Investigate('v')<CR>
-" mdn in french
-"let g:investigate_url_for_js="https://developer.mozilla.org/fr/search?q="
-let g:investigate_url_for_js="https://developer.mozilla.org/fr/"
-
-au FileType javascript call JavaScriptFold()
-let javascript_ignore_javaScriptdoc =1
-
-
-
-
-
 
