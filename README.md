@@ -1,6 +1,4 @@
-#Install
-
-mercurial required - install if you don't already have it.
+## mercurial required - install if you don't already have it.
  brew install mercurial
 
 ## install Vim
@@ -12,3 +10,9 @@ mercurial required - install if you don't already have it.
 
 ## should return /usr/local/bin/vim
  which vim vim
+
+
+**Vim**
+- install Vundle                   : git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+- install Syntastic                : cd ~/.vim/bundle && git clone --depth=1 https://github.com/scrooloose/syntastic.git
+
