@@ -17,10 +17,10 @@
 - install Syntastic                : cd ~/.vim/bundle && git clone --depth=1 https://github.com/scrooloose/syntastic.git
 
 ## Vimium configuration
-unmap maj+x
-unmap h
-unmap l
+- unmap maj+x
+- unmap h
+- unmap l
 
-map x cmd+w
-map l nextTab
-map h previousTab
+- map x cmd+w
+- map l nextTab
+- map h previousTab
