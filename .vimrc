@@ -7,6 +7,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'rizzatti/funcoo.vim'
 
+"Hardtime helps you break that annoying habit vimmers have of scrolling up and down the page using jjjjj and kkkkk but without compromising the rest of our vim experience.
+Plugin 'takac/vim-hardtime' 
 "Plugin 'Markdown'
 "Plugin 'JamshedVesuna/vim-markdown-preview' 
 Plugin 'suan/vim-instant-markdown' 
@@ -18,24 +20,29 @@ Plugin 'gmarik/vundle'
 "highlight a word
 Plugin 'vasconcelloslf/vim-interestingwords'
 
+"ascii art
+Plugin 'fadein/vim-FIGlet'
+
 "css
 Plugin 'rstacruz/vim-ultisnips-css'
 "Plugin 'rstacruz/vim-hyperstyle'
 Plugin 'gorodinskiy/vim-coloresque.git'
+Plugin 'wavded/vim-stylus' 
 
+"auto complete
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 "YouCompleteMe: brew install cmake
 "Plugin 'Valloric/YouCompleteMe' 
+"autocompletion with the tab for all langage
 Plugin 'ervandew/supertab'  
 
 "http://www.terminally-incoherent.com/blog/2014/04/02/3-tiny-vim-plugins-that-will-make-your-life-easier/
 "syntax
 Plugin 'scrooloose/syntastic'
 
-"
 Plugin 'edsono/vim-matchit'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-obsession.git'
@@ -51,23 +58,25 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'burnettk/vim-angular' 
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'HerringtonDarkholme/yats.vim' 
+"React  
+"https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
+Plugin 'mxw/vim-jsx'
+
+"node
+Plugin 'moll/vim-node' 
+
+"browser in terminal with synchronisation
+Plugin 'jaxbot/browserlink.vim' 
 
 Plugin 'scrooloose/nerdtree'
 "comment
 Plugin 'scrooloose/nerdcommenter'
 
-
-"auto complete
-"Plugin 'Shougo/neocomplete'
-"autocompletion with the tab for all langage
-"Plugin 'ervandew/supertab' 
-
-
 "Git
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Xuyuanp/nerdtree-git-plugin' 
- 
+
 "file
 Plugin 'ctrlpvim/ctrlp.vim'
 
@@ -94,18 +103,18 @@ Plugin 'elzr/vim-json'
 "write a gist file
 Plugin 'mattn/webapi-vim'
 "Plugin 'mattn/gist-vim'
-"Plugin 'Wildog/airline-weather.vim'
 
 "WordPress & PHP
-Plugin 'dsawardekar/wordpress.vim' 
-"Plugin 'shawncplus/phpcomplete.vim' 
-Plugin 'StanAngeloff/php.vim'
+"Plugin 'dsawardekar/wordpress.vim' 
+"Plugin 'StanAngeloff/php.vim'
 
 "open a word or a link in the browser
 Plugin 'tyru/open-browser.vim'
 
 "documentation
 Plugin 'keith/investigate.vim' 
+"devdoc.io
+Plugin 'rhysd/devdocs.vim'  
 "nice icons in NERDTree
 "Plugin 'ryanoasis/vim-devicons'
 
@@ -119,8 +128,16 @@ call vundle#end() " required
 filetype plugin indent on " required
 filetype indent on
 syntax on
-" les themes se trouvent dans ~/.vim/colors/
-"colorscheme sorcerer
+
+
+"https://github.com/xavierartot/spf13-vim/blob/3.0/.vimrc
+"set cursorline                  " Highlight current line
+"highlight clear SignColumn      " SignColumn should match background
+"highlight clear LineNr          " Current line number row will have same background color in relative mode
+
+
+"The system defined color schemes are located in $VIM/colors
+"to find the theme :echo $VIM in vim.
 colorscheme slate
 set bg=light 
 
@@ -146,10 +163,10 @@ set dir=~/tmp
 
 "http://nathan-long.com/blog/vim-a-few-of-my-favorite-things/
 if exists("&undodir")
-    set undofile          "Persistent undo! Pure money.
-    let &undodir=&directory
-    set undolevels=500
-    set undoreload=5000
+  set undofile          "Persistent undo! Pure money.
+  let &undodir=&directory
+  set undolevels=500
+  set undoreload=5000
 endif
 
 
@@ -196,8 +213,8 @@ set nowrap
 set report=0
 set shell=bash
 set shortmess=atI
-"set syntax=on
 set timeoutlen=250
+"display all matching file when we tab complete
 set wildmenu
 
 set complete=.,w,b,u,t,i,kspell
@@ -220,15 +237,14 @@ noremap H ^
 noremap L $
 
 " disable arrow keys
-nnoremap <up>    <NOP>
-nnoremap <down>  <NOP>
-nnoremap <right> <NOP>
-nnoremap <left>  <NOP>
-inoremap <up>    <NOP>
-inoremap <down>  <NOP>
-inoremap <right> <NOP>
-inoremap <left>  <NOP>
-
+"nnoremap <up>    <NOP>
+"nnoremap <down>  <NOP>
+"nnoremap <right> <NOP>
+"nnoremap <left>  <NOP>
+"inoremap <up>    <NOP>
+"inoremap <down>  <NOP>
+"inoremap <right> <NOP>
+"inoremap <left>  <NOP>
 
 " automatically jump to end of text you pasted:
 " i can paste multiple lines multiple times with simple ppppp.
@@ -243,17 +259,17 @@ inoremap <left>  <NOP>
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 augroup ShowMode
-    autocmd!
-    autocmd InsertLeave * hi Cursor guibg=red
-    autocmd InsertEnter * hi Cursor guibg=green
+  autocmd!
+  autocmd InsertLeave * hi Cursor guibg=red
+  autocmd InsertEnter * hi Cursor guibg=green
 augroup END
 
 augroup Automatic
-    autocmd!
-    " automatically jump to last known position in a file
-    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-    " automatically reload vimrc when it's saved
-    autocmd BufWritePost ~/.vimrc source %
+  autocmd!
+  " automatically jump to last known position in a file
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  " automatically reload vimrc when it's saved
+  autocmd BufWritePost ~/.vimrc source %
 augroup END
 
 " nerdtree
@@ -264,32 +280,41 @@ let NERDTreeShowHidden    = 1
 
 " powerline
 let g:Powerline_symbols = 'fancy'
- 
+
 " syntastic
- " When writing a file, if there are errors, have Syntastic plugin mark them
+" When writing a file, if there are errors, have Syntastic plugin mark them
 let g:syntastic_enable_signs       = 1
 let g:syntastic_auto_loc_list      = 1
 "let g:syntastic_disabled_filetypes = ['html', 'sass', 'less']
 let g:syntastic_stl_format         = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 let g:syntastic_jsl_conf           = '$HOME/.jshintrc'
 let g:syntastic_jshint_conf        = '$HOME/.jshintrc'
-"let syntastic_mode_map = { 'passive_filetypes': ['html'] } " turn off html
+let syntastic_mode_map = { 'passive_filetypes': ['html'] } " turn off html
 " hide the error for ng-*
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_less_checkers = ['']
+
+let g:syntastic_php_phpcs_args = '--standard=WordPress-Core'
+
 " This does what it says on the tin. It will check your file on open too, not just on save.
 " You might not want this, so just leave it out if you don't.
 let g:syntastic_check_on_open=1
+
+"React  https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:syntastic_javascript_checkers = ['eslint']
 
 " https://www.reddit.com/r/vim/comments/2t4axi/open_a_less_file_without_the_extension/
 autocmd FileType less setlocal suffixesadd=.less
 autocmd FileType scss setlocal suffixesadd=.scss
 autocmd BufNewFile,BufRead *.styl set filetype=stylus
 
+autocmd User Node if &filetype == "javascript" | setlocal expandtab | endif
+
 "https://github.com/honza/vim-snippets/issues/517
 augroup markdown
-    au! BufNewFile,BufRead *.md,*.markdown,*.mmd setlocal filetype=markdown
-    au BufNewFile,BufRead *.md,*.markdown,*.mmd UltiSnipsAddFiletypes markdown
+  au! BufNewFile,BufRead *.md,*.markdown,*.mmd setlocal filetype=markdown
+  au BufNewFile,BufRead *.md,*.markdown,*.mmd UltiSnipsAddFiletypes markdown
 augroup END
 
 "stylus file
@@ -333,12 +358,13 @@ set t_Co=256
 
 " manage by tab
 "nmap tt :tabedit<Space>
-"nnoremap Z  :tabprev<CR>
-"nnoremap X  :tabnext<CR>
-"
-" manage by buffers with CtrlP I can just type enter to open an new buffer in a
-" tab style
-nnoremap tt :e<Space>
+
+"https://www.youtube.com/watch?v=XA2WjJbmmoM
+"search down into subfolders
+"provide tab completion for all file related tasks
+set path+=**
+nnoremap tt :find<Space>
+
 nnoremap Z :bp<CR>
 nnoremap X :bn<CR>
 " type <Space>w to save file (lot faster than :w<Enter>):
@@ -348,22 +374,16 @@ nnoremap <Leader>q :bd<CR>
 nnoremap <Leader>1 :q<CR> 
 nnoremap <Leader>s :wq<CR>
 
-
-" Proper Ctags locations
-"let g:tagbar_ctags_bin='/usr/local/bin/ctags'  
-" Default is 40, seems too wide
-"let g:tagbar_width=26                          
-" Display panel with y (or ,y)
-"nmap <Leader>t :TagbarToggle<CR>
-
-
-"map echape
-"imap jk <esc>
-
+"create the tags file (may need to install Ctags first)
+command! MakeTags !ctags -R .
+"Now we can:
+ "use ctrl ] to jump to tag under cursor
+ "use g + ctrl] for ambigus tag under cursor
+ "use t] to jump back up the tag stack
 
 "MatchTagAlways
 let g:mta_use_matchparen_group = 1
-let g:mta_filetypes = { 'ts' : 1, 'javascript' : 1,'html' : 1, 'xhtml' : 1, 'xml' : 1, 'pug' : 1, 'php' : 1, 'css' : 1, 'scss' : 1, 'less' : 1 }
+let g:mta_filetypes = { 'ts' : 1, 'javascript' : 1,'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jade': 1, 'pug' : 1, 'php' : 1, 'css' : 1, 'scss' : 1, 'less' : 1 }
 
 
 " visual mode
@@ -419,19 +439,19 @@ nnoremap zO zczO
 "nnoremap <c-z> mzzMzvzz15<c-e>`z:Pulse<cr>
 
 function! MyFoldText() " {{{
-    let line = getline(v:foldstart)
+  let line = getline(v:foldstart)
 
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
+  let nucolwidth = &fdc + &number * &numberwidth
+  let windowwidth = winwidth(0) - nucolwidth - 3
+  let foldedlinecount = v:foldend - v:foldstart
 
-    " expand tabs into spaces
-    let onetab = strpart('          ', 0, &tabstop)
-    let line = substitute(line, '\t', onetab, 'g')
+  " expand tabs into spaces
+  let onetab = strpart('          ', 0, &tabstop)
+  let line = substitute(line, '\t', onetab, 'g')
 
-    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+  let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+  let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+  return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
 endfunction " }}}
 set foldtext=MyFoldText()
 
@@ -467,7 +487,6 @@ nnoremap <leader>t :CtrlPTag<CR>
 
 let g:vim_json_syntax_conceal = 0
 
-let g:syntastic_php_phpcs_args = '--standard=WordPress-Core'
 
 "let g:github_token = 'f4c7b9e07a1b7775ba6f16f419b717317be7b3ef'
 
@@ -488,7 +507,7 @@ augroup phpSyntaxOverride
 augroup END
 
 if exists("g:loaded_webdevicons")
-    call webdevicons#refresh()
+  call webdevicons#refresh()
 endif
 
 "Plugin javascript-libraries-syntax.vim
@@ -624,19 +643,25 @@ let g:interestingWordsRandomiseColors = 1
 nmap <leader>o <Plug>(openbrowser-search) 
 " open link
 nmap <leader>l  <Plug>(openbrowser-smart-search) 
+
 "OPEN JAVASCRIPT DOCUMENTATION plugin investigate.vim
-nnoremap <leader>z :call investigate#Investigate('n')<CR>
-vnoremap <leader>z :call investigate#Investigate('v')<CR>
-" mdn in french
-let g:investigate_url_for_js="https://developer.mozilla.org/fr/search?q="
-"let g:investigate_url_for_js="https://developer.mozilla.org/fr/"
-"let g:investigate_url_for_javascript="https://developer.mozilla.org/fr/"
-
-au FileType javascript call JavaScriptFold()
-let javascript_ignore_javaScriptdoc =1
-
-
-
+"nnoremap <leader>z :call investigate#Investigate('n')<CR>
+"vnoremap <leader>z :call investigate#Investigate('v')<CR>
+nmap <leader>`  :TernDocBrowse<CR>
+"let g:investigate_url_for_js="https://developer.mozilla.org/fr/search?q="
+"OPEN DOCUMENTATION plugin devdoc
+nmap z <Plug>(devdocs-under-cursor)
+"open documentation only with react
+command! -nargs=* DevDocsReact call devdocs#open_doc(<q-args>, 'react')
+command! -nargs=* DevDocsJavascript call devdocs#open_doc(<q-args>, 'javascript')
+command! -nargs=* DevDocsUnderscore call devdocs#open_doc(<q-args>, 'underscore')
+command! -nargs=* DevDocsSass call devdocs#open_doc(<q-args>, 'sass')
+command! -nargs=* DevDocsGit call devdocs#open_doc(<q-args>, 'git')
+command! -nargs=* DevDocsjQuery call devdocs#open_doc(<q-args>, 'jquery')
+command! -nargs=* DevDocsMarkdown call devdocs#open_doc(<q-args>, 'markdown')
+command! -nargs=* DevDocsModernizr call devdocs#open_doc(<q-args>, 'modernizr')
+command! -nargs=* DevDocsHtml call devdocs#open_doc(<q-args>, 'html')
+command! -nargs=* DevDocsD3 call devdocs#open_doc(<q-args>, 'd3')
 
 ""autocomplete 
 "let g:UltiSnipsExpandTrigger = "<nop>"
@@ -659,12 +684,37 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 "autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
 " autocomplete Tern, work will with npm install jshint -g
 let g:tern_map_keys=1
 let g:tern_show_argument_hints="on_hold"
+au FileType javascript call JavaScriptFold()
+let javascript_ignore_javaScriptdoc =1
+
+" Next three lines are to enable C-Space to autocomplete, omnicomplete
 "http://lanyrd.com/2013/insert-mode-features-and-ternvim/schpdr/#link-rpxy
+inoremap <C-Space> <C-x><C-o>
+imap <buffer> <Nul> <C-Space>
+smap <buffer> <Nul> <C-Space> 
 "other mapping 
 ":TernDef
 ":TernDocBrowse  jump to the documentation
 
+"hardtime
+let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_visual_keys = ["h", "j", "k", "l", "-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+"let g:list_of_disabled_keys = []
+let g:hardtime_timeout = 2000 "2 sec
+let g:hardtime_showmsg = 1
+
+
+"Plugin 'fadein/vim-FIGlet'
+let g:filgetOpts = '/Library/Fonts'
+
+"sparkup
+augroup sparkup_types
+  " Remove ALL autocommands of the current group.
+  autocmd!
+  " Add sparkup to new filetypes
+  autocmd FileType mustache,php,javascript,jsx runtime! ftplugin/html/sparkup.vim
+augroup END
