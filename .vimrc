@@ -43,7 +43,7 @@ Plugin 'ervandew/supertab'
 "syntax
 Plugin 'scrooloose/syntastic'
 
-Plugin 'edsono/vim-matchit'
+Plugin 'tmhedberg/matchit'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-obsession.git'
 Plugin 'bling/vim-airline'
