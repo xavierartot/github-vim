@@ -1,0 +1,3224 @@
+snippet #
+	#${1} {
+	}
+snippet .
+	.${1} {
+		${0}
+	}
+snippet cl
+	.${1} {
+		${0}
+	}
+snippet cla
+	.${1} {
+		${0}
+	}
+snippet class
+	.${1} {
+		${0}
+	}
+snippet !
+	 !important
+snippet bdi:m+
+	-moz-border-image: url(${1}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${0:stretch};
+snippet bdi:m
+	-moz-border-image: ${0};
+snippet bdrz:m
+	-moz-border-radius: ${0};
+snippet bxsh:m+
+	-moz-box-shadow: ${1:0} ${2:0} ${3:0} #${0:000};
+snippet bxsh:m
+	-moz-box-shadow: ${0};
+snippet bdi:w+
+	-webkit-border-image: url(${1}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${0:stretch};
+snippet bdi:w
+	-webkit-border-image: ${0};
+snippet bdrz:w
+	-webkit-border-radius: ${0};
+snippet bxsh:w+
+	-webkit-box-shadow: ${1:0} ${2:0} ${3:0} #${0:000};
+snippet bxsh:w
+	-webkit-box-shadow: ${0};
+snippet @f
+	@font-face {
+		font-family: ${1};
+		src: url(${0});
+	}
+snippet @i
+	@import url(${0});
+snippet @mp
+	@media ${1:print} {
+		${0}
+	}
+snippet bg+
+	background: #${1:FFF} url(${2}) ${3:0} ${4:0} ${0:no-repeat};
+snippet bga
+	background-attachment: ${0};
+snippet bga:f
+	background-attachment: fixed;
+snippet bga:s
+	background-attachment: scroll;
+snippet bgbk
+	background-break: ${0};
+snippet bgbk:bb
+	background-break: bounding-box;
+snippet bgbk:c
+	background-break: continuous;
+snippet bgbk:eb
+	background-break: each-box;
+snippet bgcp
+	background-clip: ${0};
+snippet bgcp:bb
+	background-clip: border-box;
+snippet bgcp:cb
+	background-clip: content-box;
+snippet bgcp:nc
+	background-clip: no-clip;
+snippet bgcp:pb
+	background-clip: padding-box;
+snippet bgc
+	background-color: #${0:FFF};
+snippet bgc:t
+	background-color: transparent;
+snippet bgi
+	background-image: url(${0});
+snippet bgi:n
+	background-image: none;
+snippet bgo
+	background-origin: ${0};
+snippet bgo:bb
+	background-origin: border-box;
+snippet bgo:cb
+	background-origin: content-box;
+snippet bgo:pb
+	background-origin: padding-box;
+snippet bgpx
+	background-position-x: ${0};
+snippet bgpy
+	background-position-y: ${0};
+snippet bgp
+	background-position: ${1:0} ${0:0};
+snippet bgr
+	background-repeat: ${0};
+snippet bgr:n
+	background-repeat: no-repeat;
+snippet bgr:x
+	background-repeat: repeat-x;
+snippet bgr:y
+	background-repeat: repeat-y;
+snippet bgr:r
+	background-repeat: repeat;
+snippet bgz
+	background-size: ${0};
+snippet bgz:a
+	background-size: auto;
+snippet bgz:ct
+	background-size: contain;
+snippet bgz:cv
+	background-size: cover;
+snippet bg
+	background: ${0};
+snippet bg:ie
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='${1}',sizingMethod='${0:crop}');
+snippet bg:n
+	background: none;
+snippet bd+
+	border: ${1:1px} ${2:solid} #${0:000};
+snippet bdb+
+	border-bottom: ${1:1px} ${2:solid} #${0:000};
+snippet bdbc
+	border-bottom-color: #${0:000};
+snippet bdbi
+	border-bottom-image: url(${0});
+snippet bdbi:n
+	border-bottom-image: none;
+snippet bdbli
+	border-bottom-left-image: url(${0});
+snippet bdbli:c
+	border-bottom-left-image: continue;
+snippet bdbli:n
+	border-bottom-left-image: none;
+snippet bdblrz
+	border-bottom-left-radius: ${0};
+snippet bdbri
+	border-bottom-right-image: url(${0});
+snippet bdbri:c
+	border-bottom-right-image: continue;
+snippet bdbri:n
+	border-bottom-right-image: none;
+snippet bdbrrz
+	border-bottom-right-radius: ${0};
+snippet bdbs
+	border-bottom-style: ${0};
+snippet bdbs:n
+	border-bottom-style: none;
+snippet bdbw
+	border-bottom-width: ${0};
+snippet bdb
+	border-bottom: ${0};
+snippet bdb:n
+	border-bottom: none;
+snippet bdbk
+	border-break: ${0};
+snippet bdbk:c
+	border-break: close;
+snippet bdcl
+	border-collapse: ${0};
+snippet bdcl:c
+	border-collapse: collapse;
+snippet bdcl:s
+	border-collapse: separate;
+snippet bdc
+	border-color: #${0:000};
+snippet bdci
+	border-corner-image: url(${0});
+snippet bdci:c
+	border-corner-image: continue;
+snippet bdci:n
+	border-corner-image: none;
+snippet bdf
+	border-fit: ${0};
+snippet bdf:c
+	border-fit: clip;
+snippet bdf:of
+	border-fit: overwrite;
+snippet bdf:ow
+	border-fit: overwrite;
+snippet bdf:r
+	border-fit: repeat;
+snippet bdf:sc
+	border-fit: scale;
+snippet bdf:sp
+	border-fit: space;
+snippet bdf:st
+	border-fit: stretch;
+snippet bdi
+	border-image: url(${1}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${0:stretch};
+snippet bdi:n
+	border-image: none;
+snippet bdl+
+	border-left: ${1:1px} ${2:solid} #${0:000};
+snippet bdlc
+	border-left-color: #${0:000};
+snippet bdli
+	border-left-image: url(${0});
+snippet bdli:n
+	border-left-image: none;
+snippet bdls
+	border-left-style: ${0};
+snippet bdls:n
+	border-left-style: none;
+snippet bdlw
+	border-left-width: ${0};
+snippet bdl
+	border-left: ${0};
+snippet bdl:n
+	border-left: none;
+snippet bdlt
+	border-length: ${0};
+snippet bdlt:a
+	border-length: auto;
+snippet bdrz
+	border-radius: ${0};
+snippet bdr+
+	border-right: ${1:1px} ${2:solid} #${0:000};
+snippet bdrc
+	border-right-color: #${0:000};
+snippet bdri
+	border-right-image: url(${0});
+snippet bdri:n
+	border-right-image: none;
+snippet bdrs
+	border-right-style: ${0};
+snippet bdrs:n
+	border-right-style: none;
+snippet bdrw
+	border-right-width: ${0};
+snippet bdr
+	border-right: ${0};
+snippet bdr:n
+	border-right: none;
+snippet bdsp
+	border-spacing: ${0};
+snippet bds
+	border-style: ${0};
+snippet bds:ds
+	border-style: dashed;
+snippet bds:dtds
+	border-style: dot-dash;
+snippet bds:dtdtds
+	border-style: dot-dot-dash;
+snippet bds:dt
+	border-style: dotted;
+snippet bds:db
+	border-style: double;
+snippet bds:g
+	border-style: groove;
+snippet bds:h
+	border-style: hidden;
+snippet bds:i
+	border-style: inset;
+snippet bds:n
+	border-style: none;
+snippet bds:o
+	border-style: outset;
+snippet bds:r
+	border-style: ridge;
+snippet bds:s
+	border-style: solid;
+snippet bds:w
+	border-style: wave;
+snippet bdt+
+	border-top: ${1:1px} ${2:solid} #${0:000};
+snippet bdtc
+	border-top-color: #${0:000};
+snippet bdti
+	border-top-image: url(${0});
+snippet bdti:n
+	border-top-image: none;
+snippet bdtli
+	border-top-left-image: url(${0});
+snippet bdtli:c
+	border-corner-image: continue;
+snippet bdtli:n
+	border-corner-image: none;
+snippet bdtlrz
+	border-top-left-radius: ${0};
+snippet bdtri
+	border-top-right-image: url(${0});
+snippet bdtri:c
+	border-top-right-image: continue;
+snippet bdtri:n
+	border-top-right-image: none;
+snippet bdtrrz
+	border-top-right-radius: ${0};
+snippet bdts
+	border-top-style: ${0};
+snippet bdts:n
+	border-top-style: none;
+snippet bdtw
+	border-top-width: ${0};
+snippet bdt
+	border-top: ${0};
+snippet bdt:n
+	border-top: none;
+snippet bdw
+	border-width: ${0};
+snippet bd
+	border: ${0};
+snippet bd:n
+	border: none;
+snippet b
+	bottom: ${0};
+snippet b:a
+	bottom: auto;
+snippet bxsh+
+	box-shadow: ${1:0} ${2:0} ${3:0} #${0:000};
+snippet bxsh
+	box-shadow: ${0};
+snippet bxsh:n
+	box-shadow: none;
+snippet bxz
+	box-sizing: ${0};
+snippet bxz:bb
+	box-sizing: border-box;
+snippet bxz:cb
+	box-sizing: content-box;
+snippet cps
+	caption-side: ${0};
+snippet cps:b
+	caption-side: bottom;
+snippet cps:t
+	caption-side: top;
+snippet clb
+	clear: both;
+snippet cll
+	clear: left;
+snippet cln
+	clear: none;
+snippet clr
+	clear: right;
+snippet cp
+	clip: ${0};
+snippet cp:a
+	clip: auto;
+snippet cp:r
+	clip: rect(${1:0} ${2:0} ${3:0} ${0:0});
+snippet c
+	color: #${0:000};
+snippet ct
+	content: ${0};
+snippet ct:a
+	content: attr(${0});
+snippet ct:cq
+	content: close-quote;
+snippet ct:c
+	content: counter(${0});
+snippet ct:cs
+	content: counters(${0});
+snippet ct:ncq
+	content: no-close-quote;
+snippet ct:noq
+	content: no-open-quote;
+snippet ct:n
+	content: normal;
+snippet ct:oq
+	content: open-quote;
+snippet coi
+	counter-increment: ${0};
+snippet cor
+	counter-reset: ${0};
+snippet cur
+	cursor: ${0};
+snippet cur:a
+	cursor: auto;
+snippet cur:c
+	cursor: crosshair;
+snippet cur:d
+	cursor: default;
+snippet cur:ha
+	cursor: hand;
+snippet cur:he
+	cursor: help;
+snippet cur:m
+	cursor: move;
+snippet cur:p
+	cursor: pointer;
+snippet cur:t
+	cursor: text;
+snippet d
+	display: ${0};
+snippet d:mib
+	display: -moz-inline-box;
+snippet d:mis
+	display: -moz-inline-stack;
+snippet d:b
+	display: block;
+snippet d:cp
+	display: compact;
+snippet d:ib
+	display: inline-block;
+snippet d:itb
+	display: inline-table;
+snippet d:i
+	display: inline;
+snippet d:li
+	display: list-item;
+snippet d:n
+	display: none;
+snippet d:ri
+	display: run-in;
+snippet d:tbcp
+	display: table-caption;
+snippet d:tbc
+	display: table-cell;
+snippet d:tbclg
+	display: table-column-group;
+snippet d:tbcl
+	display: table-column;
+snippet d:tbfg
+	display: table-footer-group;
+snippet d:tbhg
+	display: table-header-group;
+snippet d:tbrg
+	display: table-row-group;
+snippet d:tbr
+	display: table-row;
+snippet d:tb
+	display: table;
+snippet ec
+	empty-cells: ${0};
+snippet ec:h
+	empty-cells: hide;
+snippet ec:s
+	empty-cells: show;
+snippet exp
+	expression()
+snippet fl
+	float: ${0};
+snippet fl:l
+	float: left;
+snippet fl:n
+	float: none;
+snippet fl:r
+	float: right;
+snippet f+
+	font: ${1:1em} ${2:Arial},${0:sans-serif};
+snippet fef
+	font-effect: ${0};
+snippet fef:eb
+	font-effect: emboss;
+snippet fef:eg
+	font-effect: engrave;
+snippet fef:n
+	font-effect: none;
+snippet fef:o
+	font-effect: outline;
+snippet femp
+	font-emphasize-position: ${0};
+snippet femp:a
+	font-emphasize-position: after;
+snippet femp:b
+	font-emphasize-position: before;
+snippet fems
+	font-emphasize-style: ${0};
+snippet fems:ac
+	font-emphasize-style: accent;
+snippet fems:c
+	font-emphasize-style: circle;
+snippet fems:ds
+	font-emphasize-style: disc;
+snippet fems:dt
+	font-emphasize-style: dot;
+snippet fems:n
+	font-emphasize-style: none;
+snippet fem
+	font-emphasize: ${0};
+snippet ff
+	font-family: ${0};
+snippet ff:c
+	font-family: ${0:'Monotype Corsiva','Comic Sans MS'},cursive;
+snippet ff:f
+	font-family: ${0:Capitals,Impact},fantasy;
+snippet ff:m
+	font-family: ${0:Monaco,'Courier New'},monospace;
+snippet ff:ss
+	font-family: ${0:Helvetica,Arial},sans-serif;
+snippet ff:s
+	font-family: ${0:Georgia,'Times New Roman'},serif;
+snippet fza
+	font-size-adjust: ${0};
+snippet fza:n
+	font-size-adjust: none;
+snippet fz
+	font-size: ${0};
+snippet fsm
+	font-smooth: ${0};
+snippet fsm:aw
+	font-smooth: always;
+snippet fsma
+	font-smooth: auto;
+snippet fsmn
+	font-smooth: never;
+snippet fst
+	font-stretch: ${0};
+snippet fst:c
+	font-stretch: condensed;
+snippet fst:e
+	font-stretch: expanded;
+snippet fst:ec
+	font-stretch: extra-condensed;
+snippet fst:ee
+	font-stretch: extra-expanded;
+snippet fst:n
+	font-stretch: normal;
+snippet fst:sc
+	font-stretch: semi-condensed;
+snippet fst:se
+	font-stretch: semi-expanded;
+snippet fst:uc
+	font-stretch: ultra-condensed;
+snippet fst:ue
+	font-stretch: ultra-expanded;
+snippet fs
+	font-style: ${0};
+snippet fsi
+	font-style: italic;
+snippet fsn
+	font-style: normal;
+snippet fso
+	font-style: oblique;
+snippet fv
+	font-variant: ${0};
+snippet fv:n
+	font-variant: normal;
+snippet fv:sc
+	font-variant: small-caps;
+snippet fw
+	font-weight: ${0};
+snippet fwb
+	font-weight: bold;
+snippet fwbr
+	font-weight: bolder;
+snippet fwlr
+	font-weight: lighter;
+snippet fwn
+	font-weight: normal;
+snippet f
+	font: ${0};
+snippet h
+	height: ${0};
+snippet ha
+	height: auto;
+snippet l
+	left: ${0};
+snippet la
+	left: auto;
+snippet lts
+	letter-spacing: ${0};
+snippet lh
+	line-height: ${0};
+snippet lisi
+	list-style-image: url(${0});
+snippet lisin
+	list-style-image: none;
+snippet lisp
+	list-style-position: ${0};
+snippet lispi
+	list-style-position: inside;
+snippet lispo
+	list-style-position: outside;
+snippet list
+	list-style-type: ${0};
+snippet list:c
+	list-style-type: circle;
+snippet list:dclz
+	list-style-type: decimal-leading-zero;
+snippet list:dc
+	list-style-type: decimal;
+snippet list:d
+	list-style-type: disc;
+snippet list:lr
+	list-style-type: lower-roman;
+snippet list:n
+	list-style-type: none;
+snippet list:s
+	list-style-type: square;
+snippet list:ur
+	list-style-type: upper-roman;
+snippet lis
+	list-style: ${0};
+snippet lis:n
+	list-style: none;
+snippet mb
+	margin-bottom: ${0};
+snippet mba
+	margin-bottom: auto;
+snippet ml
+	margin-left: ${0};
+snippet mla
+	margin-left: auto;
+snippet mr
+	margin-right: ${0};
+snippet mra
+	margin-right: auto;
+snippet mt
+	margin-top: ${0};
+snippet mt:a
+	margin-top: auto;
+snippet m
+	margin: ${0};
+snippet m:4
+	margin: ${1:0} ${2:0} ${3:0} ${0:0};
+snippet m:3
+	margin: ${1:0} ${2:0} ${0:0};
+snippet m:2
+	margin: ${1:0} ${0:0};
+snippet m:0
+	margin: 0;
+snippet m:a
+	margin: auto;
+snippet mah
+	max-height: ${0};
+snippet mah:n
+	max-height: none;
+snippet maw
+	max-width: ${0};
+snippet maw:n
+	max-width: none;
+snippet mih
+	min-height: ${0};
+snippet miw
+	min-width: ${0};
+snippet op
+	opacity: ${0};
+snippet op:ie
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=${0:100});
+snippet op:ms
+	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=${0:100})';
+snippet orp
+	orphans: ${0};
+snippet o+
+	outline: ${1:1px} ${2:solid} #${0:000};
+snippet oc
+	outline-color: ${0:#000};
+snippet oc:i
+	outline-color: invert;
+snippet oo
+	outline-offset: ${0};
+snippet os
+	outline-style: ${0};
+snippet ow
+	outline-width: ${0};
+snippet o
+	outline: ${0};
+snippet o:n
+	outline: none;
+snippet ovs
+	overflow-style: ${0};
+snippet ovs:a
+	overflow-style: auto;
+snippet ovs:mq
+	overflow-style: marquee;
+snippet ovs:mv
+	overflow-style: move;
+snippet ovs:p
+	overflow-style: panner;
+snippet ovs:s
+	overflow-style: scrollbar;
+snippet ovx
+	overflow-x: ${0};
+snippet ovx:a
+	overflow-x: auto;
+snippet ovx:h
+	overflow-x: hidden;
+snippet ovx:s
+	overflow-x: scroll;
+snippet ovx:v
+	overflow-x: visible;
+snippet ovy
+	overflow-y: ${0};
+snippet ovy:a
+	overflow-y: auto;
+snippet ovy:h
+	overflow-y: hidden;
+snippet ovy:s
+	overflow-y: scroll;
+snippet ovy:v
+	overflow-y: visible;
+snippet ov
+	overflow: ${0};
+snippet ov:a
+	overflow: auto;
+snippet ov:h
+	overflow: hidden;
+snippet ov:s
+	overflow: scroll;
+snippet ov:v
+	overflow: visible;
+snippet pb
+	padding-bottom: ${0};
+snippet pl
+	padding-left: ${0};
+snippet pr
+	padding-right: ${0};
+snippet pt
+	padding-top: ${0};
+snippet p
+	padding: ${0};
+snippet p:4
+	padding: ${1:0} ${2:0} ${3:0} ${0:0};
+snippet p:3
+	padding: ${1:0} ${2:0} ${0:0};
+snippet p:2
+	padding: ${1:0} ${0:0};
+snippet p:0
+	padding: 0;
+snippet pgba
+	page-break-after: ${0};
+snippet pgba:aw
+	page-break-after: always;
+snippet pgba:a
+	page-break-after: auto;
+snippet pgba:l
+	page-break-after: left;
+snippet pgba:r
+	page-break-after: right;
+snippet pgbb
+	page-break-before: ${0};
+snippet pgbb:aw
+	page-break-before: always;
+snippet pgbb:a
+	page-break-before: auto;
+snippet pgbb:l
+	page-break-before: left;
+snippet pgbb:r
+	page-break-before: right;
+snippet pgbi
+	page-break-inside: ${0};
+snippet pgbi:a
+	page-break-inside: auto;
+snippet pgbi:av
+	page-break-inside: avoid;
+snippet pos
+	position: ${0};
+snippet posa
+	position: absolute;
+snippet posf
+	position: fixed;
+snippet posr
+	position: relative;
+snippet poss
+	position: static;
+snippet q
+	quotes: ${0};
+snippet q:en
+	quotes: '\201C' '\201D' '\2018' '\2019';
+snippet q:n
+	quotes: none;
+snippet q:ru
+	quotes: '\00AB' '\00BB' '\201E' '\201C';
+snippet rz
+	resize: ${0};
+snippet rz:b
+	resize: both;
+snippet rz:h
+	resize: horizontal;
+snippet rz:n
+	resize: none;
+snippet rz:v
+	resize: vertical;
+snippet r
+	right: ${0};
+snippet r:a
+	right: auto;
+snippet tbl
+	table-layout: ${0};
+snippet tbl:a
+	table-layout: auto;
+snippet tbl:f
+	table-layout: fixed;
+snippet tal
+	text-align-last: ${0};
+snippet tal:a
+	text-align-last: auto;
+snippet tal:c
+	text-align-last: center;
+snippet tal:l
+	text-align-last: left;
+snippet tal:r
+	text-align-last: right;
+snippet ta
+	text-align: ${0};
+snippet ta:c
+	text-align: center;
+snippet ta:l
+	text-align: left;
+snippet ta:r
+	text-align: right;
+snippet td
+	text-decoration: ${0};
+snippet td:l
+	text-decoration: line-through;
+snippet td:n
+	text-decoration: none;
+snippet td:o
+	text-decoration: overline;
+snippet td:u
+	text-decoration: underline;
+snippet te
+	text-emphasis: ${0};
+snippet te:ac
+	text-emphasis: accent;
+snippet te:a
+	text-emphasis: after;
+snippet te:b
+	text-emphasis: before;
+snippet te:c
+	text-emphasis: circle;
+snippet te:ds
+	text-emphasis: disc;
+snippet te:dt
+	text-emphasis: dot;
+snippet te:n
+	text-emphasis: none;
+snippet th
+	text-height: ${0};
+snippet th:a
+	text-height: auto;
+snippet th:f
+	text-height: font-size;
+snippet th:m
+	text-height: max-size;
+snippet th:t
+	text-height: text-size;
+snippet ti
+	text-indent: ${0};
+snippet ti:-
+	text-indent: -9999px;
+snippet tj
+	text-justify: ${0};
+snippet tj:a
+	text-justify: auto;
+snippet tj:d
+	text-justify: distribute;
+snippet tj:ic
+	text-justify: inter-cluster;
+snippet tj:ii
+	text-justify: inter-ideograph;
+snippet tj:iw
+	text-justify: inter-word;
+snippet tj:k
+	text-justify: kashida;
+snippet tj:t
+	text-justify: tibetan;
+snippet to+
+	text-outline: ${1:0} ${2:0} #${0:000};
+snippet to
+	text-outline: ${0};
+snippet to:n
+	text-outline: none;
+snippet tr
+	text-replace: ${0};
+snippet tr:n
+	text-replace: none;
+snippet tsh+
+	text-shadow: ${1:0} ${2:0} ${3:0} #${0:000};
+snippet tsh
+	text-shadow: ${0};
+snippet tsh:n
+	text-shadow: none;
+snippet tt
+	text-transform: ${0};
+snippet tt:c
+	text-transform: capitalize;
+snippet tt:l
+	text-transform: lowercase;
+snippet tt:n
+	text-transform: none;
+snippet tt:u
+	text-transform: uppercase;
+snippet tw
+	text-wrap: ${0};
+snippet tw:no
+	text-wrap: none;
+snippet tw:n
+	text-wrap: normal;
+snippet tw:s
+	text-wrap: suppress;
+snippet tw:u
+	text-wrap: unrestricted;
+snippet t
+	top: ${0};
+snippet t:a
+	top: auto;
+snippet va
+	vertical-align: ${0};
+snippet va:bl
+	vertical-align: baseline;
+snippet va:b
+	vertical-align: bottom;
+snippet va:m
+	vertical-align: middle;
+snippet va:sub
+	vertical-align: sub;
+snippet va:sup
+	vertical-align: super;
+snippet va:tb
+	vertical-align: text-bottom;
+snippet va:tt
+	vertical-align: text-top;
+snippet va:t
+	vertical-align: top;
+snippet v
+	visibility: ${0};
+snippet v:c
+	visibility: collapse;
+snippet v:h
+	visibility: hidden;
+snippet v:v
+	visibility: visible;
+snippet whsc
+	white-space-collapse: ${0};
+snippet whsc:ba
+	white-space-collapse: break-all;
+snippet whsc:bs
+	white-space-collapse: break-strict;
+snippet whsc:k
+	white-space-collapse: keep-all;
+snippet whsc:l
+	white-space-collapse: loose;
+snippet whsc:n
+	white-space-collapse: normal;
+snippet whs
+	white-space: ${0};
+snippet whs:n
+	white-space: normal;
+snippet whs:nw
+	white-space: nowrap;
+snippet whs:pl
+	white-space: pre-line;
+snippet whs:pw
+	white-space: pre-wrap;
+snippet whs:p
+	white-space: pre;
+snippet wid
+	widows: ${0};
+snippet w
+	width: ${0};
+snippet w:a
+	width: auto;
+snippet wob
+	word-break: ${0};
+snippet wob:ba
+	word-break: break-all;
+snippet wob:bs
+	word-break: break-strict;
+snippet wob:k
+	word-break: keep-all;
+snippet wob:l
+	word-break: loose;
+snippet wob:n
+	word-break: normal;
+snippet wos
+	word-spacing: ${0};
+snippet wow
+	word-wrap: ${0};
+snippet wow:no
+	word-wrap: none;
+snippet wow:n
+	word-wrap: normal;
+snippet wow:s
+	word-wrap: suppress;
+snippet wow:u
+	word-wrap: unrestricted;
+snippet z
+	z-index: ${0};
+snippet z:a
+	z-index: auto;
+snippet zoo
+	zoom: 1;
+snippet :h {
+	${1:&}:hover{
+		${0}
+	}
+snippet :ha {
+	${1:&}:hover, ${1:&}:active {
+		${0}
+	}
+snippet :f {
+	${1:&}:focus {
+		${0}
+	}
+snippet :lc
+	${1:&}:last-child{
+		${0}
+	}
+snippet :nc
+	${1:&}:nth-child(${2}){
+		${0}
+	}
+snippet :nlc
+	${1:&}:nth-last-child(${2}) {
+		${0}
+	}
+snippet :fc
+	${1:&}:first-child {
+		${0}
+	}
+snippet :oc
+	${1:&}:only-child {
+		${0}
+	}
+snippet :a
+	${1:&}:after {
+		${0}
+	}
+snippet :b
+	${1:&}:before {
+		${0}
+	}
+snippet ::a
+	${1:&}::after {
+		${0}
+	}
+snippet ::b
+	${1:&}::before {
+		${0}
+	}
+snippet @md
+	//xs:0; sm:544; md:768; lg:992; xl:1200 
+	@include media-breakpoint-down(xs) {
+		${0}
+	}
+snippet @mu
+	//xs:0; sm:544; md:768; lg:992; xl:1200 
+	@include media-breakpoint-up(xs) {
+		${0}
+	}
+snippet moa "margin: 0 auto"
+	margin: 0 auto;
+snippet m0a "margin: 0 auto"
+	margin: 0 auto;
+snippet mopo "margin: 0; padding: 0"
+	margin: 0;
+	padding: 0;
+snippet m0p0 "margin: 0; padding: 0"
+	margin: 0;
+	padding: 0;
+snippet m0 "margin: 0"
+	margin: 0;
+snippet m1 "margin: 1px"
+	margin: 1px;
+snippet m2 "margin: 2px"
+	margin: 2px;
+snippet m3 "margin: 3px"
+	margin: 3px;
+snippet m4 "margin: 4px"
+	margin: 4px;
+snippet m5 "margin: 5px"
+	margin: 5px;
+snippet m6 "margin: 6px"
+	margin: 6px;
+snippet m7 "margin: 7px"
+	margin: 7px;
+snippet m8 "margin: 8px"
+	margin: 8px;
+snippet m9 "margin: 9px"
+	margin: 9px;
+snippet m10 "margin: 10px"
+	margin: 10px;
+snippet m11 "margin: 11px"
+	margin: 11px;
+snippet m12 "margin: 12px"
+	margin: 12px;
+snippet m13 "margin: 13px"
+	margin: 13px;
+snippet m14 "margin: 14px"
+	margin: 14px;
+snippet m15 "margin: 15px"
+	margin: 15px;
+snippet m20 "margin: 20px"
+	margin: 20px;
+snippet m30 "margin: 30px"
+	margin: 30px;
+snippet m40 "margin: 40px"
+	margin: 40px;
+snippet m50 "margin: 50px"
+	margin: 50px;
+snippet m60 "margin: 60px"
+	margin: 60px;
+snippet m70 "margin: 70px"
+	margin: 70px;
+snippet m80 "margin: 80px"
+	margin: 80px;
+snippet m90 "margin: 90px"
+	margin: 90px;
+snippet m200 "margin: 200px"
+	margin: 200px;
+snippet m300 "margin: 300px"
+	margin: 300px;
+snippet m400 "margin: 400px"
+	margin: 400px;
+snippet m500 "margin: 500px"
+	margin: 500px;
+snippet m600 "margin: 600px"
+	margin: 600px;
+snippet m700 "margin: 700px"
+	margin: 700px;
+snippet m800 "margin: 800px"
+	margin: 800px;
+snippet m900 "margin: 900px"
+	margin: 900px;
+snippet m1e "margin: 1em"
+	margin: 1em;
+snippet m2e "margin: 2em"
+	margin: 2em;
+snippet m3e "margin: 3em"
+	margin: 3em;
+snippet m4e "margin: 4em"
+	margin: 4em;
+snippet m5e "margin: 5em"
+	margin: 5em;
+snippet m6e "margin: 6em"
+	margin: 6em;
+snippet m7e "margin: 7em"
+	margin: 7em;
+snippet m8e "margin: 8em"
+	margin: 8em;
+snippet m9e "margin: 9em"
+	margin: 9em;
+snippet m10e "margin: 10em"
+	margin: 10em;
+snippet p0 "padding: 0"
+	padding: 0;
+snippet p1 "padding: 1px"
+	padding: 1px;
+snippet p2 "padding: 2px"
+	padding: 2px;
+snippet p3 "padding: 3px"
+	padding: 3px;
+snippet p4 "padding: 4px"
+	padding: 4px;
+snippet p5 "padding: 5px"
+	padding: 5px;
+snippet p6 "padding: 6px"
+	padding: 6px;
+snippet p7 "padding: 7px"
+	padding: 7px;
+snippet p8 "padding: 8px"
+	padding: 8px;
+snippet p9 "padding: 9px"
+	padding: 9px;
+snippet p10 "padding: 10px"
+	padding: 10px;
+snippet p11 "padding: 11px"
+	padding: 11px;
+snippet p12 "padding: 12px"
+	padding: 12px;
+snippet p13 "padding: 13px"
+	padding: 13px;
+snippet p14 "padding: 14px"
+	padding: 14px;
+snippet p15 "padding: 15px"
+	padding: 15px;
+snippet p20 "padding: 20px"
+	padding: 20px;
+snippet p30 "padding: 30px"
+	padding: 30px;
+snippet p40 "padding: 40px"
+	padding: 40px;
+snippet p50 "padding: 50px"
+	padding: 50px;
+snippet p60 "padding: 60px"
+	padding: 60px;
+snippet p70 "padding: 70px"
+	padding: 70px;
+snippet p80 "padding: 80px"
+	padding: 80px;
+snippet p90 "padding: 90px"
+	padding: 90px;
+snippet p200 "padding: 200px"
+	padding: 200px;
+snippet p300 "padding: 300px"
+	padding: 300px;
+snippet p400 "padding: 400px"
+	padding: 400px;
+snippet p500 "padding: 500px"
+	padding: 500px;
+snippet p600 "padding: 600px"
+	padding: 600px;
+snippet p700 "padding: 700px"
+	padding: 700px;
+snippet p800 "padding: 800px"
+	padding: 800px;
+snippet p900 "padding: 900px"
+	padding: 900px;
+snippet p1e "padding: 1em"
+	padding: 1em;
+snippet p2e "padding: 2em"
+	padding: 2em;
+snippet p3e "padding: 3em"
+	padding: 3em;
+snippet p4e "padding: 4em"
+	padding: 4em;
+snippet p5e "padding: 5em"
+	padding: 5em;
+snippet p6e "padding: 6em"
+	padding: 6em;
+snippet p7e "padding: 7em"
+	padding: 7em;
+snippet p8e "padding: 8em"
+	padding: 8em;
+snippet p9e "padding: 9em"
+	padding: 9em;
+snippet p10e "padding: 10em"
+	padding: 10em;
+snippet b0 "bottom: 0"
+	bottom: 0;
+snippet b1 "bottom: 1px"
+	bottom: 1px;
+snippet b2 "bottom: 2px"
+	bottom: 2px;
+snippet b3 "bottom: 3px"
+	bottom: 3px;
+snippet b4 "bottom: 4px"
+	bottom: 4px;
+snippet b5 "bottom: 5px"
+	bottom: 5px;
+snippet b6 "bottom: 6px"
+	bottom: 6px;
+snippet b7 "bottom: 7px"
+	bottom: 7px;
+snippet b8 "bottom: 8px"
+	bottom: 8px;
+snippet b9 "bottom: 9px"
+	bottom: 9px;
+snippet b10 "bottom: 10px"
+	bottom: 10px;
+snippet b11 "bottom: 11px"
+	bottom: 11px;
+snippet b12 "bottom: 12px"
+	bottom: 12px;
+snippet b13 "bottom: 13px"
+	bottom: 13px;
+snippet b14 "bottom: 14px"
+	bottom: 14px;
+snippet b15 "bottom: 15px"
+	bottom: 15px;
+snippet b20 "bottom: 20px"
+	bottom: 20px;
+snippet b30 "bottom: 30px"
+	bottom: 30px;
+snippet b40 "bottom: 40px"
+	bottom: 40px;
+snippet b50 "bottom: 50px"
+	bottom: 50px;
+snippet b60 "bottom: 60px"
+	bottom: 60px;
+snippet b70 "bottom: 70px"
+	bottom: 70px;
+snippet b80 "bottom: 80px"
+	bottom: 80px;
+snippet b90 "bottom: 90px"
+	bottom: 90px;
+snippet b200 "bottom: 200px"
+	bottom: 200px;
+snippet b300 "bottom: 300px"
+	bottom: 300px;
+snippet b400 "bottom: 400px"
+	bottom: 400px;
+snippet b500 "bottom: 500px"
+	bottom: 500px;
+snippet b600 "bottom: 600px"
+	bottom: 600px;
+snippet b700 "bottom: 700px"
+	bottom: 700px;
+snippet b800 "bottom: 800px"
+	bottom: 800px;
+snippet b900 "bottom: 900px"
+	bottom: 900px;
+snippet b1e "bottom: 1em"
+	bottom: 1em;
+snippet b2e "bottom: 2em"
+	bottom: 2em;
+snippet b3e "bottom: 3em"
+	bottom: 3em;
+snippet b4e "bottom: 4em"
+	bottom: 4em;
+snippet b5e "bottom: 5em"
+	bottom: 5em;
+snippet b6e "bottom: 6em"
+	bottom: 6em;
+snippet b7e "bottom: 7em"
+	bottom: 7em;
+snippet b8e "bottom: 8em"
+	bottom: 8em;
+snippet b9e "bottom: 9em"
+	bottom: 9em;
+snippet b10e "bottom: 10em"
+	bottom: 10em;
+snippet bs "box-shadow: ___"
+	box-shadow: ${1:x y blur spead color}
+snippet brad "border-radius: ___"
+	border-radius: ${1:3}
+snippet brad0 "border-radius: 0"
+	border-radius: 0;
+snippet brad1 "border-radius: 1px"
+	border-radius: 1px;
+snippet brad2 "border-radius: 2px"
+	border-radius: 2px;
+snippet brad3 "border-radius: 3px"
+	border-radius: 3px;
+snippet brad4 "border-radius: 4px"
+	border-radius: 4px;
+snippet brad5 "border-radius: 5px"
+	border-radius: 5px;
+snippet brad6 "border-radius: 6px"
+	border-radius: 6px;
+snippet brad7 "border-radius: 7px"
+	border-radius: 7px;
+snippet brad8 "border-radius: 8px"
+	border-radius: 8px;
+snippet brad9 "border-radius: 9px"
+	border-radius: 9px;
+snippet brad10 "border-radius: 10px"
+	border-radius: 10px;
+snippet brad11 "border-radius: 11px"
+	border-radius: 11px;
+snippet brad12 "border-radius: 12px"
+	border-radius: 12px;
+snippet brad13 "border-radius: 13px"
+	border-radius: 13px;
+snippet brad14 "border-radius: 14px"
+	border-radius: 14px;
+snippet brad15 "border-radius: 15px"
+	border-radius: 15px;
+snippet brad20 "border-radius: 20px"
+	border-radius: 20px;
+snippet brad30 "border-radius: 30px"
+	border-radius: 30px;
+snippet brad40 "border-radius: 40px"
+	border-radius: 40px;
+snippet brad50 "border-radius: 50px"
+	border-radius: 50px;
+snippet brad60 "border-radius: 60px"
+	border-radius: 60px;
+snippet brad70 "border-radius: 70px"
+	border-radius: 70px;
+snippet brad80 "border-radius: 80px"
+	border-radius: 80px;
+snippet brad90 "border-radius: 90px"
+	border-radius: 90px;
+snippet brad200 "border-radius: 200px"
+	border-radius: 200px;
+snippet brad300 "border-radius: 300px"
+	border-radius: 300px;
+snippet brad400 "border-radius: 400px"
+	border-radius: 400px;
+
+snippet brad500 "border-radius: 500px"
+	border-radius: 500px;
+snippet brad600 "border-radius: 600px"
+	border-radius: 600px;
+
+snippet brad700 "border-radius: 700px"
+	border-radius: 700px;
+snippet brad800 "border-radius: 800px"
+	border-radius: 800px;
+
+snippet brad900 "border-radius: 900px"
+	border-radius: 900px;
+snippet brad1e "border-radius: 1em"
+	border-radius: 1em;
+
+snippet brad2e "border-radius: 2em"
+	border-radius: 2em;
+snippet brad3e "border-radius: 3em"
+	border-radius: 3em;
+
+snippet brad4e "border-radius: 4em"
+	border-radius: 4em;
+snippet brad5e "border-radius: 5em"
+	border-radius: 5em;
+snippet brad6e "border-radius: 6em"
+	border-radius: 6em;
+snippet brad7e "border-radius: 7em"
+	border-radius: 7em;
+
+snippet brad8e "border-radius: 8em"
+	border-radius: 8em;
+snippet brad9e "border-radius: 9em"
+	border-radius: 9em;
+
+snippet brad10e "border-radius: 10em"
+	border-radius: 10em;
+snippet w100 "width: 100%"
+	width: 100%;
+
+snippet wa "width: auto"
+	width: auto;
+snippet h100 "height: 100%"
+	height: 100%;
+
+snippet wh "width: ___; height: ___"
+	width: ${1:0};
+
+snippet mh "min-height: ___"
+	min-height: ${1:100%}
+snippet mw "min-width: ___"
+	min-width: ${1:100%}
+
+snippet mah "max-height: ___"
+	max-height: ${1:none}
+snippet maw "max-width: ___"
+	max-width: ${1:none}
+snippet w0 "width: 0"
+	width: 0;
+snippet w1 "width: 1px"
+	width: 1px;
+snippet w2 "width: 2px"
+	width: 2px;
+snippet w3 "width: 3px"
+	width: 3px;
+snippet w4 "width: 4px"
+	width: 4px;
+snippet w5 "width: 5px"
+	width: 5px;
+snippet w6 "width: 6px"
+	width: 6px;
+snippet w7 "width: 7px"
+	width: 7px;
+snippet w8 "width: 8px"
+	width: 8px;
+snippet w9 "width: 9px"
+	width: 9px;
+snippet w10 "width: 10px"
+	width: 10px;
+snippet w11 "width: 11px"
+	width: 11px;
+snippet w12 "width: 12px"
+	width: 12px;
+snippet w13 "width: 13px"
+	width: 13px;
+snippet w14 "width: 14px"
+	width: 14px;
+snippet w15 "width: 15px"
+	width: 15px;
+snippet w20 "width: 20px"
+	width: 20px;
+snippet w30 "width: 30px"
+	width: 30px;
+snippet w40 "width: 40px"
+	width: 40px;
+snippet w50 "width: 50px"
+	width: 50px;
+snippet w60 "width: 60px"
+	width: 60px;
+snippet w70 "width: 70px"
+	width: 70px;
+snippet w80 "width: 80px"
+	width: 80px;
+snippet w90 "width: 90px"
+	width: 90px;
+snippet w200 "width: 200px"
+	width: 200px;
+snippet w300 "width: 300px"
+	width: 300px;
+snippet w400 "width: 400px"
+	width: 400px;
+snippet w500 "width: 500px"
+	width: 500px;
+snippet w600 "width: 600px"
+	width: 600px;
+snippet w700 "width: 700px"
+	width: 700px;
+snippet w800 "width: 800px"
+	width: 800px;
+snippet w900 "width: 900px"
+	width: 900px;
+snippet w1e "width: 1em"
+	width: 1em;
+snippet w2e "width: 2em"
+	width: 2em;
+snippet w3e "width: 3em"
+	width: 3em;
+snippet w4e "width: 4em"
+	width: 4em;
+snippet w5e "width: 5em"
+	width: 5em;
+snippet w6e "width: 6em"
+	width: 6em;
+snippet w7e "width: 7em"
+	width: 7em;
+snippet w8e "width: 8em"
+	width: 8em;
+snippet w9e "width: 9em"
+	width: 9em;
+snippet w10e "width: 10em"
+	width: 10em;
+snippet h0 "height: 0"
+	height: 0;
+snippet h1 "height: 1px"
+	height: 1px;
+snippet h2 "height: 2px"
+	height: 2px;
+snippet h3 "height: 3px"
+	height: 3px;
+snippet h4 "height: 4px"
+	height: 4px;
+snippet h5 "height: 5px"
+	height: 5px;
+snippet h6 "height: 6px"
+	height: 6px;
+snippet h7 "height: 7px"
+	height: 7px;
+snippet h8 "height: 8px"
+	height: 8px;
+snippet h9 "height: 9px"
+	height: 9px;
+snippet h10 "height: 10px"
+	height: 10px;
+snippet h11 "height: 11px"
+	height: 11px;
+snippet h12 "height: 12px"
+	height: 12px;
+snippet h13 "height: 13px"
+	height: 13px;
+snippet h14 "height: 14px"
+	height: 14px;
+snippet h15 "height: 15px"
+	height: 15px;
+snippet h20 "height: 20px"
+	height: 20px;
+snippet h30 "height: 30px"
+	height: 30px;
+snippet h40 "height: 40px"
+	height: 40px;
+snippet h50 "height: 50px"
+	height: 50px;
+snippet h60 "height: 60px"
+	height: 60px;
+snippet h70 "height: 70px"
+	height: 70px;
+snippet h80 "height: 80px"
+	height: 80px;
+snippet h90 "height: 90px"
+	height: 90px;
+snippet h200 "height: 200px"
+	height: 200px;
+snippet h300 "height: 300px"
+	height: 300px;
+snippet h400 "height: 400px"
+	height: 400px;
+snippet h500 "height: 500px"
+	height: 500px;
+snippet h600 "height: 600px"
+	height: 600px;
+snippet h700 "height: 700px"
+	height: 700px;
+snippet h800 "height: 800px"
+	height: 800px;
+snippet h900 "height: 900px"
+	height: 900px;
+snippet h1e "height: 1em"
+	height: 1em;
+snippet h2e "height: 2em"
+	height: 2em;
+snippet h3e "height: 3em"
+	height: 3em;
+snippet h4e "height: 4em"
+	height: 4em;
+snippet h5e "height: 5em"
+	height: 5em;
+snippet h6e "height: 6em"
+	height: 6em;
+snippet h7e "height: 7em"
+	height: 7em;
+snippet h8e "height: 8em"
+	height: 8em;
+snippet h9e "height: 9em"
+	height: 9em;
+snippet h10e "height: 10em"
+	height: 10em;
+snippet m "margin: ___"
+	margin: ${1:0}
+snippet mt "margin-top: ___"
+	margin-top: ${1:0}
+snippet mb "margin-bottom: ___"
+	margin-bottom: ${1:0}
+snippet ml "margin-left: ___"
+	margin-left: ${1:0}
+snippet mr "margin-right: ___"
+	margin-right: ${1:0}
+snippet mt0 "margin-top: 0"
+	margin-top: 0;
+snippet mt1 "margin-top: 1px"
+	margin-top: 1px;
+snippet mt2 "margin-top: 2px"
+	margin-top: 2px;
+snippet mt3 "margin-top: 3px"
+	margin-top: 3px;
+snippet mt4 "margin-top: 4px"
+	margin-top: 4px;
+snippet mt5 "margin-top: 5px"
+	margin-top: 5px;
+snippet mt6 "margin-top: 6px"
+	margin-top: 6px;
+snippet mt7 "margin-top: 7px"
+	margin-top: 7px;
+snippet mt8 "margin-top: 8px"
+	margin-top: 8px;
+snippet mt9 "margin-top: 9px"
+	margin-top: 9px;
+snippet mt10 "margin-top: 10px"
+	margin-top: 10px;
+snippet mt11 "margin-top: 11px"
+	margin-top: 11px;
+snippet mt12 "margin-top: 12px"
+	margin-top: 12px;
+snippet mt13 "margin-top: 13px"
+	margin-top: 13px;
+snippet mt14 "margin-top: 14px"
+	margin-top: 14px;
+snippet mt15 "margin-top: 15px"
+	margin-top: 15px;
+snippet mt20 "margin-top: 20px"
+	margin-top: 20px;
+snippet mt30 "margin-top: 30px"
+	margin-top: 30px;
+snippet mt40 "margin-top: 40px"
+	margin-top: 40px;
+snippet mt50 "margin-top: 50px"
+	margin-top: 50px;
+snippet mt60 "margin-top: 60px"
+	margin-top: 60px;
+snippet mt70 "margin-top: 70px"
+	margin-top: 70px;
+snippet mt80 "margin-top: 80px"
+	margin-top: 80px;
+snippet mt90 "margin-top: 90px"
+	margin-top: 90px;
+snippet mt200 "margin-top: 200px"
+	margin-top: 200px;
+snippet mt300 "margin-top: 300px"
+	margin-top: 300px;
+snippet mt400 "margin-top: 400px"
+	margin-top: 400px;
+snippet mt500 "margin-top: 500px"
+	margin-top: 500px;
+snippet mt600 "margin-top: 600px"
+	margin-top: 600px;
+snippet mt700 "margin-top: 700px"
+	margin-top: 700px;
+snippet mt800 "margin-top: 800px"
+	margin-top: 800px;
+snippet mt900 "margin-top: 900px"
+	margin-top: 900px;
+snippet mt1e "margin-top: 1em"
+	margin-top: 1em;
+snippet mt2e "margin-top: 2em"
+	margin-top: 2em;
+snippet mt3e "margin-top: 3em"
+	margin-top: 3em;
+snippet mt4e "margin-top: 4em"
+	margin-top: 4em;
+snippet mt5e "margin-top: 5em"
+	margin-top: 5em;
+snippet mt6e "margin-top: 6em"
+	margin-top: 6em;
+snippet mt7e "margin-top: 7em"
+	margin-top: 7em;
+snippet mt8e "margin-top: 8em"
+	margin-top: 8em;
+snippet mt9e "margin-top: 9em"
+	margin-top: 9em;
+snippet mt10e "margin-top: 10em"
+	margin-top: 10em;
+snippet mb0 "margin-bottom: 0"
+	margin-bottom: 0;
+snippet mb1 "margin-bottom: 1px"
+	margin-bottom: 1px;
+snippet mb2 "margin-bottom: 2px"
+	margin-bottom: 2px;
+snippet mb3 "margin-bottom: 3px"
+	margin-bottom: 3px;
+snippet mb4 "margin-bottom: 4px"
+	margin-bottom: 4px;
+snippet mb5 "margin-bottom: 5px"
+	margin-bottom: 5px;
+snippet mb6 "margin-bottom: 6px"
+	margin-bottom: 6px;
+snippet mb7 "margin-bottom: 7px"
+	margin-bottom: 7px;
+snippet mb8 "margin-bottom: 8px"
+	margin-bottom: 8px;
+snippet mb9 "margin-bottom: 9px"
+	margin-bottom: 9px;
+snippet mb10 "margin-bottom: 10px"
+	margin-bottom: 10px;
+snippet mb11 "margin-bottom: 11px"
+	margin-bottom: 11px;
+snippet mb12 "margin-bottom: 12px"
+	margin-bottom: 12px;
+snippet mb13 "margin-bottom: 13px"
+	margin-bottom: 13px;
+snippet mb14 "margin-bottom: 14px"
+	margin-bottom: 14px;
+snippet mb15 "margin-bottom: 15px"
+	margin-bottom: 15px;
+snippet mb20 "margin-bottom: 20px"
+	margin-bottom: 20px;
+snippet mb30 "margin-bottom: 30px"
+	margin-bottom: 30px;
+snippet mb40 "margin-bottom: 40px"
+	margin-bottom: 40px;
+snippet mb50 "margin-bottom: 50px"
+	margin-bottom: 50px;
+snippet mb60 "margin-bottom: 60px"
+	margin-bottom: 60px;
+snippet mb70 "margin-bottom: 70px"
+	margin-bottom: 70px;
+snippet mb80 "margin-bottom: 80px"
+	margin-bottom: 80px;
+snippet mb90 "margin-bottom: 90px"
+	margin-bottom: 90px;
+snippet mb200 "margin-bottom: 200px"
+	margin-bottom: 200px;
+snippet mb300 "margin-bottom: 300px"
+	margin-bottom: 300px;
+snippet mb400 "margin-bottom: 400px"
+	margin-bottom: 400px;
+snippet mb500 "margin-bottom: 500px"
+	margin-bottom: 500px;
+snippet mb600 "margin-bottom: 600px"
+	margin-bottom: 600px;
+snippet mb700 "margin-bottom: 700px"
+	margin-bottom: 700px;
+snippet mb800 "margin-bottom: 800px"
+	margin-bottom: 800px;
+snippet mb900 "margin-bottom: 900px"
+	margin-bottom: 900px;
+snippet mb1e "margin-bottom: 1em"
+	margin-bottom: 1em;
+snippet mb2e "margin-bottom: 2em"
+	margin-bottom: 2em;
+snippet mb3e "margin-bottom: 3em"
+	margin-bottom: 3em;
+snippet mb4e "margin-bottom: 4em"
+	margin-bottom: 4em;
+snippet mb5e "margin-bottom: 5em"
+	margin-bottom: 5em;
+snippet mb6e "margin-bottom: 6em"
+	margin-bottom: 6em;
+snippet mb7e "margin-bottom: 7em"
+	margin-bottom: 7em;
+snippet mb8e "margin-bottom: 8em"
+	margin-bottom: 8em;
+snippet mb9e "margin-bottom: 9em"
+	margin-bottom: 9em;
+snippet mb10e "margin-bottom: 10em"
+	margin-bottom: 10em;
+snippet ml0 "margin-left: 0"
+	margin-left: 0;
+snippet ml1 "margin-left: 1px"
+	margin-left: 1px;
+snippet ml2 "margin-left: 2px"
+	margin-left: 2px;
+snippet ml3 "margin-left: 3px"
+	margin-left: 3px;
+snippet ml4 "margin-left: 4px"
+	margin-left: 4px;
+snippet ml5 "margin-left: 5px"
+	margin-left: 5px;
+snippet ml6 "margin-left: 6px"
+	margin-left: 6px;
+snippet ml7 "margin-left: 7px"
+	margin-left: 7px;
+snippet ml8 "margin-left: 8px"
+	margin-left: 8px;
+snippet ml9 "margin-left: 9px"
+	margin-left: 9px;
+snippet ml10 "margin-left: 10px"
+	margin-left: 10px;
+snippet ml11 "margin-left: 11px"
+	margin-left: 11px;
+snippet ml12 "margin-left: 12px"
+	margin-left: 12px;
+snippet ml13 "margin-left: 13px"
+	margin-left: 13px;
+snippet ml14 "margin-left: 14px"
+	margin-left: 14px;
+snippet ml15 "margin-left: 15px"
+	margin-left: 15px;
+snippet ml20 "margin-left: 20px"
+	margin-left: 20px;
+snippet ml30 "margin-left: 30px"
+	margin-left: 30px;
+snippet ml40 "margin-left: 40px"
+	margin-left: 40px;
+snippet ml50 "margin-left: 50px"
+	margin-left: 50px;
+snippet ml60 "margin-left: 60px"
+	margin-left: 60px;
+snippet ml70 "margin-left: 70px"
+	margin-left: 70px;
+snippet ml80 "margin-left: 80px"
+	margin-left: 80px;
+snippet ml90 "margin-left: 90px"
+	margin-left: 90px;
+snippet ml200 "margin-left: 200px"
+	margin-left: 200px;
+snippet ml300 "margin-left: 300px"
+	margin-left: 300px;
+snippet ml400 "margin-left: 400px"
+	margin-left: 400px;
+snippet ml500 "margin-left: 500px"
+	margin-left: 500px;
+snippet ml600 "margin-left: 600px"
+	margin-left: 600px;
+snippet ml700 "margin-left: 700px"
+	margin-left: 700px;
+snippet ml800 "margin-left: 800px"
+	margin-left: 800px;
+snippet ml900 "margin-left: 900px"
+	margin-left: 900px;
+snippet ml1e "margin-left: 1em"
+	margin-left: 1em;
+snippet ml2e "margin-left: 2em"
+	margin-left: 2em;
+snippet ml3e "margin-left: 3em"
+	margin-left: 3em;
+snippet ml4e "margin-left: 4em"
+	margin-left: 4em;
+snippet ml5e "margin-left: 5em"
+	margin-left: 5em;
+snippet ml6e "margin-left: 6em"
+	margin-left: 6em;
+snippet ml7e "margin-left: 7em"
+	margin-left: 7em;
+snippet ml8e "margin-left: 8em"
+	margin-left: 8em;
+snippet ml9e "margin-left: 9em"
+	margin-left: 9em;
+snippet ml10e "margin-left: 10em"
+	margin-left: 10em;
+snippet mr0 "margin-right: 0"
+	margin-right: 0;
+snippet mr1 "margin-right: 1px"
+	margin-right: 1px;
+snippet mr2 "margin-right: 2px"
+	margin-right: 2px;
+snippet mr3 "margin-right: 3px"
+	margin-right: 3px;
+snippet mr4 "margin-right: 4px"
+	margin-right: 4px;
+snippet mr5 "margin-right: 5px"
+	margin-right: 5px;
+snippet mr6 "margin-right: 6px"
+	margin-right: 6px;
+snippet mr7 "margin-right: 7px"
+	margin-right: 7px;
+snippet mr8 "margin-right: 8px"
+	margin-right: 8px;
+snippet mr9 "margin-right: 9px"
+	margin-right: 9px;
+snippet mr10 "margin-right: 10px"
+	margin-right: 10px;
+snippet mr11 "margin-right: 11px"
+	margin-right: 11px;
+snippet mr12 "margin-right: 12px"
+	margin-right: 12px;
+snippet mr13 "margin-right: 13px"
+	margin-right: 13px;
+snippet mr14 "margin-right: 14px"
+	margin-right: 14px;
+snippet mr15 "margin-right: 15px"
+	margin-right: 15px;
+snippet mr20 "margin-right: 20px"
+	margin-right: 20px;
+snippet mr30 "margin-right: 30px"
+	margin-right: 30px;
+snippet mr40 "margin-right: 40px"
+	margin-right: 40px;
+snippet mr50 "margin-right: 50px"
+	margin-right: 50px;
+snippet mr60 "margin-right: 60px"
+	margin-right: 60px;
+snippet mr70 "margin-right: 70px"
+	margin-right: 70px;
+snippet mr80 "margin-right: 80px"
+	margin-right: 80px;
+snippet mr90 "margin-right: 90px"
+	margin-right: 90px;
+snippet mr200 "margin-right: 200px"
+	margin-right: 200px;
+snippet mr300 "margin-right: 300px"
+	margin-right: 300px;
+snippet mr400 "margin-right: 400px"
+	margin-right: 400px;
+snippet mr500 "margin-right: 500px"
+	margin-right: 500px;
+snippet mr600 "margin-right: 600px"
+	margin-right: 600px;
+snippet mr700 "margin-right: 700px"
+	margin-right: 700px;
+snippet mr800 "margin-right: 800px"
+	margin-right: 800px;
+snippet mr900 "margin-right: 900px"
+	margin-right: 900px;
+snippet mr1e "margin-right: 1em"
+	margin-right: 1em;
+snippet mr2e "margin-right: 2em"
+	margin-right: 2em;
+snippet mr3e "margin-right: 3em"
+	margin-right: 3em;
+snippet mr4e "margin-right: 4em"
+	margin-right: 4em;
+snippet mr5e "margin-right: 5em"
+	margin-right: 5em;
+snippet mr6e "margin-right: 6em"
+	margin-right: 6em;
+snippet mr7e "margin-right: 7em"
+	margin-right: 7em;
+snippet mr8e "margin-right: 8em"
+	margin-right: 8em;
+snippet mr9e "margin-right: 9em"
+	margin-right: 9em;
+snippet mr10e "margin-right: 10em"
+	margin-right: 10em;
+snippet p "padding: ___"
+	padding: ${1:0}
+snippet pt "padding-top: ___"
+	padding-top: ${1:0}
+snippet pb "padding-bottom: ___"
+	padding-bottom: ${1:0}
+snippet pl "padding-left: ___"
+	padding-left: ${1:0}
+snippet pr "padding-right: ___"
+	padding-right: ${1:0}
+snippet pt0 "padding-top: 0"
+	padding-top: 0;
+snippet pt1 "padding-top: 1px"
+	padding-top: 1px;
+snippet pt2 "padding-top: 2px"
+	padding-top: 2px;
+snippet pt3 "padding-top: 3px"
+	padding-top: 3px;
+snippet pt4 "padding-top: 4px"
+	padding-top: 4px;
+snippet pt5 "padding-top: 5px"
+	padding-top: 5px;
+snippet pt6 "padding-top: 6px"
+	padding-top: 6px;
+snippet pt7 "padding-top: 7px"
+	padding-top: 7px;
+snippet pt8 "padding-top: 8px"
+	padding-top: 8px;
+snippet pt9 "padding-top: 9px"
+	padding-top: 9px;
+snippet pt10 "padding-top: 10px"
+	padding-top: 10px;
+snippet pt11 "padding-top: 11px"
+	padding-top: 11px;
+snippet pt12 "padding-top: 12px"
+	padding-top: 12px;
+snippet pt13 "padding-top: 13px"
+	padding-top: 13px;
+snippet pt14 "padding-top: 14px"
+	padding-top: 14px;
+snippet pt15 "padding-top: 15px"
+	padding-top: 15px;
+snippet pt20 "padding-top: 20px"
+	padding-top: 20px;
+snippet pt30 "padding-top: 30px"
+	padding-top: 30px;
+snippet pt40 "padding-top: 40px"
+	padding-top: 40px;
+snippet pt50 "padding-top: 50px"
+	padding-top: 50px;
+snippet pt60 "padding-top: 60px"
+	padding-top: 60px;
+snippet pt70 "padding-top: 70px"
+	padding-top: 70px;
+snippet pt80 "padding-top: 80px"
+	padding-top: 80px;
+snippet pt90 "padding-top: 90px"
+	padding-top: 90px;
+snippet pt200 "padding-top: 200px"
+	padding-top: 200px;
+snippet pt300 "padding-top: 300px"
+	padding-top: 300px;
+snippet pt400 "padding-top: 400px"
+	padding-top: 400px;
+snippet pt500 "padding-top: 500px"
+	padding-top: 500px;
+snippet pt600 "padding-top: 600px"
+	padding-top: 600px;
+snippet pt700 "padding-top: 700px"
+	padding-top: 700px;
+snippet pt800 "padding-top: 800px"
+	padding-top: 800px;
+snippet pt900 "padding-top: 900px"
+	padding-top: 900px;
+snippet pt1e "padding-top: 1em"
+	padding-top: 1em;
+snippet pt2e "padding-top: 2em"
+	padding-top: 2em;
+snippet pt3e "padding-top: 3em"
+	padding-top: 3em;
+snippet pt4e "padding-top: 4em"
+	padding-top: 4em;
+snippet pt5e "padding-top: 5em"
+	padding-top: 5em;
+snippet pt6e "padding-top: 6em"
+	padding-top: 6em;
+snippet pt7e "padding-top: 7em"
+	padding-top: 7em;
+snippet pt8e "padding-top: 8em"
+	padding-top: 8em;
+snippet pt9e "padding-top: 9em"
+	padding-top: 9em;
+snippet pt10e "padding-top: 10em"
+	padding-top: 10em;
+snippet pb0 "padding-bottom: 0"
+	padding-bottom: 0;
+snippet pb1 "padding-bottom: 1px"
+	padding-bottom: 1px;
+snippet pb2 "padding-bottom: 2px"
+	padding-bottom: 2px;
+snippet pb3 "padding-bottom: 3px"
+	padding-bottom: 3px;
+snippet pb4 "padding-bottom: 4px"
+	padding-bottom: 4px;
+snippet pb5 "padding-bottom: 5px"
+	padding-bottom: 5px;
+snippet pb6 "padding-bottom: 6px"
+	padding-bottom: 6px;
+snippet pb7 "padding-bottom: 7px"
+	padding-bottom: 7px;
+snippet pb8 "padding-bottom: 8px"
+	padding-bottom: 8px;
+snippet pb9 "padding-bottom: 9px"
+	padding-bottom: 9px;
+snippet pb10 "padding-bottom: 10px"
+	padding-bottom: 10px;
+snippet pb11 "padding-bottom: 11px"
+	padding-bottom: 11px;
+snippet pb12 "padding-bottom: 12px"
+	padding-bottom: 12px;
+snippet pb13 "padding-bottom: 13px"
+	padding-bottom: 13px;
+snippet pb14 "padding-bottom: 14px"
+	padding-bottom: 14px;
+snippet pb15 "padding-bottom: 15px"
+	padding-bottom: 15px;
+snippet pb20 "padding-bottom: 20px"
+	padding-bottom: 20px;
+snippet pb30 "padding-bottom: 30px"
+	padding-bottom: 30px;
+snippet pb40 "padding-bottom: 40px"
+	padding-bottom: 40px;
+snippet pb50 "padding-bottom: 50px"
+	padding-bottom: 50px;
+snippet pb60 "padding-bottom: 60px"
+	padding-bottom: 60px;
+snippet pb70 "padding-bottom: 70px"
+	padding-bottom: 70px;
+snippet pb80 "padding-bottom: 80px"
+	padding-bottom: 80px;
+snippet pb90 "padding-bottom: 90px"
+	padding-bottom: 90px;
+snippet pb200 "padding-bottom: 200px"
+	padding-bottom: 200px;
+snippet pb300 "padding-bottom: 300px"
+	padding-bottom: 300px;
+snippet pb400 "padding-bottom: 400px"
+	padding-bottom: 400px;
+snippet pb500 "padding-bottom: 500px"
+	padding-bottom: 500px;
+snippet pb600 "padding-bottom: 600px"
+	padding-bottom: 600px;
+snippet pb700 "padding-bottom: 700px"
+	padding-bottom: 700px;
+snippet pb800 "padding-bottom: 800px"
+	padding-bottom: 800px;
+snippet pb900 "padding-bottom: 900px"
+	padding-bottom: 900px;
+snippet pb1e "padding-bottom: 1em"
+	padding-bottom: 1em;
+snippet pb2e "padding-bottom: 2em"
+	padding-bottom: 2em;
+snippet pb3e "padding-bottom: 3em"
+	padding-bottom: 3em;
+snippet pb4e "padding-bottom: 4em"
+	padding-bottom: 4em;
+snippet pb5e "padding-bottom: 5em"
+	padding-bottom: 5em;
+snippet pb6e "padding-bottom: 6em"
+	padding-bottom: 6em;
+snippet pb7e "padding-bottom: 7em"
+	padding-bottom: 7em;
+snippet pb8e "padding-bottom: 8em"
+	padding-bottom: 8em;
+snippet pb9e "padding-bottom: 9em"
+	padding-bottom: 9em;
+snippet pb10e "padding-bottom: 10em"
+	padding-bottom: 10em;
+snippet pl0 "padding-left: 0"
+	padding-left: 0;
+snippet pl1 "padding-left: 1px"
+	padding-left: 1px;
+snippet pl2 "padding-left: 2px"
+	padding-left: 2px;
+snippet pl3 "padding-left: 3px"
+	padding-left: 3px;
+snippet pl4 "padding-left: 4px"
+	padding-left: 4px;
+snippet pl5 "padding-left: 5px"
+	padding-left: 5px;
+snippet pl6 "padding-left: 6px"
+	padding-left: 6px;
+snippet pl7 "padding-left: 7px"
+	padding-left: 7px;
+snippet pl8 "padding-left: 8px"
+	padding-left: 8px;
+snippet pl9 "padding-left: 9px"
+	padding-left: 9px;
+snippet pl10 "padding-left: 10px"
+	padding-left: 10px;
+snippet pl11 "padding-left: 11px"
+	padding-left: 11px;
+snippet pl12 "padding-left: 12px"
+	padding-left: 12px;
+snippet pl13 "padding-left: 13px"
+	padding-left: 13px;
+snippet pl14 "padding-left: 14px"
+	padding-left: 14px;
+snippet pl15 "padding-left: 15px"
+	padding-left: 15px;
+snippet pl20 "padding-left: 20px"
+	padding-left: 20px;
+snippet pl30 "padding-left: 30px"
+	padding-left: 30px;
+snippet pl40 "padding-left: 40px"
+	padding-left: 40px;
+snippet pl50 "padding-left: 50px"
+	padding-left: 50px;
+snippet pl60 "padding-left: 60px"
+	padding-left: 60px;
+snippet pl70 "padding-left: 70px"
+	padding-left: 70px;
+snippet pl80 "padding-left: 80px"
+	padding-left: 80px;
+snippet pl90 "padding-left: 90px"
+	padding-left: 90px;
+snippet pl200 "padding-left: 200px"
+	padding-left: 200px;
+snippet pl300 "padding-left: 300px"
+	padding-left: 300px;
+snippet pl400 "padding-left: 400px"
+	padding-left: 400px;
+snippet pl500 "padding-left: 500px"
+	padding-left: 500px;
+snippet pl600 "padding-left: 600px"
+	padding-left: 600px;
+snippet pl700 "padding-left: 700px"
+	padding-left: 700px;
+snippet pl800 "padding-left: 800px"
+	padding-left: 800px;
+snippet pl900 "padding-left: 900px"
+	padding-left: 900px;
+snippet pl1e "padding-left: 1em"
+	padding-left: 1em;
+snippet pl2e "padding-left: 2em"
+	padding-left: 2em;
+snippet pl3e "padding-left: 3em"
+	padding-left: 3em;
+snippet pl4e "padding-left: 4em"
+	padding-left: 4em;
+snippet pl5e "padding-left: 5em"
+	padding-left: 5em;
+snippet pl6e "padding-left: 6em"
+	padding-left: 6em;
+snippet pl7e "padding-left: 7em"
+	padding-left: 7em;
+snippet pl8e "padding-left: 8em"
+	padding-left: 8em;
+snippet pl9e "padding-left: 9em"
+	padding-left: 9em;
+snippet pl10e "padding-left: 10em"
+	padding-left: 10em;
+snippet pr0 "padding-right: 0"
+	padding-right: 0;
+snippet pr1 "padding-right: 1px"
+	padding-right: 1px;
+snippet pr2 "padding-right: 2px"
+	padding-right: 2px;
+snippet pr3 "padding-right: 3px"
+	padding-right: 3px;
+snippet pr4 "padding-right: 4px"
+	padding-right: 4px;
+snippet pr5 "padding-right: 5px"
+	padding-right: 5px;
+snippet pr6 "padding-right: 6px"
+	padding-right: 6px;
+snippet pr7 "padding-right: 7px"
+	padding-right: 7px;
+snippet pr8 "padding-right: 8px"
+	padding-right: 8px;
+snippet pr9 "padding-right: 9px"
+	padding-right: 9px;
+snippet pr10 "padding-right: 10px"
+	padding-right: 10px;
+snippet pr11 "padding-right: 11px"
+	padding-right: 11px;
+snippet pr12 "padding-right: 12px"
+	padding-right: 12px;
+snippet pr13 "padding-right: 13px"
+	padding-right: 13px;
+snippet pr14 "padding-right: 14px"
+	padding-right: 14px;
+snippet pr15 "padding-right: 15px"
+	padding-right: 15px;
+snippet pr20 "padding-right: 20px"
+	padding-right: 20px;
+snippet pr30 "padding-right: 30px"
+	padding-right: 30px;
+snippet pr40 "padding-right: 40px"
+	padding-right: 40px;
+snippet pr50 "padding-right: 50px"
+	padding-right: 50px;
+snippet pr60 "padding-right: 60px"
+	padding-right: 60px;
+snippet pr70 "padding-right: 70px"
+	padding-right: 70px;
+snippet pr80 "padding-right: 80px"
+	padding-right: 80px;
+snippet pr90 "padding-right: 90px"
+	padding-right: 90px;
+snippet pr200 "padding-right: 200px"
+	padding-right: 200px;
+snippet pr300 "padding-right: 300px"
+	padding-right: 300px;
+snippet pr400 "padding-right: 400px"
+	padding-right: 400px;
+snippet pr500 "padding-right: 500px"
+	padding-right: 500px;
+snippet pr600 "padding-right: 600px"
+	padding-right: 600px;
+snippet pr700 "padding-right: 700px"
+	padding-right: 700px;
+snippet pr800 "padding-right: 800px"
+	padding-right: 800px;
+snippet pr900 "padding-right: 900px"
+	padding-right: 900px;
+snippet pr1e "padding-right: 1em"
+	padding-right: 1em;
+snippet pr2e "padding-right: 2em"
+	padding-right: 2em;
+snippet pr3e "padding-right: 3em"
+	padding-right: 3em;
+snippet pr4e "padding-right: 4em"
+	padding-right: 4em;
+snippet pr5e "padding-right: 5em"
+	padding-right: 5em;
+snippet pr6e "padding-right: 6em"
+	padding-right: 6em;
+snippet pr7e "padding-right: 7em"
+	padding-right: 7em;
+snippet pr8e "padding-right: 8em"
+	padding-right: 8em;
+snippet pr9e "padding-right: 9em"
+	padding-right: 9em;
+snippet pr10e "padding-right: 10em"
+	padding-right: 10em;
+snippet b "bottom: ___"
+	bottom: ${1:0}
+snippet bt "border-top: ___"
+	border-top: ${1:solid 1px #333}
+snippet bb "border-bottom: ___"
+	border-bottom: ${1:solid 1px #333}
+snippet bl "border-left: ___"
+	border-left: ${1:solid 1px #333}
+snippet br "border-right: ___"
+	border-right: ${1:solid 1px #333}
+snippet bt0 "border-top: 0"
+	border-top: 0;
+snippet bt1 "border-top: 1px"
+	border-top: 1px;
+snippet bt2 "border-top: 2px"
+	border-top: 2px;
+snippet bt3 "border-top: 3px"
+	border-top: 3px;
+snippet bt4 "border-top: 4px"
+	border-top: 4px;
+snippet bt5 "border-top: 5px"
+	border-top: 5px;
+snippet bt6 "border-top: 6px"
+	border-top: 6px;
+snippet bt7 "border-top: 7px"
+	border-top: 7px;
+snippet bt8 "border-top: 8px"
+	border-top: 8px;
+snippet bt9 "border-top: 9px"
+	border-top: 9px;
+snippet bt10 "border-top: 10px"
+	border-top: 10px;
+snippet bt11 "border-top: 11px"
+	border-top: 11px;
+snippet bt12 "border-top: 12px"
+	border-top: 12px;
+snippet bt13 "border-top: 13px"
+	border-top: 13px;
+snippet bt14 "border-top: 14px"
+	border-top: 14px;
+snippet bt15 "border-top: 15px"
+	border-top: 15px;
+snippet bt20 "border-top: 20px"
+	border-top: 20px;
+snippet bt30 "border-top: 30px"
+	border-top: 30px;
+snippet bt40 "border-top: 40px"
+	border-top: 40px;
+snippet bt50 "border-top: 50px"
+	border-top: 50px;
+snippet bt60 "border-top: 60px"
+	border-top: 60px;
+snippet bt70 "border-top: 70px"
+	border-top: 70px;
+snippet bt80 "border-top: 80px"
+	border-top: 80px;
+snippet bt90 "border-top: 90px"
+	border-top: 90px;
+snippet bt200 "border-top: 200px"
+	border-top: 200px;
+snippet bt300 "border-top: 300px"
+	border-top: 300px;
+snippet bt400 "border-top: 400px"
+	border-top: 400px;
+snippet bt500 "border-top: 500px"
+	border-top: 500px;
+snippet bt600 "border-top: 600px"
+	border-top: 600px;
+snippet bt700 "border-top: 700px"
+	border-top: 700px;
+snippet bt800 "border-top: 800px"
+	border-top: 800px;
+snippet bt900 "border-top: 900px"
+	border-top: 900px;
+snippet bt1e "border-top: 1em"
+	border-top: 1em;
+snippet bt2e "border-top: 2em"
+	border-top: 2em;
+snippet bt3e "border-top: 3em"
+	border-top: 3em;
+snippet bt4e "border-top: 4em"
+	border-top: 4em;
+snippet bt5e "border-top: 5em"
+	border-top: 5em;
+snippet bt6e "border-top: 6em"
+	border-top: 6em;
+snippet bt7e "border-top: 7em"
+	border-top: 7em;
+snippet bt8e "border-top: 8em"
+	border-top: 8em;
+snippet bt9e "border-top: 9em"
+	border-top: 9em;
+snippet bt10e "border-top: 10em"
+	border-top: 10em;
+snippet bb0 "border-bottom: 0"
+	border-bottom: 0;
+snippet bb1 "border-bottom: 1px"
+	border-bottom: 1px;
+snippet bb2 "border-bottom: 2px"
+	border-bottom: 2px;
+snippet bb3 "border-bottom: 3px"
+	border-bottom: 3px;
+snippet bb4 "border-bottom: 4px"
+	border-bottom: 4px;
+snippet bb5 "border-bottom: 5px"
+	border-bottom: 5px;
+snippet bb6 "border-bottom: 6px"
+	border-bottom: 6px;
+snippet bb7 "border-bottom: 7px"
+	border-bottom: 7px;
+snippet bb8 "border-bottom: 8px"
+	border-bottom: 8px;
+snippet bb9 "border-bottom: 9px"
+	border-bottom: 9px;
+snippet bb10 "border-bottom: 10px"
+	border-bottom: 10px;
+snippet bb11 "border-bottom: 11px"
+	border-bottom: 11px;
+snippet bb12 "border-bottom: 12px"
+	border-bottom: 12px;
+snippet bb13 "border-bottom: 13px"
+	border-bottom: 13px;
+snippet bb14 "border-bottom: 14px"
+	border-bottom: 14px;
+snippet bb15 "border-bottom: 15px"
+	border-bottom: 15px;
+snippet bb20 "border-bottom: 20px"
+	border-bottom: 20px;
+snippet bb30 "border-bottom: 30px"
+	border-bottom: 30px;
+snippet bb40 "border-bottom: 40px"
+	border-bottom: 40px;
+snippet bb50 "border-bottom: 50px"
+	border-bottom: 50px;
+snippet bb60 "border-bottom: 60px"
+	border-bottom: 60px;
+snippet bb70 "border-bottom: 70px"
+	border-bottom: 70px;
+snippet bb80 "border-bottom: 80px"
+	border-bottom: 80px;
+snippet bb90 "border-bottom: 90px"
+	border-bottom: 90px;
+snippet bb200 "border-bottom: 200px"
+	border-bottom: 200px;
+snippet bb300 "border-bottom: 300px"
+	border-bottom: 300px;
+snippet bb400 "border-bottom: 400px"
+	border-bottom: 400px;
+snippet bb500 "border-bottom: 500px"
+	border-bottom: 500px;
+snippet bb600 "border-bottom: 600px"
+	border-bottom: 600px;
+snippet bb700 "border-bottom: 700px"
+	border-bottom: 700px;
+snippet bb800 "border-bottom: 800px"
+	border-bottom: 800px;
+snippet bb900 "border-bottom: 900px"
+	border-bottom: 900px;
+snippet bb1e "border-bottom: 1em"
+	border-bottom: 1em;
+snippet bb2e "border-bottom: 2em"
+	border-bottom: 2em;
+snippet bb3e "border-bottom: 3em"
+	border-bottom: 3em;
+snippet bb4e "border-bottom: 4em"
+	border-bottom: 4em;
+snippet bb5e "border-bottom: 5em"
+	border-bottom: 5em;
+snippet bb6e "border-bottom: 6em"
+	border-bottom: 6em;
+snippet bb7e "border-bottom: 7em"
+	border-bottom: 7em;
+snippet bb8e "border-bottom: 8em"
+	border-bottom: 8em;
+snippet bb9e "border-bottom: 9em"
+	border-bottom: 9em;
+snippet bb10e "border-bottom: 10em"
+	border-bottom: 10em;
+snippet bl0 "border-left: 0"
+	border-left: 0;
+snippet bl1 "border-left: 1px"
+	border-left: 1px;
+snippet bl2 "border-left: 2px"
+	border-left: 2px;
+snippet bl3 "border-left: 3px"
+	border-left: 3px;
+snippet bl4 "border-left: 4px"
+	border-left: 4px;
+snippet bl5 "border-left: 5px"
+	border-left: 5px;
+snippet bl6 "border-left: 6px"
+	border-left: 6px;
+snippet bl7 "border-left: 7px"
+	border-left: 7px;
+snippet bl8 "border-left: 8px"
+	border-left: 8px;
+snippet bl9 "border-left: 9px"
+	border-left: 9px;
+snippet bl10 "border-left: 10px"
+	border-left: 10px;
+snippet bl11 "border-left: 11px"
+	border-left: 11px;
+snippet bl12 "border-left: 12px"
+	border-left: 12px;
+snippet bl13 "border-left: 13px"
+	border-left: 13px;
+snippet bl14 "border-left: 14px"
+	border-left: 14px;
+snippet bl15 "border-left: 15px"
+	border-left: 15px;
+snippet bl20 "border-left: 20px"
+	border-left: 20px;
+snippet bl30 "border-left: 30px"
+	border-left: 30px;
+snippet bl40 "border-left: 40px"
+	border-left: 40px;
+snippet bl50 "border-left: 50px"
+	border-left: 50px;
+snippet bl60 "border-left: 60px"
+	border-left: 60px;
+snippet bl70 "border-left: 70px"
+	border-left: 70px;
+snippet bl80 "border-left: 80px"
+	border-left: 80px;
+snippet bl90 "border-left: 90px"
+	border-left: 90px;
+snippet bl200 "border-left: 200px"
+	border-left: 200px;
+snippet bl300 "border-left: 300px"
+	border-left: 300px;
+snippet bl400 "border-left: 400px"
+	border-left: 400px;
+snippet bl500 "border-left: 500px"
+	border-left: 500px;
+snippet bl600 "border-left: 600px"
+	border-left: 600px;
+snippet bl700 "border-left: 700px"
+	border-left: 700px;
+snippet bl800 "border-left: 800px"
+	border-left: 800px;
+snippet bl900 "border-left: 900px"
+	border-left: 900px;
+snippet bl1e "border-left: 1em"
+	border-left: 1em;
+snippet bl2e "border-left: 2em"
+	border-left: 2em;
+snippet bl3e "border-left: 3em"
+	border-left: 3em;
+snippet bl4e "border-left: 4em"
+	border-left: 4em;
+snippet bl5e "border-left: 5em"
+	border-left: 5em;
+snippet bl6e "border-left: 6em"
+	border-left: 6em;
+snippet bl7e "border-left: 7em"
+	border-left: 7em;
+snippet bl8e "border-left: 8em"
+	border-left: 8em;
+snippet bl9e "border-left: 9em"
+	border-left: 9em;
+snippet bl10e "border-left: 10em"
+	border-left: 10em;
+snippet br0 "border-right: 0"
+	border-right: 0;
+snippet br1 "border-right: 1px"
+	border-right: 1px;
+snippet br2 "border-right: 2px"
+	border-right: 2px;
+snippet br3 "border-right: 3px"
+	border-right: 3px;
+snippet br4 "border-right: 4px"
+	border-right: 4px;
+snippet br5 "border-right: 5px"
+	border-right: 5px;
+snippet br6 "border-right: 6px"
+	border-right: 6px;
+snippet br7 "border-right: 7px"
+	border-right: 7px;
+snippet br8 "border-right: 8px"
+	border-right: 8px;
+snippet br9 "border-right: 9px"
+	border-right: 9px;
+snippet br10 "border-right: 10px"
+	border-right: 10px;
+snippet br11 "border-right: 11px"
+	border-right: 11px;
+snippet br12 "border-right: 12px"
+	border-right: 12px;
+snippet br13 "border-right: 13px"
+	border-right: 13px;
+snippet br14 "border-right: 14px"
+	border-right: 14px;
+snippet br15 "border-right: 15px"
+	border-right: 15px;
+snippet br20 "border-right: 20px"
+	border-right: 20px;
+snippet br30 "border-right: 30px"
+	border-right: 30px;
+snippet br40 "border-right: 40px"
+	border-right: 40px;
+snippet br50 "border-right: 50px"
+	border-right: 50px;
+snippet br60 "border-right: 60px"
+	border-right: 60px;
+snippet br70 "border-right: 70px"
+	border-right: 70px;
+snippet br80 "border-right: 80px"
+	border-right: 80px;
+snippet br90 "border-right: 90px"
+	border-right: 90px;
+snippet br200 "border-right: 200px"
+	border-right: 200px;
+snippet br300 "border-right: 300px"
+	border-right: 300px;
+snippet br400 "border-right: 400px"
+	border-right: 400px;
+snippet br500 "border-right: 500px"
+	border-right: 500px;
+snippet br600 "border-right: 600px"
+	border-right: 600px;
+snippet br700 "border-right: 700px"
+	border-right: 700px;
+snippet br800 "border-right: 800px"
+	border-right: 800px;
+snippet br900 "border-right: 900px"
+	border-right: 900px;
+snippet br1e "border-right: 1em"
+	border-right: 1em;
+snippet br2e "border-right: 2em"
+	border-right: 2em;
+snippet br3e "border-right: 3em"
+	border-right: 3em;
+snippet br4e "border-right: 4em"
+	border-right: 4em;
+snippet br5e "border-right: 5em"
+	border-right: 5em;
+snippet br6e "border-right: 6em"
+	border-right: 6em;
+snippet br7e "border-right: 7em"
+	border-right: 7em;
+snippet br8e "border-right: 8em"
+	border-right: 8em;
+snippet br9e "border-right: 9em"
+	border-right: 9em;
+snippet br10e "border-right: 10em"
+	border-right: 10em;
+snippet bcc "border-collapse: collapse"
+	border-collapse: collapse;
+snippet bg "background: ___"
+	background: ${1:#fff url(image.png) no-repeat left top fixed}
+snippet bgp "background-position: ___"
+	background-position: ${1:x y}
+snippet bgi "background-image: ___"
+	background-image: ${1:url()}
+snippet bgc "background-color: ___"
+	background-color: ${1:transparent}
+snippet bgr "background-repeat: ___"
+	background-repeat: ${1:no-repeat}
+snippet bpos "background-position: ___"
+	background-position: ${1:x y}
+snippet bp "background-position: ___"
+	background-position: ${1:x y}
+snippet brx "background-repeat: repeat-x"
+	background-repeat: repeat-x;
+snippet bry "background-repeat: repeat-y"
+	background-repeat: repeat-y;
+snippet bgrx "background-repeat: repeat-x"
+	background-repeat: repeat-x;
+snippet bgry "background-repeat: repeat-y"
+	background-repeat: repeat-y;
+snippet brn "background-repeat: no-repeat"
+	background-repeat: no-repeat;
+snippet bgrn "background-repeat: no-repeat"
+	background-repeat: no-repeat;
+snippet bga "background-attachment: ___"
+	background-attachment: ${1:scroll|fixed|local}
+snippet bgas "background-attachment: scroll"
+	background-attachment: scroll;
+snippet bgaf "background-attachment: fixed"
+	background-attachment: fixed;
+snippet bgal "background-attachment: local"
+	background-attachment: local;
+snippet bgs "background-size: ___"
+	background-size: ${1:auto}
+snippet bgsc "background-size: cover"
+	background-size: cover;
+snippet bgst "background-size: contain"
+	background-size: contain;
+snippet bgsa "background-size: auto"
+	background-size: auto;
+snippet bgcover "background-size: cover"
+	background-size: cover;
+snippet bgclip "background-clip: ___"
+	background-clip: ${1:border-box|padding-box|content-box};
+snippet bgcc "background-clip: content-box"
+	background-clip: content-box;
+snippet bgcp "background-clip: padding-box"
+	background-clip: padding-box;
+snippet bgcb "background-clip: border-box"
+	background-clip: border-box;
+snippet f "font: ___"
+	font: ${1:italic bold 1em/1.5em serif}
+snippet font "font: ___"
+	font: ${1:italic bold 1em/1.5em serif}
+snippet ff "font-family: ___"
+	font-family: ${1:sans-serif}
+snippet fs "font-size: ___"
+	font-size: ${1:1em}
+snippet lh "line-height: ___"
+	line-height: ${1:1.5}
+snippet ls "letter-spacing: ___"
+	letter-spacing: ${1:0}
+snippet hlh "height: ___; line-height: ___"
+	height: ${1:0px};
+snippet fn "font-weight: normal"
+	font-weight: normal;
+snippet fl "float: left"
+	float: left;
+snippet fr "float: right"
+	float: right;
+snippet co "color: ___"
+	color: ${1:#333}
+snippet cl "clear: left"
+	clear: left;
+snippet cr "clear: right"
+	clear: right;
+snippet cb "clear: both"
+	clear: both;
+snippet cd "cursor: default"
+	cursor: default;
+snippet cp "cursor: pointer"
+	cursor: pointer;
+snippet ct "cursor: text"
+	cursor: text;
+snippet cu "cursor: ___"
+	cursor: ${1:default|pointer|text}
+snippet cut "cursor: text"
+	cursor: text;
+snippet cup "cursor: pointer"
+	cursor: pointer;
+snippet cud "cursor: default"
+	cursor: default;
+snippet cuna "cursor: not-allowed"
+	cursor: not-allowed;
+snippet cuew "cursor: ew-resize"
+	cursor: ew-resize;
+snippet cuns "cursor: ns-resize"
+	cursor: ns-resize;
+snippet d "display: ___"
+	display: ${1:none|inline|block}
+snippet di "display: inline"
+	display: inline;
+snippet dn "display: none"
+	display: none;
+snippet db "display: block"
+	display: block;
+snippet dib "display: inline-block"
+	display: inline-block;
+snippet dt "display: table"
+	display: table;
+snippet dtc "display: table-cell"
+	display: table-cell;
+snippet dtr "display: table-row"
+	display: table-row;
+snippet fsn "font-style: normal"
+	font-style: normal;
+snippet fsi "font-style: italic"
+	font-style: italic;
+snippet italic "font-style: italic"
+	font-style: italic;
+snippet fwn "font-weight: normal"
+	font-weight: normal;
+snippet fwb "font-weight: bold"
+	font-weight: bold;
+snippet bold "font-weight: bold"
+	font-weight: bold;
+snippet fw1 "font-weight: 100"
+	font-weight: 100;
+snippet fw3 "font-weight: 300"
+	font-weight: 300;
+snippet fw4 "font-weight: 400"
+	font-weight: 400;
+snippet fw5 "font-weight: 500"
+	font-weight: 500;
+snippet fw7 "font-weight: 700"
+	font-weight: 700;
+snippet fw9 "font-weight: 900"
+	font-weight: 900;
+snippet f1 "font-weight: 100"
+	font-weight: 100;
+snippet f3 "font-weight: 300"
+	font-weight: 300;
+snippet f4 "font-weight: 400"
+	font-weight: 400;
+snippet f5 "font-weight: 500"
+	font-weight: 500;
+snippet f7 "font-weight: 700"
+	font-weight: 700;
+snippet f9 "font-weight: 900"
+	font-weight: 900;
+snippet fi "font-style: italic"
+	font-style: italic;
+snippet fb "font-weight: bold"
+	font-weight: bold;
+snippet va "vertical-align: ___"
+	vertical-align: ${1:top|bottom|baseline|middle}
+snippet vat "vertical-align: top"
+	vertical-align: top;
+snippet vab "vertical-align: bottom"
+	vertical-align: bottom;
+snippet vabl "vertical-align: baseline"
+	vertical-align: baseline;
+snippet vam "vertical-align: middle"
+	vertical-align: middle;
+snippet v "visibility: ___"
+	visibility: ${1:visible|hidden|collapse}
+snippet vh "visibility: hidden"
+	visibility: hidden;
+snippet vv "visibility: visible"
+	visibility: visible;
+snippet vc "visibility: collapse"
+	visibility: collapse;
+snippet tt "text-transform: ___"
+	text-transform: ${1:capitalize|uppercase|lowercase}
+snippet ttu "text-transform: uppercase"
+	text-transform: uppercase;
+snippet ttl "text-transform: lowercase"
+	text-transform: lowercase;
+snippet ttc "text-transform: capitalize"
+	text-transform: capitalize;
+snippet td "text-decoration: ___"
+	text-decoration: ${1:none|underline|strikethrough}
+snippet tdu "text-decoration: underline"
+	text-decoration: underline;
+snippet tdn "text-decoration: none"
+	text-decoration: none;
+snippet tdlt "text-decoration: line-through"
+	text-decoration: line-through;
+snippet ti "text-indent: ___"
+	text-indent: ${1:0}
+snippet ts "text-shadow: ___"
+	text-shadow: ${1:0 1px 0 #333}
+snippet o "overflow: ___"
+	overflow: ${1:hidden|auto|scroll}
+snippet os "overflow: scroll"
+	overflow: scroll;
+snippet oh "overflow: hidden"
+	overflow: hidden;
+snippet oa "overflow: auto"
+	overflow: auto;
+snippet oxs "overflow-x: scroll"
+	overflow-x: scroll;
+snippet oxh "overflow-x: hidden"
+	overflow-x: hidden;
+
+snippet oxa "overflow-x: auto"
+	overflow-x: auto;
+snippet oys "overflow-y: scroll"
+	overflow-y: scroll;
+
+snippet oyh "overflow-y: hidden"
+	overflow-y: hidden;
+snippet oya "overflow-y: auto"
+	overflow-y: auto;
+
+snippet ta "text-align: ___"
+	text-align: ${1:left|right|center|justify}
+snippet tar "text-align: right"
+	text-align: right;
+
+snippet tal "text-align: left"
+	text-align: left;
+snippet tac "text-align: center"
+	text-align: center;
+
+snippet taj "text-align: justify"
+	text-align: justify;
+snippet poa "position: absolute"
+	position: absolute;
+
+snippet pof "position: fixed"
+	position: fixed;
+snippet por "position: relative"
+	position: relative;
+
+snippet pos "position: static"
+	position: static;
+snippet l "left: ___"
+	left: ${1:0}
+
+snippet r "right: ___"
+	right: ${1:0}
+snippet l0 "left: 0"
+	left: 0;
+
+snippet l1 "left: 1px"
+	left: 1px;
+snippet l2 "left: 2px"
+	left: 2px;
+snippet l3 "left: 3px"
+	left: 3px;
+snippet l4 "left: 4px"
+	left: 4px;
+snippet l5 "left: 5px"
+	left: 5px;
+snippet l6 "left: 6px"
+	left: 6px;
+snippet l7 "left: 7px"
+	left: 7px;
+snippet l8 "left: 8px"
+	left: 8px;
+snippet l9 "left: 9px"
+	left: 9px;
+snippet l10 "left: 10px"
+	left: 10px;
+snippet l11 "left: 11px"
+	left: 11px;
+snippet l12 "left: 12px"
+	left: 12px;
+snippet l13 "left: 13px"
+	left: 13px;
+snippet l14 "left: 14px"
+	left: 14px;
+snippet l15 "left: 15px"
+	left: 15px;
+snippet l20 "left: 20px"
+	left: 20px;
+snippet l30 "left: 30px"
+	left: 30px;
+snippet l40 "left: 40px"
+	left: 40px;
+snippet l50 "left: 50px"
+	left: 50px;
+snippet l60 "left: 60px"
+	left: 60px;
+snippet l70 "left: 70px"
+	left: 70px;
+snippet l80 "left: 80px"
+	left: 80px;
+snippet l90 "left: 90px"
+	left: 90px;
+snippet l200 "left: 200px"
+	left: 200px;
+snippet l300 "left: 300px"
+	left: 300px;
+snippet l400 "left: 400px"
+	left: 400px;
+snippet l500 "left: 500px"
+	left: 500px;
+snippet l600 "left: 600px"
+	left: 600px;
+snippet l700 "left: 700px"
+	left: 700px;
+snippet l800 "left: 800px"
+	left: 800px;
+snippet l900 "left: 900px"
+	left: 900px;
+snippet l1e "left: 1em"
+	left: 1em;
+snippet l2e "left: 2em"
+	left: 2em;
+snippet l3e "left: 3em"
+	left: 3em;
+snippet l4e "left: 4em"
+	left: 4em;
+snippet l5e "left: 5em"
+	left: 5em;
+snippet l6e "left: 6em"
+	left: 6em;
+snippet l7e "left: 7em"
+	left: 7em;
+snippet l8e "left: 8em"
+	left: 8em;
+snippet l9e "left: 9em"
+	left: 9em;
+snippet l10e "left: 10em"
+	left: 10em;
+snippet r0 "right: 0"
+	right: 0;
+snippet r1 "right: 1px"
+	right: 1px;
+snippet r2 "right: 2px"
+	right: 2px;
+snippet r3 "right: 3px"
+	right: 3px;
+snippet r4 "right: 4px"
+	right: 4px;
+snippet r5 "right: 5px"
+	right: 5px;
+snippet r6 "right: 6px"
+	right: 6px;
+snippet r7 "right: 7px"
+	right: 7px;
+snippet r8 "right: 8px"
+	right: 8px;
+snippet r9 "right: 9px"
+	right: 9px;
+snippet r10 "right: 10px"
+	right: 10px;
+snippet r11 "right: 11px"
+	right: 11px;
+snippet r12 "right: 12px"
+	right: 12px;
+snippet r13 "right: 13px"
+	right: 13px;
+snippet r14 "right: 14px"
+	right: 14px;
+snippet r15 "right: 15px"
+	right: 15px;
+snippet r20 "right: 20px"
+	right: 20px;
+snippet r30 "right: 30px"
+	right: 30px;
+snippet r40 "right: 40px"
+	right: 40px;
+snippet r50 "right: 50px"
+	right: 50px;
+snippet r60 "right: 60px"
+	right: 60px;
+snippet r70 "right: 70px"
+	right: 70px;
+snippet r80 "right: 80px"
+	right: 80px;
+snippet r90 "right: 90px"
+	right: 90px;
+snippet r200 "right: 200px"
+	right: 200px;
+snippet r300 "right: 300px"
+	right: 300px;
+snippet r400 "right: 400px"
+	right: 400px;
+snippet r500 "right: 500px"
+	right: 500px;
+snippet r600 "right: 600px"
+	right: 600px;
+snippet r700 "right: 700px"
+	right: 700px;
+snippet r800 "right: 800px"
+	right: 800px;
+snippet r900 "right: 900px"
+	right: 900px;
+snippet r1e "right: 1em"
+	right: 1em;
+snippet r2e "right: 2em"
+	right: 2em;
+snippet r3e "right: 3em"
+	right: 3em;
+snippet r4e "right: 4em"
+	right: 4em;
+snippet r5e "right: 5em"
+	right: 5em;
+snippet r6e "right: 6em"
+	right: 6em;
+snippet r7e "right: 7em"
+	right: 7em;
+snippet r8e "right: 8em"
+	right: 8em;
+snippet r9e "right: 9em"
+	right: 9em;
+snippet r10e "right: 10em"
+	right: 10em;
+snippet t "top: ___"
+	top: ${1:0}
+snippet t0 "top: 0"
+	top: 0;
+snippet t1 "top: 1px"
+	top: 1px;
+snippet t2 "top: 2px"
+	top: 2px;
+snippet t3 "top: 3px"
+	top: 3px;
+snippet t4 "top: 4px"
+	top: 4px;
+snippet t5 "top: 5px"
+	top: 5px;
+snippet t6 "top: 6px"
+	top: 6px;
+snippet t7 "top: 7px"
+	top: 7px;
+snippet t8 "top: 8px"
+	top: 8px;
+snippet t9 "top: 9px"
+	top: 9px;
+snippet t10 "top: 10px"
+	top: 10px;
+snippet t11 "top: 11px"
+	top: 11px;
+snippet t12 "top: 12px"
+	top: 12px;
+snippet t13 "top: 13px"
+	top: 13px;
+snippet t14 "top: 14px"
+	top: 14px;
+snippet t15 "top: 15px"
+	top: 15px;
+snippet t20 "top: 20px"
+	top: 20px;
+snippet t30 "top: 30px"
+	top: 30px;
+snippet t40 "top: 40px"
+	top: 40px;
+snippet t50 "top: 50px"
+	top: 50px;
+snippet t60 "top: 60px"
+	top: 60px;
+snippet t70 "top: 70px"
+	top: 70px;
+snippet t80 "top: 80px"
+	top: 80px;
+snippet t90 "top: 90px"
+	top: 90px;
+snippet t200 "top: 200px"
+	top: 200px;
+snippet t300 "top: 300px"
+	top: 300px;
+snippet t400 "top: 400px"
+	top: 400px;
+snippet t500 "top: 500px"
+	top: 500px;
+snippet t600 "top: 600px"
+	top: 600px;
+snippet t700 "top: 700px"
+	top: 700px;
+snippet t800 "top: 800px"
+	top: 800px;
+snippet t900 "top: 900px"
+	top: 900px;
+snippet t1e "top: 1em"
+	top: 1em;
+snippet t2e "top: 2em"
+	top: 2em;
+snippet t3e "top: 3em"
+	top: 3em;
+snippet t4e "top: 4em"
+	top: 4em;
+snippet t5e "top: 5em"
+	top: 5em;
+snippet t6e "top: 6em"
+	top: 6em;
+snippet t7e "top: 7em"
+	top: 7em;
+snippet t8e "top: 8em"
+	top: 8em;
+snippet t9e "top: 9em"
+	top: 9em;
+snippet t10e "top: 10em"
+	top: 10em;
+snippet lt "left: ___; top: ___"
+	left: ${1:0};
+snippet lb "left: ___; bottom: ___"
+	left: ${1:0};
+snippet rt "right: ___; top: ___"
+	right: ${1:0};
+snippet rb "right: ___; bottom: ___"
+	right: ${1:0};
+snippet zi "z-index: ___"
+	z-index: ${1:1}
+snippet tl "table-layout: ___"
+	table-layout: ${1:fixed|auto}
+snippet tlf "table-layout: fixed"
+	table-layout: fixed;
+snippet tla "table-layout: auto"
+	table-layout: auto;
+snippet nr "no-repeat"
+	no-repeat
+snippet rx "repeat-x"
+	repeat-x
+snippet ry "repeat-y"
+	repeat-y
+snippet ra "rgba(___, ___)"
+	rgba(${1:0, 0, 0}, ${2:0.5})
+snippet @portrait "@media (max-width: 480px) /* portrait */"
+	@media (max-width: 480px) { /* portrait */
+	  ${0}
+	}
+snippet @phone "@media (max-width: 768px) /* phone */"
+	@media (max-width: 768px) { /* phone */
+	  ${0}
+	}
+snippet @mobile "@media (max-width: 992px) /* mobile */"
+	@media (max-width: 992px) { /* mobile */
+	  ${0}
+	}
+snippet @nondesktop "@media (max-width: 1200px) /* phone, tablet, laptop */"
+	@media (max-width: 1200px) { /* phone, tablet, laptop */
+	  ${0}
+	}
+snippet @tablet "@media (min-width: 769px) /* tablet, desktop */"
+	@media (min-width: 769px) { /* tablet, desktop */
+	  ${0}
+	}
+snippet @laptop "@media (min-width: 993px) /* laptop */"
+	@media (min-width: 993px) { /* laptop */
+	  ${0}
+	}
+snippet @desktop "@media (min-width: 1201px) /* desktop */"
+	@media (min-width: 1201px) { /* desktop */
+	  ${0}
+	}
+snippet @mmw
+	@media (min-width: ${1:480}px) { 
+	  ${0}
+	}
+snippet @mw
+	@media (min-width: ${1:480}px) { 
+	  ${0}
+	}
+snippet @m
+	@media (min-width: ${1:480}px) { 
+	  ${0}
+	}
+snippet btlr "border-top-left-radius: ___"
+	border-top-left-radius: ${1:3px}
+snippet btrr "border-top-right-radius: ___"
+	border-top-right-radius: ${1:3px}
+snippet bblr "border-bottom-left-radius: ___"
+	border-bottom-left-radius: ${1:3px}
+
+snippet bbrr "border-bottom-right-radius: ___"
+	border-bottom-right-radius: ${1:3px}
+snippet btr "border-top-left-radius: ___; border-top-right-radius: ___"
+	border-top-left-radius: ${1:3px};
+
+snippet bbr "border-bottom-left-radius: ___; border-bottom-right-radius: ___"
+	border-bottom-left-radius: ${1:3px};
+snippet blr "border-top-left-radius: ___; border-bottom-left-radius: ___"
+	border-top-left-radius: ${1:3px};
+snippet brr "border-top-right-radius: ___; border-bottom-right-radius: ___"
+	border-top-right-radius: ${1:3px};
+snippet bsb "box-sizing: border-box"
+	box-sizing: border-box;
+snippet bsp "box-sizing: padding-box"
+	box-sizing: padding-box;
+snippet tst "transition: ___"
+	transition: ${1:all 300ms ease}
+snippet tf "transform: ___"
+	transform: ${1:scale(1.0)}
+snippet op "opacity: ___"
+	opacity: ${1:0}
+snippet us "user-select: ___"
+	user-select: ${1:none|text|toggle|element|elements|all}
+snippet usa "user-select: all"
+	user-select: all;
+snippet ust "user-select: text"
+	user-select: text;
+snippet usn "user-select: none"
+	user-select: none;
+snippet an "animation: ___"
+	animation: ${1:name 300ms linear infinite}
