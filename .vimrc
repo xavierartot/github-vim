@@ -105,8 +105,8 @@ Plugin 'mattn/webapi-vim'
 "Plugin 'mattn/gist-vim'
 
 "WordPress & PHP
-"Plugin 'dsawardekar/wordpress.vim' 
-"Plugin 'StanAngeloff/php.vim'
+Plugin 'dsawardekar/wordpress.vim' 
+Plugin 'StanAngeloff/php.vim'
 
 "open a word or a link in the browser
 Plugin 'tyru/open-browser.vim'
@@ -155,11 +155,13 @@ set autowrite
 
 "set backupcopy=yes
 "set backupdir=$HOME/.vim/backup
-"set nobackup
-"set nowritebackup
-set directory=~/.vim/swap,~/tmp,.
-set swapfile
-set dir=~/tmp
+"set directory=~/.vim/swap,~/tmp,.
+"set swapfile
+"set dir=~/tmp
+
+set noswapfile
+set nowritebackup
+set nobackup
 
 "http://nathan-long.com/blog/vim-a-few-of-my-favorite-things/
 if exists("&undodir")
@@ -356,14 +358,14 @@ let g:airline_symbols.paste = 'Þ'
 
 set t_Co=256
 
-" manage by tab
-"nmap tt :tabedit<Space>
 
 "https://www.youtube.com/watch?v=XA2WjJbmmoM
 "search down into subfolders
 "provide tab completion for all file related tasks
 set path+=**
-nnoremap tt :find<Space>
+"nnoremap tt :find<Space>
+" manage by tab
+nmap tt :tabedit<Space>
 
 nnoremap Z :bp<CR>
 nnoremap X :bn<CR>
@@ -650,7 +652,7 @@ nmap <leader>l  <Plug>(openbrowser-smart-search)
 nmap <leader>`  :TernDocBrowse<CR>
 "let g:investigate_url_for_js="https://developer.mozilla.org/fr/search?q="
 "OPEN DOCUMENTATION plugin devdoc
-nmap z <Plug>(devdocs-under-cursor)
+nmap <leader>z <Plug>(devdocs-under-cursor)
 "open documentation only with react
 command! -nargs=* DevDocsReact call devdocs#open_doc(<q-args>, 'react')
 command! -nargs=* DevDocsJavascript call devdocs#open_doc(<q-args>, 'javascript')
