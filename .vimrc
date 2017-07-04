@@ -1,7 +1,11 @@
-filetype off
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -69,6 +73,9 @@ Plugin 'moll/vim-node'
 Plugin 'jaxbot/browserlink.vim' 
 
 Plugin 'scrooloose/nerdtree'
+"Ranger
+"Plugin 'francoiscabrol/ranger.vim' 
+
 "comment
 Plugin 'scrooloose/nerdcommenter'
 
@@ -122,13 +129,11 @@ Plugin 'rhysd/devdocs.vim'
 "Plugin 'iadept/vim-gtranslate' 
 
 " All of your Plugins must be added before the following line
-call vundle#end() " required
+call vundle#end()            " required
+filetype plugin indent on    " required
 
-
-filetype plugin indent on " required
 filetype indent on
 syntax on
-
 
 "https://github.com/xavierartot/spf13-vim/blob/3.0/.vimrc
 "set cursorline                  " Highlight current line
@@ -153,15 +158,15 @@ set shiftwidth=2
 set autoread
 set autowrite
 
-"set backupcopy=yes
-"set backupdir=$HOME/.vim/backup
-"set directory=~/.vim/swap,~/tmp,.
-"set swapfile
-"set dir=~/tmp
+set backupcopy=yes
+set backupdir=$HOME/.vim/backup
+set directory=~/.vim/swap,~/tmp,.
+set swapfile
+set dir=~/tmp
 
-set noswapfile
-set nowritebackup
-set nobackup
+"set noswapfile
+"set nowritebackup
+"set nobackup
 
 "http://nathan-long.com/blog/vim-a-few-of-my-favorite-things/
 if exists("&undodir")
@@ -363,12 +368,18 @@ set t_Co=256
 "search down into subfolders
 "provide tab completion for all file related tasks
 set path+=**
-"nnoremap tt :find<Space>
 " manage by tab
 nmap tt :tabedit<Space>
 
+
 nnoremap Z :bp<CR>
 nnoremap X :bn<CR>
+nnoremap <Leader>[ :bp<CR>
+nnoremap <Leader>] :bn<CR>
+
+nnoremap - g;<CR>
+nnoremap + g,<CR>
+
 " type <Space>w to save file (lot faster than :w<Enter>):
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :bd<CR>
@@ -391,8 +402,6 @@ let g:mta_filetypes = { 'ts' : 1, 'javascript' : 1,'html' : 1, 'xhtml' : 1, 'xml
 " visual mode
 nnoremap v <C-V>
 nnoremap <C-V> v
-"xnoremap v <C-V>
-"xnoremap <C-V> v
 nnoremap <Leader>v V
 " Fix linewise visual selection of various text objects
 "nnoremap VV V
@@ -409,11 +418,17 @@ nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(st
 
 
 "folding settings
-"`za` - toggles; `zc` - closes; `zo` - opens; `zR` - open all; `zM` - close all
+"`za` - toggles; 
+"`zc` - closes; 
+"`zo` - opens; 
+"`zR` - open all; 
+"`zM` - close all
 set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
+"set foldmethod=manual
+"set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
+"set foldlevel=1         "this is just what i use
+"set foldcolumn=1
 "FOLD
 "set foldlevel=100
 "set foldmethod=marker
@@ -660,7 +675,7 @@ command! -nargs=* DevDocsUnderscore call devdocs#open_doc(<q-args>, 'underscore'
 command! -nargs=* DevDocsSass call devdocs#open_doc(<q-args>, 'sass')
 command! -nargs=* DevDocsGit call devdocs#open_doc(<q-args>, 'git')
 command! -nargs=* DevDocsjQuery call devdocs#open_doc(<q-args>, 'jquery')
-command! -nargs=* DevDocsMarkdown call devdocs#open_doc(<q-args>, 'markdown')
+"command! -nargs=* DevDocsMarkdown call devdocs#open_doc(<q-args>, 'markdown')
 command! -nargs=* DevDocsModernizr call devdocs#open_doc(<q-args>, 'modernizr')
 command! -nargs=* DevDocsHtml call devdocs#open_doc(<q-args>, 'html')
 command! -nargs=* DevDocsD3 call devdocs#open_doc(<q-args>, 'd3')
@@ -720,3 +735,8 @@ augroup sparkup_types
   " Add sparkup to new filetypes
   autocmd FileType mustache,php,javascript,jsx runtime! ftplugin/html/sparkup.vim
 augroup END
+
+"remap viB and vaB 
+noremap vib viB
+noremap vab vaB
+
