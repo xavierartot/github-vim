@@ -1,4 +1,4 @@
-set nocompatible              " be iMproved, required
+"set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -13,13 +13,10 @@ Plugin 'rizzatti/funcoo.vim'
 
 "Hardtime helps you break that annoying habit vimmers have of scrolling up and down the page using jjjjj and kkkkk but without compromising the rest of our vim experience.
 Plugin 'takac/vim-hardtime' 
-"Plugin 'Markdown'
-"Plugin 'JamshedVesuna/vim-markdown-preview' 
 Plugin 'suan/vim-instant-markdown' 
 
-Plugin 'fugitive.vim'
+
 Plugin 'ragtag.vim'
-Plugin 'gmarik/vundle'
 
 "highlight a word
 Plugin 'vasconcelloslf/vim-interestingwords'
@@ -29,8 +26,7 @@ Plugin 'fadein/vim-FIGlet'
 
 "css
 Plugin 'rstacruz/vim-ultisnips-css'
-"Plugin 'rstacruz/vim-hyperstyle'
-Plugin 'gorodinskiy/vim-coloresque.git'
+Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'wavded/vim-stylus' 
 
 "auto complete
@@ -39,17 +35,14 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 "YouCompleteMe: brew install cmake
-"Plugin 'Valloric/YouCompleteMe' 
 "autocompletion with the tab for all langage
-Plugin 'ervandew/supertab'  
+"Plugin 'ervandew/supertab'  
 
-"http://www.terminally-incoherent.com/blog/2014/04/02/3-tiny-vim-plugins-that-will-make-your-life-easier/
 "syntax
-Plugin 'scrooloose/syntastic'
 
 Plugin 'tmhedberg/matchit'
 Plugin 'Townk/vim-autoclose'
-Plugin 'tpope/vim-obsession.git'
+Plugin 'tpope/vim-obsession'
 Plugin 'bling/vim-airline'
 Plugin 'tristen/vim-sparkup'
 
@@ -73,8 +66,6 @@ Plugin 'moll/vim-node'
 Plugin 'jaxbot/browserlink.vim' 
 
 Plugin 'scrooloose/nerdtree'
-"Ranger
-"Plugin 'francoiscabrol/ranger.vim' 
 
 "comment
 Plugin 'scrooloose/nerdcommenter'
@@ -83,33 +74,25 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Xuyuanp/nerdtree-git-plugin' 
+Plugin 'fugitive.vim'
 
 "file
 Plugin 'ctrlpvim/ctrlp.vim'
 
 "jade
 Plugin 'digitaltoad/vim-pug'
+"daltoad/vim-jade
 
 "visual increment a column visual-increment.vim - 
 "use CTRL+A/X to create increasing sequence of numbers or letters via visual mode
 Plugin 'triglav/vim-visual-increment'
 
-"Arduino
-"Plugin '4Evergreen4/vim-hardy' 
-
 "JSON
 Plugin 'elzr/vim-json'
 
-"CTAGS
-"https://github.com/craigemery/vim-autotag
-"Plugin 'craigemery/vim-autotag' 
-"https://github.com/ludovicchabant/vim-gutentags
-"Plugin 'ludovicchabant/vim-gutentags' 
-
-
 "write a gist file
 Plugin 'mattn/webapi-vim'
-"Plugin 'mattn/gist-vim'
+Plugin 'mattn/gist-vim'
 
 "WordPress & PHP
 Plugin 'dsawardekar/wordpress.vim' 
@@ -122,19 +105,26 @@ Plugin 'tyru/open-browser.vim'
 Plugin 'keith/investigate.vim' 
 "devdoc.io
 Plugin 'rhysd/devdocs.vim'  
-"nice icons in NERDTree
-"Plugin 'ryanoasis/vim-devicons'
 
+"multi cursor
+Plugin 'terryma/vim-multiple-cursors'
 "Translate
 "Plugin 'iadept/vim-gtranslate' 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-filetype indent on
 syntax on
 
+"CTAGS
+"https://github.com/craigemery/vim-autotag
+"Plugin 'craigemery/vim-autotag' 
+"https://github.com/ludovicchabant/vim-gutentags
+"Plugin 'ludovicchabant/vim-gutentags' 
+"
+"Arduino
+"Plugin '4Evergreen4/vim-hardy' 
+"
 "https://github.com/xavierartot/spf13-vim/blob/3.0/.vimrc
 "set cursorline                  " Highlight current line
 "highlight clear SignColumn      " SignColumn should match background
@@ -148,8 +138,6 @@ set bg=light
 
 
 "set smartindent
-set autoindent
-set smartindent
 set expandtab
 set tabstop=2
 set smarttab
@@ -160,9 +148,9 @@ set autowrite
 
 set backupcopy=yes
 set backupdir=$HOME/.vim/backup
-set directory=~/.vim/swap,~/tmp,.
-set swapfile
-set dir=~/tmp
+set directory=~/.vim/backup
+set noswapfile
+set dir=~/.vim/tmp
 
 "set noswapfile
 "set nowritebackup
@@ -288,28 +276,8 @@ let NERDTreeShowHidden    = 1
 " powerline
 let g:Powerline_symbols = 'fancy'
 
-" syntastic
-" When writing a file, if there are errors, have Syntastic plugin mark them
-let g:syntastic_enable_signs       = 1
-let g:syntastic_auto_loc_list      = 1
-"let g:syntastic_disabled_filetypes = ['html', 'sass', 'less']
-let g:syntastic_stl_format         = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
-let g:syntastic_jsl_conf           = '$HOME/.jshintrc'
-let g:syntastic_jshint_conf        = '$HOME/.jshintrc'
-let syntastic_mode_map = { 'passive_filetypes': ['html'] } " turn off html
-" hide the error for ng-*
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-let g:syntastic_less_checkers = ['']
-
-let g:syntastic_php_phpcs_args = '--standard=WordPress-Core'
-
-" This does what it says on the tin. It will check your file on open too, not just on save.
-" You might not want this, so just leave it out if you don't.
-let g:syntastic_check_on_open=1
-
 "React  https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-let g:syntastic_javascript_checkers = ['eslint']
 
 " https://www.reddit.com/r/vim/comments/2t4axi/open_a_less_file_without_the_extension/
 autocmd FileType less setlocal suffixesadd=.less
@@ -323,8 +291,6 @@ augroup markdown
   au! BufNewFile,BufRead *.md,*.markdown,*.mmd setlocal filetype=markdown
   au BufNewFile,BufRead *.md,*.markdown,*.mmd UltiSnipsAddFiletypes markdown
 augroup END
-
-"stylus file
 
 "se deplace entre les fenetres
 nnoremap <C-J> <C-W><C-J>
@@ -533,37 +499,22 @@ let g:used_javascript_libs = 'jQuery,AngularJS,AngularUI,AngularUI Router,React'
 " ----------------------------------------------------------------------------
 " Filetypes
 " ----------------------------------------------------------------------------
-if has("autocmd")
-  " Enable file type detection
-  filetype on
+" Treat .rss files as XML
+autocmd BufNewFile,BufRead *.rss setfiletype xml
 
-  " Syntax of these languages is fussy over tabs Vs spaces
-  "autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-  "autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-  "autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+"" .md files are markdown files
+"autocmd BufNewFile,BufRead *.md setlocal ft=markdown
 
-  " Customisations based on house-style (arbitrary)
-  " autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-  " autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-  " autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+" .twig files use HTML syntax
+" autocmd BufNewFile,BufRead *.twig setlocal ft=html
 
-  " Treat .rss files as XML
-  autocmd BufNewFile,BufRead *.rss setfiletype xml
+" .jade files use Jade syntax
+autocmd BufNewFile,BufRead *.jade setlocal ft=pug
 
-  "" .md files are markdown files
-  "autocmd BufNewFile,BufRead *.md setlocal ft=markdown
-
-  " .twig files use HTML syntax
-  " autocmd BufNewFile,BufRead *.twig setlocal ft=html
-
-  " .jade files use Jade syntax
-  autocmd BufNewFile,BufRead *.jade setlocal ft=pug
-
-  " .styl files use Stylus syntax
-  autocmd BufNewFile,BufReadPost *.styl set filetype=stylus
-  autocmd BufNewFile,BufReadPost *.css set filetype=css
-  autocmd BufNewFile,BufRead *.styl set filetype=stylus
-endif
+" .styl files use Stylus syntax
+autocmd BufNewFile,BufReadPost *.styl set filetype=stylus
+autocmd BufNewFile,BufReadPost *.css set filetype=css
+autocmd BufNewFile,BufRead *.styl set filetype=stylus
 
 "Highlights plugin, I changed the value directly in the plugin
 "line 223
@@ -574,85 +525,6 @@ nnoremap <silent> N :call WordNavigation('backward')<cr>
 let g:interestingWordsGUIColors = ['#aeee00', '#8cffba', '#b88853 ', '#ff9eb8 ', '#ff2c4b ', '#ffa724 ']
 let g:interestingWordsRandomiseColors = 1
 
-"Plugin interestingwords
-"nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
-"nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
-"nnoremap <silent> n :call WordNavigation('forward')<cr>
-"nnoremap <silent> N :call WordNavigation('backward')<cr>
-"let g:interestingWordsGUIColors = ['#99B3FF', '#B399FF', '#E699FF', '#FF99B3', '#99FFE6', '#FFD65C', '#99FFB3', '#E6FF99', '#FFB399', '#5CD6FF', '#99FF99', '#FFF6CC']
-
-""""""""""""""""""""""""""""""""""""""""""""AUTOCOMPLETE Youclompleteme and UltiSnips
-""neocomplete
-""let g:neocomplete#enable_at_startup = 1
-""
-""autocomplete 
-""let g:UltiSnipsExpandTrigger = "<nop>"
-""inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" : "\<CR>"
-
-""YouCompleteMe
-""if you trigger ./ the file come in the menu
-""Ctrl + %20 display the documention et autocompletion
-""
-"":h complete_ctrl-y
-"let g:ycm_min_num_of_chars_for_completion = 0
-"let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
-"let g:ycm_autoclose_preview_window_after_insertion = 1
-"let g:ycm_autoclose_preview_window_after_completion = 1
-""let g:ycm_completion_confirm_key = '<CR>'
-"inoremap <expr> <Enter> pumvisible() ? "<Esc>a" : "<Enter>"
-""let g:ycm_add_preview_to_completeopt = 1
-""set completeopt-=preview
-
-""nnoremap <c-I>:let g:ycm_auto_trigger=0<CR>    " turn off YCM
-""nnoremap <c-i>:let g:ycm_auto_trigger=1<CR>    "turn on YCM
-""invoque the completion 
-"let g:ycm_key_invoke_completion = '<C-Space>'
-
-""let g:ycm_key_list_previous_completion=["<S-tab>"]
-""https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support#vim 
-""typescript
-"if !exists("g:ycm_semantic_triggers")
-"  let g:ycm_semantic_triggers = {}
-"endif
-"let g:ycm_semantic_triggers['typescript'] = ['.']
-"  let g:ycm_filetype_blacklist = {
-"        \ 'tagbar' : 1,
-"        \ 'qf' : 1,
-"        \ 'notes' : 1,
-"        \ 'markdown' : 0,
-"        \ 'unite' : 1,
-"        \ 'vimwiki' : 1,
-"        \ 'pandoc' : 1,
-"        \ 'infolog' : 1,
-"        \ 'mail' : 1
-"        \}
-"" If you want :UltiSnipsEdit to split your window.
-"let g:UltiSnipsEditSplit="vertical"
-""name a dir
-"let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-snippets/snippets"
-""let g:UltiSnipsSnippetDirectories=["snippets"]
-
-"let g:UltiSnipsExpandTrigger = "<c-j>"
-"let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-"let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-
-
-"" autocompletion by langage: <C-xo>
-"set omnifunc=syntaxcomplete#Complete
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-""autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-"" autocomplete Tern, work will with npm install jshint -g
-"let g:tern_map_keys=1
-"let g:tern_show_argument_hints="on_hold"
-""http://lanyrd.com/2013/insert-mode-features-and-ternvim/schpdr/#link-rpxy
-""other mapping 
-"":TernDef
-"":TernDocBrowse  jump to the documentation
-
-"""""""""""""""""" end autocomplete
 
 " OPEN BROWSER
 " http://www.vim.org/scripts/script.php?script_id=3133
@@ -728,6 +600,15 @@ let g:hardtime_showmsg = 1
 "Plugin 'fadein/vim-FIGlet'
 let g:filgetOpts = '/Library/Fonts'
 
+
+" AUTOCOMMANDS (autos)
+" """"""""""""
+
+" - Autocommand groups are good for organization but they can be useful
+"   for debugging too. Think of them as small namespaces that you
+"   can enable/disable at will.
+" - See ':help autocommand'.
+
 "sparkup
 augroup sparkup_types
   " Remove ALL autocommands of the current group.
@@ -736,7 +617,16 @@ augroup sparkup_types
   autocmd FileType mustache,php,javascript,jsx runtime! ftplugin/html/sparkup.vim
 augroup END
 
+let g:sparkupNextMapping = '<c-1>'
+
 "remap viB and vaB 
 noremap vib viB
 noremap vab vaB
 
+"multi cursor pluggin
+"let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-k>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
