@@ -1,0 +1,589 @@
+snippet jadd
+	${1:obj}.add('${2:selector expression}')
+snippet jaddClass
+	${1:obj}.addClass('${2:class name}')
+snippet jafter
+	${1:obj}.after('${2:Some text <b>and bold!</b>}')
+snippet jajax
+	$.ajax({
+		url: '${1:mydomain.com/url}',
+		type: '${2:POST}',
+		dataType: '${3:xml/html/script/json}',
+		data: $.param( $('${4:Element or Expression}') ),
+		complete: function (jqXHR, textStatus) {
+			${5:// callback}
+		},
+		success: function (data, textStatus, jqXHR) {
+			${6:// success callback}
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			${0:// error callback}
+		}
+	});
+snippet jajaxcomplete
+	${1:obj}.ajaxComplete(function (${1:e}, xhr, settings) {
+		${0:// callback}
+	});
+snippet jajaxerror
+	${1:obj}.ajaxError(function (${1:e}, xhr, settings, thrownError) {
+		${2:// error callback}
+	});
+	${0}
+snippet jajaxget
+	$.get('${1:mydomain.com/url}',
+		${2:{ param1: value1 },}
+		function (data, textStatus, jqXHR) {
+			${0:// success callback}
+		}
+	);
+snippet jajaxpost
+	$.post('${1:mydomain.com/url}',
+		${2:{ param1: value1 },}
+		function (data, textStatus, jqXHR) {
+			${0:// success callback}
+		}
+	);
+snippet jajaxprefilter
+	$.ajaxPrefilter(function (${1:options}, ${2:originalOptions}, jqXHR) {
+		${0: // Modify options, control originalOptions, store jqXHR, etc}
+	});
+snippet jajaxsend
+	${1:obj}.ajaxSend(function (${1:request, settings}) {
+		${2:// error callback}
+	});
+	${0}
+snippet jajaxsetup
+	$.ajaxSetup({
+		url: "${1:mydomain.com/url}",
+		type: "${2:POST}",
+		dataType: "${3:xml/html/script/json}",
+		data: $.param( $("${4:Element or Expression}") ),
+		complete: function (jqXHR, textStatus) {
+			${5:// callback}
+		},
+		success: function (data, textStatus, jqXHR) {
+			${6:// success callback}
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			${0:// error callback}
+		}
+	});
+snippet jajaxstart
+	$.ajaxStart(function () {
+		${1:// handler for when an AJAX call is started and no other AJAX calls are in progress};
+	});
+	${0}
+snippet jajaxstop
+	$.ajaxStop(function () {
+		${1:// handler for when all AJAX calls have been completed};
+	});
+	${0}
+snippet jajaxsuccess
+	$.ajaxSuccess(function (${1:e}, xhr, settings) {
+		${2:// handler for when any AJAX call is successfully completed};
+	});
+	${0}
+snippet jandself
+	${1:obj}.andSelf()
+snippet janimate
+	${1:obj}.animate({${2:param1: value1, param2: value2}}, ${3:speed})
+snippet jappend
+	${1:obj}.append('${2:Some text <b>and bold!</b>}')
+snippet jappendTo
+	${1:obj}.appendTo('${2:selector expression}')
+snippet jattr
+	${1:obj}.attr('${2:attribute}', '${3:value}')
+snippet jattrm
+	${1:obj}.attr({'${2:attr1}': '${3:value1}', '${4:attr2}': '${5:value2}'})
+snippet jbefore
+	${1:obj}.before('${2:Some text <b>and bold!</b>}')
+snippet jbind
+	${1:obj}.bind('${2:event name}', function (${3:e}) {
+		${0:// event handler}
+	});
+snippet jblur
+	${1:obj}.blur(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jC
+	$.Callbacks()
+snippet jCadd
+	${1:callbacks}.add(${2:callbacks})
+snippet jCdis
+	${1:callbacks}.disable()
+snippet jCempty
+	${1:callbacks}.empty()
+snippet jCfire
+	${1:callbacks}.fire(${2:args})
+snippet jCfired
+	${1:callbacks}.fired()
+snippet jCfirew
+	${1:callbacks}.fireWith(${2:this}, ${3:args})
+snippet jChas
+	${1:callbacks}.has(${2:callback})
+snippet jClock
+	${1:callbacks}.lock()
+snippet jClocked
+	${1:callbacks}.locked()
+snippet jCrem
+	${1:callbacks}.remove(${2:callbacks})
+snippet jchange
+	${1:obj}.change(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jchildren
+	${1:obj}.children('${2:selector expression}')
+snippet jclearq
+	${1:obj}.clearQueue(${2:'queue name'})
+snippet jclick
+	${1:obj}.click(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jclone
+	${1:obj}.clone()
+snippet jcontains
+	$.contains(${1:container}, ${0:contents});
+snippet jcss
+	${1:obj}.css('${2:attribute}', '${3:value}')
+snippet jcsshooks
+	$.cssHooks['${1:CSS prop}'] = {
+		get: function (elem, computed, extra) {
+			${2: // handle getting the CSS property}
+		},
+		set: function (elem, value) {
+			${0: // handle setting the CSS value}
+		}
+	};
+snippet jcssm
+	${1:obj}.css({${2:attribute1}: '${3:value1}', ${4:attribute2}: '${5:value2}'})
+snippet jD
+	$.Deferred()
+snippet jDalways
+	${1:deferred}.always(${2:callbacks})
+snippet jDdone
+	${1:deferred}.done(${2:callbacks})
+snippet jDfail
+	${1:deferred}.fail(${2:callbacks})
+snippet jDisrej
+	${1:deferred}.isRejected()
+snippet jDisres
+	${1:deferred}.isResolved()
+snippet jDnotify
+	${1:deferred}.notify(${2:args})
+snippet jDnotifyw
+	${1:deferred}.notifyWith(${2:this}, ${3:args})
+snippet jDpipe
+	${1:deferred}.then(${2:doneFilter}, ${3:failFilter}, ${4:progressFilter})
+snippet jDprog
+	${1:deferred}.progress(${2:callbacks})
+snippet jDprom
+	${1:deferred}.promise(${2:target})
+snippet jDrej
+	${1:deferred}.reject(${2:args})
+snippet jDrejw
+	${1:deferred}.rejectWith(${2:this}, ${3:args})
+snippet jDres
+	${1:deferred}.resolve(${2:args})
+snippet jDresw
+	${1:deferred}.resolveWith(${2:this}, ${3:args})
+snippet jDstate
+	${1:deferred}.state()
+snippet jDthen
+	${1:deferred}.then(${2:doneCallbacks}, ${3:failCallbacks}, ${4:progressCallbacks})
+snippet jDwhen
+	$.when(${1:deferreds})
+snippet jdata
+	${1:obj}.data(${2:obj})
+snippet jdataa
+	$.data('${1:selector expression}', '${2:key}'${3:, 'value'})
+snippet jdblclick
+	${1:obj}.dblclick(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jdelay
+	${1:obj}.delay('${2:slow/400/fast}'${3:, 'queue name'})
+snippet jdele
+	${1:obj}.delegate('${2:selector expression}', '${3:event name}', function (${4:e}) {
+		${0:// event handler}
+	});
+snippet jdeq
+	${1:obj}.dequeue(${2:'queue name'})
+snippet jdeqq
+	$.dequeue('${1:selector expression}'${2:, 'queue name'})
+snippet jdetach
+	${1:obj}.detach('${2:selector expression}')
+snippet jdie
+	${1:obj}.die(${2:event}, ${3:handler})
+snippet jeach
+	${1:obj}.each(function (index) {
+		${0:this.innerHTML = this + " is the element, " + index + " is the position";}
+	});
+snippet jel
+	$('<${1}/>'${2:, {}})
+snippet jeltrim
+	$.trim('${1:string}')
+snippet jempty
+	${1:obj}.empty()
+snippet jend
+	${1:obj}.end()
+snippet jeq
+	${1:obj}.eq(${2:element index})
+snippet jerror
+	${1:obj}.error(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jeventsmap
+	{
+		:f${0}
+	}
+snippet jextend
+	$.extend(${1:true, }${2:target}, ${3:obj})
+snippet jfadein
+	${1:obj}.fadeIn('${2:slow/400/fast}')
+snippet jfadeinc
+	${1:obj}.fadeIn('slow/400/fast', function () {
+		${0:// callback};
+	});
+snippet jfadeout
+	${1:obj}.fadeOut('${2:slow/400/fast}')
+snippet jfadeoutc
+	${1:obj}.fadeOut('slow/400/fast', function () {
+		${0:// callback};
+	});
+snippet jfadeto
+	${1:obj}.fadeTo('${2:slow/400/fast}', ${3:0.5})
+snippet jfadetoc
+	${1:obj}.fadeTo('slow/400/fast', ${2:0.5}, function () {
+		${0:// callback};
+	});
+snippet jfilter
+	${1:obj}.filter('${2:selector expression}')
+snippet jfiltert
+	${1:obj}.filter(function (${2:index}) {
+		${3}
+	})
+snippet jfind
+	${1:obj}.find('${2:selector expression}')
+snippet jfocus
+	${1:obj}.focus(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jfocusin
+	${1:obj}.focusIn(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jfocusout
+	${1:obj}.focusOut(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jget
+	${1:obj}.get(${2:element index})
+snippet jgetjson
+	$.getJSON('${1:mydomain.com/url}',
+		${2:{ param1: value1 },}
+		function (data, textStatus, jqXHR) {
+			${0:// success callback}
+		}
+	);
+snippet jgetscript
+	$.getScript('${1:mydomain.com/url}', function (script, textStatus, jqXHR) {
+		${0:// callback}
+	});
+snippet jgrep
+	$.grep(${1:array}, function (item, index) {
+		${2}
+	}${0:, true});
+snippet jhasc
+	${1:obj}.hasClass('${2:className}')
+snippet jhasd
+	$.hasData('${0:selector expression}');
+snippet jheight
+	${1:obj}.height(${2:integer})
+snippet jhide
+	${1:obj}.hide('${2:slow/400/fast}')
+snippet jhidec
+	${1:obj}.hide('${2:slow/400/fast}', function () {
+		${0:// callback}
+	});
+snippet jhover
+	${1:obj}.hover(function (${2:e}) {
+		${3:// event handler}
+	}, function ($2) {
+		${4:// event handler}
+	});
+snippet jhtml
+	${1:obj}.html('${2:Some text <b>and bold!</b>}')
+snippet jinarr
+	$.inArray(${1:value}, ${0:array});
+snippet jinsa
+	${1:obj}.insertAfter('${2:selector expression}')
+snippet jinsb
+	${1:obj}.insertBefore('${2:selector expression}')
+snippet jis
+	${1:obj}.is('${2:selector expression}')
+snippet jisarr
+	$.isArray(${1:obj})
+snippet jisempty
+	$.isEmptyObject(${1:obj})
+snippet jisfunc
+	$.isFunction(${1:obj})
+snippet jisnum
+	$.isNumeric(${1:value})
+snippet jisobj
+	$.isPlainObject(${1:obj})
+snippet jiswin
+	$.isWindow(${1:obj})
+snippet jisxml
+	$.isXMLDoc(${1:node})
+snippet jjj
+	$('${1:selector}')
+snippet jkdown
+	${1:obj}.keydown(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jkpress
+	${1:obj}.keypress(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jkup
+	${1:obj}.keyup(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jlast
+	${1:obj}.last('${1:selector expression}')
+snippet jlive
+	${1:obj}.live('${2:events}', function (${3:e}) {
+		${0:// event handler}
+	});
+snippet jload
+	${1:obj}.load(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jloadf
+	${1:obj}.load('${2:mydomain.com/url}',
+		${2:{ param1: value1 },}
+		function (responseText, textStatus, xhr) {
+			${0:// success callback}
+		}
+	});
+snippet jmakearray
+	$.makeArray(${0:obj});
+snippet jjmap
+	${1:obj}.map(function (${2:e}, ${3:i}) {
+		${0:// callback}
+	});
+snippet jmapp
+	$.map(${1:arrayOrObject}, function (${2:value}, ${3:indexOrKey}) {
+		${0:// callback}
+	});
+snippet jmerge
+	$.merge(${1:target}, ${0:original});
+snippet jmdown
+	${1:obj}.mousedown(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jmenter
+	${1:obj}.mouseenter(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jmleave
+	${1:obj}.mouseleave(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jmmove
+	${1:obj}.mousemove(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jmout
+	${1:obj}.mouseout(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jmover
+	${1:obj}.mouseover(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jmup
+	${1:obj}.mouseup(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jnext
+	${1:obj}.next('${2:selector expression}')
+snippet jnexta
+	${1:obj}.nextAll('${2:selector expression}')
+snippet jnextu
+	${1:obj}.nextUntil('${2:selector expression}'${3:, 'filter expression'})
+snippet jnot
+	${1:obj}.not('${2:selector expression}')
+snippet joff
+	${1:obj}.off('${2:events}', '${3:selector expression}'${4:, handler})
+snippet joffset
+	${1:obj}.offset()
+snippet joffsetp
+	${1:obj}.offsetParent()
+snippet jon
+	${1:obj}.on('${2:events}', '${3:selector expression}', function (${4:e}) {
+		${0:// event handler}
+	});
+snippet jone
+	${1:obj}.one('${2:event name}', function (${3:e}) {
+		${0:// event handler}
+	});
+snippet jouterh
+	${1:obj}.outerHeight()
+snippet jouterw
+	${1:obj}.outerWidth()
+snippet jparam
+	$.param(${1:obj})
+snippet jparent
+	${1:obj}.parent('${2:selector expression}')
+snippet jparents
+	${1:obj}.parents('${2:selector expression}')
+snippet jparentsu
+	${1:obj}.parentsUntil('${2:selector expression}'${3:, 'filter expression'})
+snippet jparsejson
+	$.parseJSON(${1:data})
+snippet jparsexml
+	$.parseXML(${1:data})
+snippet jpos
+	${1:obj}.position()
+snippet jprepend
+	${1:obj}.prepend('${2:Some text <b>and bold!</b>}')
+snippet jprependto
+	${1:obj}.prependTo('${2:selector expression}')
+snippet jprev
+	${1:obj}.prev('${2:selector expression}')
+snippet jpreva
+	${1:obj}.prevAll('${2:selector expression}')
+snippet jprevu
+	${1:obj}.prevUntil('${2:selector expression}'${3:, 'filter expression'})
+snippet jpromise
+	${1:obj}.promise(${2:'fx'}, ${3:target})
+snippet jprop
+	${1:obj}.prop('${2:property name}')
+snippet jproxy
+	$.proxy(${1:function}, ${2:this})
+snippet jpushstack
+	${1:obj}.pushStack(${2:elements})
+snippet jqueue
+	${1:obj}.queue(${2:name}${3:, newQueue})
+snippet jqueuee
+	$.queue(${1:element}${2:, name}${3:, newQueue})
+snippet jready
+	$(function () {
+		${0}
+	});
+snippet jrem
+	${1:obj}.remove()
+snippet jrema
+	${1:obj}.removeAttr('${2:attribute name}')
+snippet jremc
+	${1:obj}.removeClass('${2:class name}')
+snippet jremd
+	${1:obj}.removeData('${2:key name}')
+snippet jremdd
+	$.removeData(${1:element}${2:, 'key name}')
+snippet jremp
+	${1:obj}.removeProp('${2:property name}')
+snippet jrepa
+	${1:obj}.replaceAll(${2:target})
+snippet jrepw
+	${1:obj}.replaceWith(${2:content})
+snippet jreset
+	${1:obj}.reset(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jresize
+	${1:obj}.resize(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jscroll
+	${1:obj}.scroll(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jscrolll
+	${1:obj}.scrollLeft(${2:value})
+snippet jscrollt
+	${1:obj}.scrollTop(${2:value})
+snippet jsdown
+	${1:obj}.slideDown('${2:slow/400/fast}')
+snippet jsdownc
+	${1:obj}.slideDown('${2:slow/400/fast}', function () {
+		${0:// callback};
+	});
+snippet jselect
+	${1:obj}.select(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jserialize
+	${1:obj}.serialize()
+snippet jserializea
+	${1:obj}.serializeArray()
+snippet jshow
+	${1:obj}.show('${2:slow/400/fast}')
+snippet jshowc
+	${1:obj}.show('${2:slow/400/fast}', function () {
+		${0:// callback}
+	});
+snippet jsib
+	${1:obj}.siblings('${2:selector expression}')
+snippet jsize
+	${1:obj}.size()
+snippet jslice
+	${1:obj}.slice(${2:start}${3:, end})
+snippet jstoggle
+	${1:obj}.slideToggle('${2:slow/400/fast}')
+snippet jstop
+	${1:obj}.stop('${2:queue}', ${3:false}, ${4:false})
+snippet jsubmit
+	${1:obj}.submit(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet jsup
+	${1:obj}.slideUp('${2:slow/400/fast}')
+snippet jsupc
+	${1:obj}.slideUp('${2:slow/400/fast}', function () {
+		${0:// callback};
+	});
+snippet jtext
+	${1:obj}.text(${2:'some text'})
+snippet jthis
+	$(this)
+snippet jtoarr
+	${0:obj}.toArray()
+snippet jtog
+	${1:obj}.toggle(function (${2:e}) {
+		${3:// event handler}
+	}, function ($2) {
+		${4:// event handler}
+	});
+	${0}
+snippet jtogclass
+	${1:obj}.toggleClass('${2:class name}')
+snippet jtogsh
+	${1:obj}.toggle('${2:slow/400/fast}')
+snippet jtrig
+	${1:obj}.trigger('${2:event name}')
+snippet jtrigh
+	${1:obj}.triggerHandler('${2:event name}')
+snippet j$trim
+	$.trim(${1:str})
+snippet j$type
+	$.type(${1:obj})
+snippet junbind
+	${1:obj}.unbind('${2:event name}')
+snippet jundele
+	${1:obj}.undelegate(${2:selector expression}, ${3:event}, ${4:handler})
+snippet juniq
+	$.unique(${1:array})
+snippet junload
+	${1:obj}.unload(function (${2:e}) {
+		${0:// event handler}
+	});
+snippet junwrap
+	${1:obj}.unwrap()
+snippet jval
+	${1:obj}.val('${2:text}')
+snippet jwidth
+	${1:obj}.width(${2:integer})
+snippet jwrap
+	${1:obj}.wrap('${2:&lt;div class="extra-wrapper"&gt;&lt;/div&gt;}')

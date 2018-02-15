@@ -1,0 +1,113 @@
+snippet const
+	const ${1} = ${0};
+snippet let
+	let ${1} = ${0};
+snippet im "import xyz from 'xyz'"
+	import ${1} from '${2:$1}';
+snippet imas "import * as xyz from 'xyz'"
+	import * as ${1} from '${2:$1}';
+snippet imm "import { member } from 'xyz'"
+	import { ${1} } from '${2}';
+snippet cla
+	class ${1} {
+		${0:${VISUAL}}
+	}
+snippet clax
+	class ${1} extends ${2} {
+		${0:${VISUAL}}
+	}
+snippet clac
+	class ${1} {
+		constructor(${2}) {
+			${0}
+		}
+	}
+snippet foro "for (const prop of object}) { ... }"
+	for (const ${1:prop} of Object.keys(${2:obj})) {
+		const value = $2[$1];
+		console.log($1, value);
+	}
+snippet forof "iterate an array with the value and index"
+	for (const [${1:index}, ${2:value}] of cuts.entries() ) {
+		console.log(\`\${$2} is the \${$1} item`);
+	}
+
+# Generator
+snippet fun*
+	function* ${1:function_name}(${2}) {
+		${0}
+	}
+snippet c=>
+	const ${1:function_name} = (${2}) => {
+		${0}
+	}
+snippet l=>
+	let ${1:function_name} = (${2}) => {
+		${0}
+	}
+snippet caf
+	const ${1:function_name} = (${2}) => {
+		${0}
+	}
+snippet =>(
+	(${1}) => {
+		${0}
+	}
+snippet =>{
+	(${1}) => {
+		${0}
+	}
+snippet =>i
+	${1} => ${0}
+snippet af
+	(${1}) => {
+		${0}
+	}
+snippet afi
+	${1} => ${0}
+snippet sym
+	const ${1} = Symbol('${0}');
+snippet ed
+	export default ${0}
+snippet $
+	${${1}}${0}
+snippet map
+	${1}.map( (element) => {
+		return element${0}
+	});
+snippet filter
+	${1}.filter( (element) => {
+		element${0}
+	});
+snippet sort
+	${1}.sort( (element => ) {
+		element${0}
+	});
+snippet reduce
+	${1}.reduce((previousVal, currentVal) => {
+		previousVal + currentVal${0}
+	});
+
+# forEach
+snippet foreach
+	${1:array}.forEach(function (${2:cle}, ${3:index}, origin) {
+		console.log(\`cle = \${$2}, val= $1[cle]}, index = \${$3}, origin = \${$3}\`);
+		${0}
+	});
+snippet fe
+	${1:array}.forEach(function (${2:cle}, ${3:index}, origin) {
+		console.log(\`cle = \${$2}, val= $1[cle]}, index = \${$3}, origin = \${$3}\`);
+		${0}
+	});
+
+snippet forEach
+	${1:array}.forEach(function (${2:cle}, ${3:index}, origin) {
+		console.log(\`cle = \${$2}, val= $1[cle]}, index = \${$3}, origin = \${$3}\`);
+		${0}
+	});
+snippet forin
+	for(const ${1:prop} in ${2:obj}) {
+	  console.log($1, $2[$1])
+	}
+snippet `
+	\`\${${1:var1}}${0}\`

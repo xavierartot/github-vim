@@ -1,6 +1,4 @@
-"set nocompatible              " be iMproved, required
 filetype off                  " required
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -8,15 +6,24 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'rizzatti/funcoo.vim'
 
-"Hardtime helps you break that annoying habit vimmers have of scrolling up and down the page using jjjjj and kkkkk but without compromising the rest of our vim experience.
+"Hardtime helps you break that annoying habit vimmers have of scrolling up and down the page using jjjjj and kkkkk but 
+"without compromising the rest of our vim experience.
 Plugin 'takac/vim-hardtime' 
 Plugin 'suan/vim-instant-markdown' 
 
-
 Plugin 'ragtag.vim'
+
+"CTAGS
+"https://gist.github.com/nazgob/1570678
+"brew install ctags
+"alias ctags="`brew --prefix`/bin/ctags"
+Plugin 'romainl/ctags-patterns-for-javascript'
+
+"Plugin 'AshleyF/VimSpeak'
 
 "highlight a word
 Plugin 'vasconcelloslf/vim-interestingwords'
@@ -27,7 +34,7 @@ Plugin 'fadein/vim-FIGlet'
 "css
 Plugin 'rstacruz/vim-ultisnips-css'
 Plugin 'gorodinskiy/vim-coloresque'
-Plugin 'wavded/vim-stylus' 
+Plugin 'wavded/vim-stylus'
 
 "auto complete
 " Track the engine.
@@ -43,8 +50,14 @@ Plugin 'honza/vim-snippets'
 Plugin 'tmhedberg/matchit'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-obsession'
-Plugin 'bling/vim-airline'
-Plugin 'tristen/vim-sparkup'
+"Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline' 
+Plugin 'vim-airline/vim-airline-themes'
+
+"html
+"Plugin 'tristen/vim-sparkup'
+Plugin 'mattn/emmet-vim'
+
 
 "javascripts
 Plugin 'marijnh/tern_for_vim'
@@ -52,12 +65,17 @@ Plugin 'marijnh/tern_for_vim'
 Plugin 'jelera/vim-javascript-syntax' 
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'burnettk/vim-angular' 
+"Plugin 'burnettk/vim-angular' 
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'HerringtonDarkholme/yats.vim' 
+
 "React  
 "https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
 Plugin 'mxw/vim-jsx'
+"https://drivy.engineering/setting-up-vim-for-react/
+Plugin 'w0rp/ale' 
+Plugin 'prettier/prettier'
+Plugin 'skywind3000/asyncrun.vim'
 
 "node
 Plugin 'moll/vim-node' 
@@ -78,6 +96,7 @@ Plugin 'fugitive.vim'
 
 "file
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 
 "jade
 Plugin 'digitaltoad/vim-pug'
@@ -111,9 +130,17 @@ Plugin 'terryma/vim-multiple-cursors'
 "Translate
 "Plugin 'iadept/vim-gtranslate' 
 
+Plugin 'wincent/terminus'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'godlygeek/tabular'
+
+"replace word in all project
+Plugin 'dkprice/vim-easygrep' 
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
 syntax on
 
 "CTAGS
@@ -130,14 +157,11 @@ syntax on
 "highlight clear SignColumn      " SignColumn should match background
 "highlight clear LineNr          " Current line number row will have same background color in relative mode
 
-
 "The system defined color schemes are located in $VIM/colors
 "to find the theme :echo $VIM in vim.
 colorscheme slate
 set bg=light 
 
-
-"set smartindent
 set expandtab
 set tabstop=2
 set smarttab
@@ -178,8 +202,6 @@ set novisualbell
 
 "set number
 set numberwidth=4
-"set relativenumber
-"autocmd BufEnter * set relativenumber
 set relativenumber 
 set number    
 
@@ -192,9 +214,11 @@ set ignorecase
 set smartcase
 
 set laststatus=2
-set statusline=\%L%m%r%h\ %w\ \ pwd:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+"set statusline=\%L%m%r%h\ %w\ \ pwd:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
-set clipboard+=unnamed
+set clipboard=unnamed
 
 "font for vim-devicons
 set encoding=utf-8
@@ -262,7 +286,7 @@ augroup END
 augroup Automatic
   autocmd!
   " automatically jump to last known position in a file
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  autocmd BufRead * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   " automatically reload vimrc when it's saved
   autocmd BufWritePost ~/.vimrc source %
 augroup END
@@ -276,8 +300,6 @@ let NERDTreeShowHidden    = 1
 " powerline
 let g:Powerline_symbols = 'fancy'
 
-"React  https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " https://www.reddit.com/r/vim/comments/2t4axi/open_a_less_file_without_the_extension/
 autocmd FileType less setlocal suffixesadd=.less
@@ -287,10 +309,9 @@ autocmd BufNewFile,BufRead *.styl set filetype=stylus
 autocmd User Node if &filetype == "javascript" | setlocal expandtab | endif
 
 "https://github.com/honza/vim-snippets/issues/517
-augroup markdown
-  au! BufNewFile,BufRead *.md,*.markdown,*.mmd setlocal filetype=markdown
-  au BufNewFile,BufRead *.md,*.markdown,*.mmd UltiSnipsAddFiletypes markdown
-augroup END
+"augroup markdown
+  "au BufNewFile,BufRead *.md,*.markdown,*.mmd UltiSnipsAddFiletypes markdown
+"augroup END
 
 "se deplace entre les fenetres
 nnoremap <C-J> <C-W><C-J>
@@ -302,12 +323,9 @@ nnoremap <C-H> <C-W><C-H>
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-
 "let g:airline_symbols
 "let g:AirlineTheme = molokai
 "
-
-
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -326,9 +344,6 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 "let g:airline_symbols.paste = '∥'
 "let g:airline_symbols.whitespace = 'Ξ'
-
-set t_Co=256
-
 
 "https://www.youtube.com/watch?v=XA2WjJbmmoM
 "search down into subfolders
@@ -377,37 +392,27 @@ nnoremap <Leader>v V
 "nmap VaB vaBV
 
 
-" Don't move on *
-" I'd use a function for this but Vim clobbers the last search when you're in
-" a function so fuck it, practicality beats purity.
 nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
 
 
 "folding settings
-"`za` - toggles; 
-"`zc` - closes; 
-"`zo` - opens; 
-"`zR` - open all; 
-"`zM` - close all
-set foldmethod=indent   "fold based on indent
-"set foldmethod=manual
-"set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
+set foldmethod=manual
+set foldnestmax=10      "deepest fold is 10 levels
 "set foldlevel=1         "this is just what i use
-"set foldcolumn=1
-"FOLD
-"set foldlevel=100
+set foldcolumn=1
 "set foldmethod=marker
-"set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
+"FOLD
+set foldlevel=100
+set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
-set foldlevelstart=0
+"set foldlevelstart=0
 
 " Space to toggle folds.
 "nnoremap <Space> za
 "vnoremap <Space> za
 
 " Make zO recursively open whatever fold we're in, even if it's partially open.
-nnoremap zO zczO
+"nnoremap zO zczO
 
 " "Focus" the current line.  Basically:
 "
@@ -421,7 +426,7 @@ nnoremap zO zczO
 " I use :sus for the rare times I want to actually background Vim.
 "nnoremap <c-z> mzzMzvzz15<c-e>`z:Pulse<cr>
 
-function! MyFoldText() " {{{
+function! MyFoldText() " {{{ abort
   let line = getline(v:foldstart)
 
   let nucolwidth = &fdc + &number * &numberwidth
@@ -446,7 +451,7 @@ set foldtext=MyFoldText()
 nmap =j :%!python -m json.tool<CR>
 
 "count the match
-map <Leader>c :%s///gn<ENTER>
+nnoremap  <Leader>c :%s///gn<ENTER>
 
 "Gist
 "let g:gist_use_password_in_gitconfig = 1
@@ -463,9 +468,14 @@ let g:ctrlp_custom_ignore = 'dist\|node_modules\|DS_Store\|git'
 "if you want use leader t open a new tab
 "nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>f :CtrlP<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
+"nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRUFiles<CR>
-nnoremap <leader>t :CtrlPTag<CR>
+"nnoremap <leader>t :CtrlPTag<CR>
+"find a word; variables...
+nnoremap <leader>l :CtrlPLine<CR>
+"find a function definition
+nnoremap <leader>d :CtrlPFunky<CR>
+let g:ctrlp_show_hidden = 1
 
 
 let g:vim_json_syntax_conceal = 0
@@ -479,7 +489,7 @@ let g:vim_json_syntax_conceal = 0
 
 " Put at the very end of your .vimrc file.
 
-function! PhpSyntaxOverride()
+function! PhpSyntaxOverride() abort
   hi! def link phpDocTags  phpDefine
   hi! def link phpDocParam phpType
 endfunction
@@ -494,7 +504,7 @@ if exists("g:loaded_webdevicons")
 endif
 
 "Plugin javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'jQuery,AngularJS,AngularUI,AngularUI Router,React'
+let g:used_javascript_libs = 'jquery,react,flux,underscore,flux,d3'
 
 " ----------------------------------------------------------------------------
 " Filetypes
@@ -511,11 +521,6 @@ autocmd BufNewFile,BufRead *.rss setfiletype xml
 " .jade files use Jade syntax
 autocmd BufNewFile,BufRead *.jade setlocal ft=pug
 
-" .styl files use Stylus syntax
-autocmd BufNewFile,BufReadPost *.styl set filetype=stylus
-autocmd BufNewFile,BufReadPost *.css set filetype=css
-autocmd BufNewFile,BufRead *.styl set filetype=stylus
-
 "Highlights plugin, I changed the value directly in the plugin
 "line 223
 nnoremap <silent> <leader>2 :call InterestingWords('n')<cr>
@@ -529,15 +534,16 @@ let g:interestingWordsRandomiseColors = 1
 " OPEN BROWSER
 " http://www.vim.org/scripts/script.php?script_id=3133
 " Search word under cursor. 
-nmap <leader>o <Plug>(openbrowser-search) 
+"nmap <leader>o <Plug>(openbrowser-search) 
 " open link
-nmap <leader>l  <Plug>(openbrowser-smart-search) 
+nmap <leader>o  <Plug>(openbrowser-smart-search) 
 
 "OPEN JAVASCRIPT DOCUMENTATION plugin investigate.vim
 "nnoremap <leader>z :call investigate#Investigate('n')<CR>
 "vnoremap <leader>z :call investigate#Investigate('v')<CR>
 nmap <leader>`  :TernDocBrowse<CR>
 "let g:investigate_url_for_js="https://developer.mozilla.org/fr/search?q="
+
 "OPEN DOCUMENTATION plugin devdoc
 nmap <leader>z <Plug>(devdocs-under-cursor)
 "open documentation only with react
@@ -610,23 +616,85 @@ let g:filgetOpts = '/Library/Fonts'
 " - See ':help autocommand'.
 
 "sparkup
-augroup sparkup_types
-  " Remove ALL autocommands of the current group.
-  autocmd!
-  " Add sparkup to new filetypes
-  autocmd FileType mustache,php,javascript,jsx runtime! ftplugin/html/sparkup.vim
-augroup END
+"augroup sparkup_types
+  "" Remove ALL autocommands of the current group.
+  "autocmd!
+  "" Add sparkup to new filetypes
+  "autocmd FileType mustache,php,javascript,jsx runtime! ftplugin/html/sparkup.vim
+"augroup END
+"let g:sparkupNextMapping = '<tab>'
 
-let g:sparkupNextMapping = '<c-1>'
+autocmd FileType html,css,javascript,jsx EmmetInstall
+let g:user_emmet_install_global = 0
+"Note that the trailing , still needs to be entered, so the new keymap would be <C-e>,.
+let g:user_emmet_leader_key='<C-E>'
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
 
-"remap viB and vaB 
+"remap viB and vaB
 noremap vib viB
 noremap vab vaB
 
 "multi cursor pluggin
 "let g:multi_cursor_use_default_mapping=0
 " Default mapping
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-k>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
+let g:multi_cursor_next_key='<C-n>' "next
+let g:multi_cursor_prev_key='<C-k>' "prev
+let g:multi_cursor_skip_key='<C-x>' "skip
+let g:multi_cursor_quit_key='<Esc>' "quit
+
+"LINT
+"React  https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:ale_statusline_format = ['error', 'warning %d', '']
+"g:syntastic_javascript_checkers = ['eslint']
+let g:ale_linters = {
+\  'javascript': ['eslint'],
+\}
+let g:ale_sign_error = '⚠️' "Less aggressive than the default '>>'
+let g:ale_sign_warning = '💡'
+"let g:ale_echo_msg_warning_str = 'Warning 📣'
+"let g:ale_echo_msg_error_str = '❧ Error'
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+"run eslint in the backgrount with AsyncRun
+autocmd BufWritePost *.js AsyncRun -post=checktime eslint --fix %
+"autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
+"~/node_modules/eslint/bin/eslint.js
+"
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+
+"https://kinbiko.com/vim/my-shiniest-vim-gems/
+"excessively long lines of code (120+ in most languages)
+match ErrorMsg '\%>120v.\+'
+"trailing whitespace
+match ErrorMsg '\s\+$'
+
+"easymotion
+"<Leader>f{char} to move to {char}
+nmap  <Leader>e <Plug>(easymotion-bd-f)
+nmap <Leader>e <Plug>(easymotion-overwin-f)
+nmap F <Plug>(easymotion-prefix)s
+"Tabular
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+"https://kinbiko.com/vim/my-shiniest-vim-gems/
+"backspace key are basically unused in normal mode
+nnoremap <BS> {
+onoremap <BS> {
+vnoremap <BS> {
+nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+vnoremap <CR> }
+
+
+nnoremap <silent> <F5> :silent !open -a /Applications/Google\ Chrome.app %<CR>

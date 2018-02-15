@@ -1,125 +1,66 @@
-snippet r
-	return ${1:}
-snippet vq
-	\`\${${1:i}} ${0} \`
-snippet vari
-	var ${1:variable_name} = ${2:value};${0}
-snippet vard
-	var ${1:variable_name}, ${2:value};
-# array
-snippet arr
-	let ${1:array_name} = []
-snippet arr0
-	let ${1:array_name} = [${1}];
-snippet arr1
-	let ${1:array_name} = [${1}, ${2}];
-snippet arr2
-	let ${1:array_name} = [${2:0}, ${3:1}, ${4:2}];${0}
-snippet arr3
-	let ${1:array_name} = [${2:0}, ${3:1}, ${4:2}, ${5:3}];${0}
-snippet arr4
-	let ${1:array_name} = [${2:0}, ${3:1}, ${4:2}, ${5:3}, ${6:4}];${0}
-snippet arr5
-	let ${1:array_name} = [${2:0}, ${3:1}, ${4:2}, ${5:3}, ${6:4}, ${7:5}];${0}
-
 # Functions
-
 # prototype
-snippet prototype
-	${1:class_name}.prototype.${2:method_name} = (${3}) => {
-		${0}
+snippet proto
+	${1:class_name}.prototype.${2:method_name} = function(${3}) {
+		${0:${VISUAL}}
 	};
 # Function
 snippet fun
-	function ${1:function_name}(${2:args}) {
-		${0}
+	function ${1:function_name}(${2}) {
+		${0:${VISUAL}}
 	}
-snippet function
-	function ${1:function_name}() {
-		${0}
+# Anonymous Function
+snippet f "" w
+	function(${1}) {
+		${0:${VISUAL}}
 	}
 # Anonymous Function assigned to variable
-snippet varf
+snippet vaf
 	var ${1:function_name} = function(${2}) {
-		${0}
+		${0:${VISUAL}}
+	};
+# Function assigned to variable
+snippet vf
+	var ${1:function_name} = function $1(${2}) {
+		${0:${VISUAL}}
 	};
 # Immediate function
-snippet immediate-function
+snippet (f
 	(function(${1}) {
-		${0}
+		${0:${VISUAL}}
 	}(${2}));
-# Immediate function
-snippet iife
-	(function(${1}) {
-		${0}
-	}(${2}));
+# Minify safe iife
+snippet ;fe
+	;(function(${1}) {
+		${0:${VISUAL}}
+	}(${2}))
 # self-defining function
-snippet closure
-	let ${1:function_name} = (${2:argument}) => {
+snippet sdf
+	var ${1:function_name} = function (${2:argument}) {
 		${3}
-		$1 = ($2) => {
-			${0}
+
+		$1 = function ($2) {
+			${0:${VISUAL}}
 		};
 	};
-
 # Flow control
-
 # if
-snippet if
-	if (${1}) {
-
+snippet if "if (condition) { ... }"
+	if (${1:true}) {
+		${0:${VISUAL}}
 	}
 # if ... else
-snippet ife
-	if (${1}) {
+snippet ife "if (condition) { ... } else { ... }"
+	if (${1:true}) {
+		${0:${VISUAL}}
 	} else {
+		${2}
 	}
-
-# if ... else if ... else
-snippet ifeife
-	if (${1}) {
-
-	} else if(${3}){
-
-	} else {
-
-	}
-		
-# if ... else if 
-snippet ifeif
-	if (${1}) {
-
-	} else if(){
-
-	} 
-		
-# else.. if 
-snippet eif
-	else if(${1}){
-		${0}
-	} 
-snippet elseif
-	else if(${1}){
-		${0}
-	} 
-snippet else
-	else{
-		${0}
-	} 
-
 # tertiary conditional
 snippet ter
-	let ${1:variable} = (${2}) ? ${3} : ${4}
-snippet terv
-	let ${1:variable} = (${2:/* condition */}) ? ${3:/* if true */} : ${4:/* if false */}
-snippet terl
-	let ${1:variable} = (${2:/* condition */}) ? ${3:/* if true */} : ${4:/* if false */}
-# tertiary conditional with return
-snippet terr
-	${1:return} (${2:/* condition */}) ? ${3:/* if true */} : ${4:/* if false */}
-
+	${1:/* condition */} ? ${2:/* if true */} : ${0:/* if false */}
 # switch
-snippet switch 
+snippet switch
 	switch (${1:expression}) {
 		case '${3:case}':
 			${4}
@@ -128,138 +69,65 @@ snippet switch
 		default:
 			${2}
 	}
-# case
-snippet case
+snippet case "case 'xyz': ... break"
 	case '${1:case}':
-		${2}
+		${0:${VISUAL}}
 		break;
-	${0}
-# try
-snippet catch
+snippet try "try { ... } catch(e) { ... }"
 	try {
-		${1}
-	} catch (${2:e}) {
-		${0:/* handle error */}
+		${0:${VISUAL}}
+	} catch (${1:e}) {
+		${2:/* handle error */}
 	}
-# try
-snippet try
+snippet tryf "try { ... } catch(e) { ... } finally { ... }"
 	try {
-		${1}
-	} catch (${2:e}) {
-		${0:/* handle error */}
-	}
-# try finally
-snippet try-finally
-	try {
-		${1}
-	} catch (${2:e}) {
-		${0:/* handle error */}
+		${0:${VISUAL}}
+	} catch (${1:e}) {
+		${2:/* handle error */}
 	} finally {
 		${3:/* be executed regardless of the try / catch result*/}
 	}
 # throw Error
-snippet throw-error
+snippet terr
 	throw new Error('${1:error message}')
-
-# Loops
-
-# for loop
-snippet for
-	for (let i = 0, l = ${1:arr}.length; i < l; i++) {
-		let current = $1[i], prev = $1[i-1];
-		${0}
+# return
+snippet ret
+	return ${0:result};
+snippet for "for (...) {...}"
+	for (var ${1:i} = 0, ${2:len} = ${3:Things.length}; $1 < $2; $1++) {
+		${0:${VISUAL}}
 	}
-snippet fl
-	for (let i = 0, l = ${1:arr}.length; i < l; i++) {
-		let current = $1[i], prev = $1[i-1];
-		${0}
+snippet forr "reversed for (...) {...}"
+	for (var ${2:i} = ${1:Things.length} - 1; $2 >= 0; $2--) {
+		${0:${VISUAL}}
 	}
-snippet fo
-	for (let i = 0, l = ${1:arr}.length; i < l; i++) {
-		let current = $1[i], prev = $1[i-1];
-		${0}
-	}
-# Reversed forr
-snippet for-reversed
-	for (let i = ${1:arr}.length - 1; i >= 0; i--) {
-		let current = $1[i], prev = $1[i-1];
-		${0}
-	}
-# Reversed forr
-snippet forr
-	for (let i = ${1:arr}.length - 1; i >= 0; i--) {
-		let current = $1[i], prev = $1[i-1];
-		${0}
-	}
-# While loop
-snippet wh
+snippet wh "(condition) { ... }"
 	while (${1:/* condition */}) {
-		${0}
+		${0:${VISUAL}}
 	}
-snippet while
-	while (${1:/* condition */}) {
-		${0}
-	}
-# Do while loop
-snippet do-while 
+snippet do "do { ... } while (condition)"
 	do {
-		${0}
+		${0:${VISUAL}}
 	} while (${1:/* condition */});
-snippet do
-	do {
-		${0}
-	} while (${1:/* condition */});
-snippet dowh
-	do {
-		${0}
-	} while (${1:/* condition */});
-snippet letin
-	for (let ${1:prop} in ${2:object}) {
-		$2[$1] ${0}
+# For in loop
+snippet fori
+	for (var ${1:prop} in ${2:object}) {
+		${0:$2[$1]}
 	}
-snippet li
-	for (let ${1:prop} in ${2:object}) {
-		$2[$1] ${0}
-	}
-
-# forEach
-snippet foreach
-	${1:array}.forEach(function (${2:cle}, ${3:index}, origin) {
-		console.log(\`cle = \${$2}, val= $1[cle]}, index = \${$3}, origin = \${$3}\`);
-		${0}
-	});
-snippet fe
-	${1:array}.forEach(function (${2:cle}, ${3:index}, origin) {
-		console.log(\`cle = \${$2}, val= $1[cle]}, index = \${$3}, origin = \${$3}\`);
-		${0}
-	});
-
-snippet forEach
-	${1:array}.forEach(function (${2:cle}, ${3:index}, origin) {
-		console.log(\`cle = \${$2}, val= $1[cle]}, index = \${$3}, origin = \${$3}\`);
-		${0}
-	});
-
 # Objects
-
 # Object Method
-snippet object-method 
+snippet :f
 	${1:method_name}: function (${2:attribute}) {
-		${3}
+		${0:${VISUAL}}
 	},
-snippet obj
-	${1:name} = {
-		${2}
-	}
 # hasOwnProperty
-snippet hasOwnProperty 
+snippet has
 	hasOwnProperty(${0})
-snippet hop
-	hasOwnProperty(${0})
-snippet singleton 
+# singleton
+snippet sing
 	function ${1:Singleton} (${2:argument}) {
 		// the cached instance
-		let instance;
+		var instance;
 
 		// rewrite the constructor
 		$1 = function $1($2) {
@@ -280,15 +148,15 @@ snippet singleton
 		return instance;
 	}
 # Crockford's object function
-snippet object-function-Crockford
+snippet obj
 	function object(o) {
 		function F() {}
 		F.prototype = o;
 		return new F();
 	}
 # Define multiple properties
-snippet properties-multiple
-	let ${1:my_object} = Object.defineProperties(
+snippet props
+	var ${1:my_object} = Object.defineProperties(
 		${2:new Object()},
 		{
 			${3:property} : {
@@ -306,7 +174,7 @@ snippet properties-multiple
 		}
 	);
 # Define single property
-snippet define-single-property
+snippet prop
 	Object.defineProperty(
 		${1:object},
 		'${2:property}',
@@ -323,1489 +191,93 @@ snippet define-single-property
 			configurable : ${0:boolean}
 		}
 	);
-
 # Documentation
-
-snippet @param 
+# docstring
+snippet /**
+	/**
+	 * ${0:description}
+	 *
+	 */
+snippet @par
 	@param {${1:type}} ${2:name} ${0:description}
 snippet @ret
 	@return {${1:type}} ${0:description}
 # JSON
 
 # JSON.parse
-snippet JSON.parse
+snippet jsonp
 	JSON.parse(${0:jstr});
 # JSON.stringify
-snippet JSON.stringify
+snippet jsons
 	JSON.stringify(${0:object});
-
 # DOM selectors
-
 # Get elements
-snippet geb
+snippet get
 	getElementsBy${1:TagName}('${0}')
-snippet gebtn
-	getElementsBy${1:TagName}('${0}')
-snippet getElementsByTagName
-	getElementsBy${1:TagName}('${0}')
-snippet ele
-	getElementBy${1:Id}('${2:ele}')
-snippet id
-	${1:document}.getElementById('${0:ele}')
+# Get element
+snippet gett
+	getElementBy${1:Id}('${0}')
 # Elements by class
-snippet byClassName 
+snippet by.
 	${1:document}.getElementsByClassName('${0:class}')
 # Element by ID
-snippet getElementsBy
+snippet by#
 	${1:document}.getElementById('${0:element ID}')
 # Query selector
-snippet querySelector
-	${1:document}.querySelector('${0:selector}')
-snippet querySelectorAll
-	${1:document}.querySelectorAll('${0:selector}')
-snippet selector
-	${1:document}.querySelector('${0:selector}')
-snippet selectorAll
-	${1:document}.querySelectorAll('${0:selector}')
 snippet qs
-	${1:document}.querySelector('${0:.class}')
+	${1:document}.querySelector('${0:CSS selector}')
+# Query selector all
 snippet qsa
-	let ${1:var} = document.querySelectorAll('${2:.class}')
-	for (let i = 0; i < $1.length; i++) {
-		$1[i].addEventListener('click', function(e) {
-			console.log(e.target);
-			${0}
-			e.preventDefault();
-		});
-	}
-#snippet qsa
-#let ${1:var} = document.querySelectorAll('${0:.class}')
+	${1:document}.querySelectorAll('${0:CSS selector}')
 # Debugging
-snippet debugger
+snippet de
 	debugger;
-# console.debug
-snippet cd
+snippet cl "console.log"
+	console.log(${0});
+snippet cd "console.debug"
 	console.debug(${0});
-# console.trace
-snippet ct
+snippet ce "console.error"
+	console.error(${0});
+snippet cw "console.warn"
+	console.warn(${0});
+snippet ci "console.info"
+	console.info(${0});
+snippet ct "console.trace"
 	console.trace(${0:label});
-# console.time
-snippet ctime
-	console.time(${0:label});
-# console.assert
-snippet ca
+snippet ctime "console.time ... console.timeEnd"
+	console.time("${1:label}");
+	${0:${VISUAL}}
+	console.timeEnd("$1");
+snippet ctimestamp "console.timeStamp"
+	console.timeStamp("${1:label}");
+snippet ca "console.assert"
 	console.assert(${1:expression}, ${0:obj});
-# console.dir
-snippet cdir
+snippet cclear "console.clear"
+	console.clear();
+snippet cdir "console.dir"
 	console.dir(${0:obj});
-
+snippet cdirx "console.dirxml"
+	console.dirxml(${1:object});
+snippet cgroup "console.group"
+	console.group("${1:label}");
+	${0:${VISUAL}}
+	console.groupEnd();
+snippet cgroupc "console.groupCollapsed"
+	console.groupCollapsed("${1:label}");
+	${0:${VISUAL}}
+	console.groupEnd();
+snippet cprof "console.profile"
+	console.profile("${1:label}");
+	${0:${VISUAL}}
+	console.profileEnd();
+snippet ctable "console.table"
+	console.table(${1:"${2:value}"});
 # Misc
-
 # 'use strict';
 snippet us
 	'use strict';
-
 # setTimeout function
 snippet timeout
 	setTimeout(function () {${0}}${2}, ${1:10});
-
-snippet const
-	const ${1} = ${2};${0}
-snippet l
-	let ${1:var1} = ${0}
-snippet let
-	let ${1:var1} = ${0}
-snippet letd
-	let ${1}, ${2}
-snippet forin
-	for (let ${1:prop} in ${2:obj}){
-		if ($2.hasOwnProperty($1)) {
-			console.log($2[$1])
-			${0}
-		}
-	}
-snippet fi
-	for (${1:prop} in ${2:obj}){
-		if ($2.hasOwnProperty($1)) {
-			console.log($2[$1])
-			${0}
-		}
-	}
-snippet lf
-	let ${1:function_name} = (${2}) => {
-		${0}
-	}
-snippet lfs
-	let ${1:function_name} = (${2}) => ${0}
-snippet cf
-	const ${1:function_name} = (${2}) => {
-		${0}
-	}
-snippet cfs
-	const ${1:function_name} = (${2}) => ${0}
-snippet import
-	import ${1} from '${2}';
-snippet im
-	import ${1} from '${2}';
-snippet class
-	class ${1} {
-		constructor(${2}){
-			this.$2 = $2
-		}
-		${3}
-	}
-	let ${0} = new $1()
-snippet map6
-	map( (${1:element}, ${2:i}) => {
-			//console.log($1, $2)
-			${0}
-	})
-snippet =>
-	(${1}) => {
-		${0}
-	}
-snippet af
-	(${1}) => {
-		${0}
-	}
-snippet fa
-	(${1}) => {
-		${0}
-	}
-snippet sym
-	const ${1} = Symbol('${0}');
-snippet ed
-	export default ${0}
-snippet $
-	$('${1}')${0}
-snippet getset
-		get ${1}() {
-			return this.val * this.val
-		}
-
-		set $1(${3}) {
-			this.$1 = ${3}
-		}
-	}
-snippet get
-	get ${1}() {
-		return this.val * this.val
-	}
-snippet set
-		set $1(${1}) {
-			this.$1 = ${2}
-		}
-	}
-
-
-#D3 ---------------------------------------------------
-
-snippet .attr
-	.attr("${1}", ${2})
-snippet .style
-	.style("${1}", ${2})
-snippet axis
-	d3.svg.axis()
-	  .orient(${1})
-	  .scale(${2})
-snippet fd
-	function(d) { ${1} }
-snippet fdi
-	function(d, i) { ${1} }
-snippet marginconvention
-	var ${1:margin} = { top: ${2:10}, right: ${3:10}, bottom: ${4:10}, left: ${5:10} };
-	var ${6:width} = ${7:970} - $1.left - $1.right;
-	var ${8:height} = ${9:500} - $1.top - $1.bottom;
-	
-	var ${10:svg} = d3.select("${11}").append("svg")
-	  .attr("width", $6 + $1.left + $1.right)
-	  .attr("height", $8 + $1.top + $1.bottom)
-	    .append("g")
-	  .attr("transform", "translate(" + $1.left + "," + $1.top + ")")
-snippet nest
-	d3.nest()
-	  .key(${1})
-	  .entries(${2})
-snippet scale
-	d3.scale.linear()
-	  .domain(${1})
-	  .range(${2})
-
-#NODE -------------------------------------------------
-
-snippet #!
-	#!/usr/bin/env node
-# module exports
-snippet ex
-	module.exports = ${1};
-# require
-snippet ne
-	let ${1} = require('${2:module_name}');
-# EventEmitter
-snippet on
-	on('${1:event_name}', (${2:stream}) => {
-	  ${3}
-	});
-snippet emit
-	emit('${1:event_name}', ${2:args});
-snippet once
-	once('${1:event_name}', (${2:stream}) => {
-	  ${3}
-	});
-# http. User js function snippet as handler
-#http.createServer(${1:handler}).listen(${2:port_number});
-snippet http
-	http.createServer()
-		.on('request', (request, response) => {
-			${1:handler}
-		})
-		.on('end', () => {
-			${2:handler}
-		})
-	.listen(8124);
-# net 
-snippet net
-	net.createServer( (${1:socket}) => {
-		${1}.on('data', ('data') => {
-		  ${2}
-		]});
-		${1}.on('end', () => {
-		  ${3}
-		});
-	}).listen(${4:8124});
-# Stream snippets
-snippet pipe
-	pipe(${1:stream})${2}
-# Express snippets
-snippet eget
-	${1:app}.get('${2:route}', ${3:handler});
-snippet epost
-	${1:app}.post('${2:route}', ${3:handler});
-snippet eput
-	${1:app}.put('${2:route}', ${3:handler});
-snippet edel
-	${1:app}.delete('${2:route}', ${3:handler});
-# process snippets
-snippet stdin
-	process.stdin
-snippet stdout
-	process.stdout
-snippet stderr
-	process.stderr
-# reduce
-snippet reduce
-	${1:arr}.reduce(
-		function(previousValue, currentValue, currentIndex, array) {
-			return previousValue + currentValue;
-		}
-	);
-snippet pu
-	${1:array}.push(${2:i})
-snippet canvas
-	let canvas = document.getElementById('tutoriel');
-	if (canvas.getContext){
-		let ctx = canvas.getContext('2d');
-		${0}
-	}
-snippet filter
-	function ${1:filtre}(value) {
-		//return value >= 10;
-	}
-	${2:array}.filter($1); 
-	//exemple: let filtered = [12, 5, 8, 130, 44].filter($1); 
-	//return an Array
-
-# Snippets for Console Debug Output
-
-snippet ca "console.assert" b
-	console.assert(${1:assertion}, ${2:"${3:message}"});
-snippet cclear "console.clear" b
-	console.clear();
-snippet cdir "console.dir" b
-	console.dir(${1:object});
-snippet cdirx "console.dirxml" b
-	console.dirxml(${1:object});
-snippet cgroup "console.group" b
-	console.group("${1:label}");
-	${VISUAL}$0
-	console.groupEnd();
-snippet cgroupc "console.groupCollapsed" b
-	console.groupCollapsed("${1:label}");
-	${VISUAL}$0
-	console.groupEnd();
-snippet cif "console.info" b
-	console.info(${1:"${2:value}"});
-snippet log
-	console.log(${0});
-snippet cl "console.log" b
-	console.log(${0});
-snippet cd "console.debug" b
-	console.debug(${1:"${2:value}"});
-snippet cprof "console.profile" b
-	console.profile("${1:label}");
-	${VISUAL}$0
-	console.profileEnd();
-snippet ctable "console.table" b
-	console.table(${1:"${2:value}"});
-snippet ctime "console.time" b
-	console.time("${1:label}");
-	${VISUAL}$0
-	console.timeEnd("$1");
-snippet ctimestamp "console.timeStamp" b
-	console.timeStamp("${1:label}");
-snippet ctrace "console.trace" b
-	console.trace();
-snippet cw "console.warn" b
-	console.warn(${1:"${2:value}"});
-# AMD (Asynchronous Module Definition) snippets
-snippet def "define an AMD module"
-	define(${1:optional_name, }[${2:'jquery'}], ${3:callback});
-snippet req "require an AMD module"
-	require([${1:'dependencies'}], ${2:callback});
-
-# innerHTML
-snippet inner
-	innerHTML
-snippet inn
-	innerHTML
-snippet ih
-	innerHTML
-snippet tc
-	${1:node}.textContent = ${2:text}
-snippet textcontent
-	${1:node}.textContent = ${2:text}
-# event
-snippet ael
-		${1:element}.addEventListener('${2:click}', function(e) {
-			//console.log(e.target);
-			${3}
-			e.preventDefault();
-		});
-snippet click
-		${1:element}.addEventListener('click', function(e) {
-			//console.log(e.target);
-			${0}
-			e.preventDefault();
-		});
-snippet addeventlistener
-		${1:element}.addEventListener('${2:click}', function(e) {
-			//console.log(e);
-			${3}
-			e.preventDefault();
-		});
-snippet addevent
-	${1:element}.addEventListener('${2:click}', function(e) {
-		//console.log(e);
-		${3}
-		e.preventDefault();
-	});
-snippet rel
-	${1:element}.removeEventListener("click");
-snippet hasatt
-	//let element = document.getElementById("div1"); 
-	if (${1:element}.hasAttribute('${2:align}')) { 
-		$1.setAttribute('$2', '${3:center}'); 
-	}
-snippet hasattribute
-	//let element = document.getElementById("div1"); 
-	if (${1:element}.hasAttribute('${2:align}')) { 
-		$1.setAttribute('$2', '${3:center}'); 
-	}
-snippet ha
-	//let element = document.getElementById("div1"); 
-	if (${1:element}.hasAttribute('${2:align}')) { 
-		$1.setAttribute('${4:center}', '${5:center}'); 
-	}
-snippet has
-	//let element = document.getElementById("div1"); 
-	if (${1:element}.hasAttribute('${2:align}')) { 
-		$1.setAttribute('${4:center}', '${5:center}'); 
-	}
-snippet geta
-	let ${1:align} = ${2:div1}.getAttribute('${3:align}');
-snippet getattribute
-	let ${1:align} = ${2:div1}.getAttribute('${3:align}');
-snippet ga
-	let ${1:align} = ${2:div1}.getAttribute('${3:align}');
-snippet getattr
-	let ${1:align} = ${2:div1}.getAttribute('${3:align}');
-snippet removeattribute
-	document.getElementById('${1:id}').removeAttribute('${2:attribute}'); 
-snippet removeattr
-	document.getElementById('${1:id}').removeAttribute('${2:attribute}'); 
-snippet ra
-	document.getElementById('${1:id}').removeAttribute('${2:attribute}'); 
-snippet setattribute
-	let ${1:element} = document.querySelector('${2:button}'); 
-	$1.setAttribute('${3:disabled}','${4:disabled}');
-snippet setattr
-	let ${1:element} = document.querySelector('${2:button}'); 
-	$1.setAttribute('${3:disabled}','${4:disabled}');
-snippet sa
-	let ${1:element} = document.querySelector('${2:button}'; 
-	$1.setAttribute('${3:disabled}','${4:disabled}');
-
-#//---------- VANILLA
-#// jQuery
-#var clonedElement = $('#about').clone()
-snippet cloneelement
-	let clonedElement = document.querySelector('${1:id}').cloneNode(true)
-snippet cloneele
-	let clonedElement = document.querySelector('${1:id}').cloneNode(true)
-snippet clone
-	let clonedElement = document.querySelector('${1:id}').cloneNode(true)
-snippet parent
-	//var parent = element.parentElement;
-	let parent = document.querySelector('${1:id}').parentNode
-snippet nextsibling
-	let ${1:nextElement } = document.querySelector('${2:id}').nextSibling
-snippet nextsib
-	let ${1:nextElement } = document.querySelector('${2:id}').nextSibling
-snippet nextelement
-	let ${1:nextElement } = document.querySelector('${2:id}').nextSibling
-snippet nextele
-	let ${1:nextElement } = document.querySelector('${2:id}').nextSibling
-snippet next
-	let ${1:nextElement } = document.querySelector('${2:id}').nextSibling
-snippet prevelement
-	//return the id of the previous element
-	let ${1:prevElement} = document.querySelector('${2:.class}').previousSibling.id
-snippet prevele
-	//return the id of the previous element
-	let ${1:prevElement} = document.querySelector('${2:.class}').previousSibling.id
-snippet prev
-	//return the id of the previous element
-	let ${1:prevElement} = document.querySelector('${2:.class}').previousSibling.id
-
-    
-snippet createelement
-	let ${1:newDiv} = document.createElement('${2:div}')
-	$1.appendChild(${3:div});
-snippet ce
-	let ${1:newDiv} = document.createElement('${2:div}')
-	$1.appendChild(${3:div});
-snippet ac
-	//document.body.appendChild('div');
-	let ${1:newDiv} = document.createElement('${2:div}')
-	$1.appendChild(${3:div});
-snippet appendchild
-	//document.body.appendChild('div');
-	let ${1:newDiv} = document.createElement('${2:div}')
-	$1.appendChild(${3:div});
-
-snippet setAttribute
-	document.querySelector('${1:img}').setAttribute('${2:alt}', '${3:My image}')
-snippet append
-	//document.getElementById('$1').innerHTML += '<p>$2</p>';
-	let ${1:varEle} = document.querySelector(${1:container}).innerHTML += '<p>${2:more content}</p>';
-snippet appendContent
-	//document.getElementById('$1').innerHTML += '<p>$2</p>';
-	let ${1:varEle} = document.querySelector(${1:container}).innerHTML += '<p>${2:more content}</p>';
-snippet appendtext
-	//document.getElementById('$1').innerHTML += '<p>$2</p>';
-	let ${1:varEle} = document.querySelector(${1:container}).innerHTML += '${2:more content}';
-snippet empty
-	//document.getElementById('${1:container}').innerHTML = null;
-	let ${1:remove} = document.querySelector(${1:.class}).textContent = null
-snippet remove
-	let ${1:remove} = document.querySelector('${2:class}')
-	$1.parentNode.removeChild($1);
-snippet rm
-	let ${1:remove} = document.querySelector('${2:class}')
-	$1.parentNode.removeChild($1);
-snippet classlist
-	${1:div}.classList.${2:add|remove|contain|toggle}('${3:class}')
-snippet clar
-	${1:div}.classList.remove('${2:class}')
-snippet classlistr
-	${1:div}.classList.remove('${2:class}')
-snippet cla
-	${1:div}.classList.add('${2:class}')
-snippet claa
-	${1:div}.classList.add('${2:class}')
-snippet addclass
-	${1:div}.classList.add('${2:class}')
-snippet contains
-	${1:div}.classList.contains('${2:class}')
-snippet clac
-	${1:div}.classList.contains('${2:class}')
-snippet clat
-	${1:div}.classList.toggle('${2:visible, i < 10}')
-snippet toggle
-	${1:div}.classList.toggle('${2:visible, i < 10}')
-snippet next
-	let nextElement = ${1:document}.getElementById('${2:wrap}').nextSibling
-snippet get
-	let httpRequest = new XMLHttpRequest()
-	httpRequest.onreadystatechange = function (data) {
-		// code
-	}
-	httpRequest.open('GET', ${1:url})
-	httpRequest.send()
-snippet post
-	var httpRequest = new XMLHttpRequest()
-	httpRequest.onreadystatechange = function (data) {
-		// code
-	}
-	httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-	httpRequest.open('POST', ${1:url})
-	httpRequest.send('${2:var}=' + encodeURIComponent($2))
-snippet json
-	// jQuery
-	//$.getJSON('//openexchangerates.org/latest.json?callback=?', function (data) {
-	// // code
-	//})
-	//vanilla
-	function success(data) {
-		// code
-	}
-	var scr = document.createElement('script')
-	scr.src = '${1://openexchangerates.org/latest.json?callback=formatCurrency}'
-	document.body.appendChild(scr)
-snippet getJson
-	// jQuery
-	//$.getJSON('//openexchangerates.org/latest.json?callback=?', function (data) {
-	// // code
-	//})
-	//vanilla
-	function success(data) {
-		// code
-	}
-	var scr = document.createElement('script')
-	scr.src = '${1://openexchangerates.org/latest.json?callback=formatCurrency}'
-	document.body.appendChild(scr)
-snippet si
-	setInterval(function () {
-		${1}
-	}, 1000);//1s
-snippet st
-	setTimeout(function () {
-		${1}
-	}, 1000);//1s
-snippet cli
-	clearInterval(${1:function name})
-snippet closure
-	circularLoop(init) => {
-		let current = init;
-		return function() {
-		  currnet
-		}
-	}
-snippet module
-	//https://toddmotto.com/mastering-the-module-pattern/#revealing-module-pattern
-	let ${1:Module} = ( () => {
-	  let data = { name : 'Xavier'}
-
-		let private${2:Method}  = () => {
-			// private
-		};
-
-		let ${3:someMethod} = () => {
-			// public
-			console.log(this.data)
-		};
-
-		let ${4:anotherMethod } = () => {
-			// public
-		};
-		
-		//return an object
-		return {
-			$3        : $3,
-			$4        : $4,
-			data      : data.name
-		};
-
-	})();
-	//$1.$3()
-	//$1.$4()
-snippet one
-	//http://codeblog.cz/vanilla/events.html#delegate-event
-	${1:el}.addEventListener('click', function(e) {
-		//- remove the event
-		event.target.removeEventListener(e.type, arguments.callee);
-	});
-snippet trigger
-	//http://codeblog.cz/vanilla/events.html#delegate-event
-	//trigger the event attached to the element
-	${1:el}.dispatchEvent(new Event('click'));    
-
-snippet after
-	target.after(${1:el});
-snippet prev
-	var prev = element.previousElementSibling;
-snippet un
-	undefined
-
-#jquery
-snippet jadd
-	${1:obj}.add('${2:selector expression}')
-snippet jaddClass$
-	${1:obj}.addClass('${2:class name}')
-snippet jafter
-	${1:obj}.after('${2:Some text <b>and bold!</b>}')
-snippet jajax
-	$.ajax({
-		url: '${1:mydomain.com/url}',
-		type: '${2:POST}',
-		dataType: '${3:xml/html/script/json}',
-		data: $.param( $('${4:Element or Expression}') ),
-		complete: function (jqXHR, textStatus) {
-			${5:// callback}
-		},
-		success: function (data, textStatus, jqXHR) {
-			${6:// success callback}
-		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			${0:// error callback}
-		}
-	});
-snippet jajax-complete
-	${1:obj}.ajaxComplete(function (${1:e}, xhr, settings) {
-		${0:// callback}
-	});
-snippet jajax-error
-	${1:obj}.ajaxError(function (${1:e}, xhr, settings, thrownError) {
-		${2:// error callback}
-	});
-	${0}
-snippet jajax-get
-	$.get('${1:mydomain.com/url}',
-		${2:{ param1: value1 },}
-		function (data, textStatus, jqXHR) {
-			${0:// success callback}
-		}
-	);
-snippet jajax-post
-	$.post('${1:mydomain.com/url}',
-		${2:{ param1: value1 },}
-		function (data, textStatus, jqXHR) {
-			${0:// success callback}
-		}
-	);
-
-	$.ajaxPrefilter(function (${1:options}, ${2:originalOptions}, jqXHR) {
-		${0: // Modify options, control originalOptions, store jqXHR, etc}
-	});
-snippet jajax-send
-	${1:obj}.ajaxSend(function (${1:request, settings}) {
-		${2:// error callback}
-	});
-	${0}
-snippet jajax-setup
-	$.ajaxSetup({
-		url: "${1:mydomain.com/url}",
-		type: "${2:POST}",
-		dataType: "${3:xml/html/script/json}",
-		data: $.param( $("${4:Element or Expression}") ),
-		complete: function (jqXHR, textStatus) {
-			${5:// callback}
-		},
-		success: function (data, textStatus, jqXHR) {
-			${6:// success callback}
-		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			${0:// error callback}
-		}
-	});
-snippet jajaxStart
-	$.ajaxStart(function () {
-		${1:// handler for when an AJAX call is started and no other AJAX calls are in progress};
-	});
-	${0}
-snippet jajaxStop
-	$.ajaxStop(function () {
-		${1:// handler for when all AJAX calls have been completed};
-	});
-	${0}
-snippet jajaxSuccess
-	$.ajaxSuccess(function (${1:e}, xhr, settings) {
-		${2:// handler for when any AJAX call is successfully completed};
-	});
-	${0}
-snippet jandSelf
-	${1:obj}.andSelf()
-snippet janimate
-	${1:obj}.animate({${2:param1: value1, param2: value2}}, ${3:speed})
-snippet jappend
-	${1:obj}.append('${2:Some text <b>and bold!</b>}')
-snippet jappendTo
-	${1:obj}.appendTo('${2:selector expression}')
-snippet jattr
-	${1:obj}.attr('${2:attribute}', '${3:value}')
-snippet jattr-multiple
-	${1:obj}.attr({'${2:attr1}': '${3:value1}', '${4:attr2}': '${5:value2}'})
-snippet jbefore
-	${1:obj}.before('${2:Some text <b>and bold!</b>}')
-snippet jbind
-	${1:obj}.bind('${2:event name}', function (${3:e}) {
-		${0:// event handler}
-	});
-snippet jblur
-	${1:obj}.blur(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jcallbacks
-	$.Callbacks()
-snippet jadd-callbacks
-	${1:callbacks}.add(${2:callbacks})
-snippet jdisable
-	${1:callbacks}.disable()
-snippet jempty-callback
-	${1:callbacks}.empty()
-snippet jfire-callback
-	${1:callbacks}.fire(${2:args})
-snippet jfired-callback
-	${1:callbacks}.fired()
-snippet jfirew-callback
-	${1:callbacks}.fireWith(${2:this}, ${3:args})
-snippet jhas-callback
-	${1:callbacks}.has(${2:callback})
-snippet jlock-callback
-	${1:callbacks}.lock()
-snippet jlocked-callback
-	${1:callbacks}.locked()
-snippet jrem-callback
-	${1:callbacks}.remove(${2:callbacks})
-snippet jchange
-	${1:obj}.change(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jchildren
-	${1:obj}.children('${2:selector expression}')
-snippet jclearQueue
-	${1:obj}.clearQueue(${2:'queue name'})
-snippet jclick
-	${1:obj}.click(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jclone
-	${1:obj}.clone()
-snippet jcontains
-	$.contains(${1:container}, ${0:contents});
-snippet jcss
-	${1:obj}.css('${2:attribute}', '${3:value}')
-snippet jcsshooks
-	$.cssHooks['${1:CSS prop}'] = {
-		get: function (elem, computed, extra) {
-			${2: // handle getting the CSS property}
-		},
-		set: function (elem, value) {
-			${0: // handle setting the CSS value}
-		}
-	};
-snippet jcss-multiple
-	${1:obj}.css({${2:attribute1}: '${3:value1}', ${4:attribute2}: '${5:value2}'})
-snippet jdeferred
-	$.Deferred()
-snippet jdeferred-always
-	${1:deferred}.always(${2:callbacks})
-snippet jDdone
-	${1:deferred}.done(${2:callbacks})
-snippet jDfail
-	${1:deferred}.fail(${2:callbacks})
-snippet jDisrej
-	${1:deferred}.isRejected()
-snippet jDisres
-	${1:deferred}.isResolved()
-snippet jDnotify
-	${1:deferred}.notify(${2:args})
-snippet jDnotifyw
-	${1:deferred}.notifyWith(${2:this}, ${3:args})
-snippet jDpipe
-	${1:deferred}.then(${2:doneFilter}, ${3:failFilter}, ${4:progressFilter})
-snippet jDprog
-	${1:deferred}.progress(${2:callbacks})
-snippet jDprom
-	${1:deferred}.promise(${2:target})
-snippet jDrej
-	${1:deferred}.reject(${2:args})
-snippet jDrejw
-	${1:deferred}.rejectWith(${2:this}, ${3:args})
-snippet jDres
-	${1:deferred}.resolve(${2:args})
-snippet jDresw
-	${1:deferred}.resolveWith(${2:this}, ${3:args})
-snippet jDstate
-	${1:deferred}.state()
-snippet jDthen
-	${1:deferred}.then(${2:doneCallbacks}, ${3:failCallbacks}, ${4:progressCallbacks})
-snippet jDwhen
-	$.when(${1:deferreds})
-snippet jdata
-	${1:obj}.data(${2:obj})
-snippet jdataa
-	$.data('${1:selector expression}', '${2:key}'${3:, 'value'})
-snippet jdblclick
-	${1:obj}.dblclick(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jdelay
-	${1:obj}.delay('${2:slow/400/fast}'${3:, 'queue name'})
-snippet jdele
-	${1:obj}.delegate('${2:selector expression}', '${3:event name}', function (${4:e}) {
-		${0:// event handler}
-	});
-snippet jdequeue
-	${1:obj}.dequeue(${2:'queue name'})
-snippet jdeqq
-	$.dequeue('${1:selector expression}'${2:, 'queue name'})
-snippet jdetach
-	${1:obj}.detach('${2:selector expression}')
-snippet jdie
-	${1:obj}.die(${2:event}, ${3:handler})
-snippet jeach
-	${1:obj}.each(function (index) {
-		${0:this.innerHTML = this + " is the element, " + index + " is the position";}
-	});
-snippet jel
-	$('<${1}/>'${2:, {}})
-snippet jel-trim
-	$.trim('${1:string}')
-snippet jel-empty
-	${1:obj}.empty()
-snippet jel-end
-	${1:obj}.end()
-snippet jel-eq
-	${1:obj}.eq(${2:element index})
-snippet jel-error
-	${1:obj}.error(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jeventsmap
-	{
-		:f${0}
-	}
-snippet jextend
-	$.extend(${1:true, }${2:target}, ${3:obj})
-snippet jfadein
-	${1:obj}.fadeIn('${2:slow/400/fast}')
-snippet jfadein-callback
-	${1:obj}.fadeIn('slow/400/fast', function () {
-		${0:// callback};
-	});
-snippet jfadeOut
-	${1:obj}.fadeOut('${2:slow/400/fast}')
-snippet jfadeout-callback
-	${1:obj}.fadeOut('slow/400/fast', function () {
-		${0:// callback};
-	});
-snippet jfadeTo
-	${1:obj}.fadeTo('${2:slow/400/fast}', ${3:0.5})
-snippet jfadeto-callback
-	${1:obj}.fadeTo('slow/400/fast', ${2:0.5}, function () {
-		${0:// callback};
-	});
-snippet jfilter
-	${1:obj}.filter('${2:selector expression}')
-snippet jfiltert
-	${1:obj}.filter(function (${2:index}) {
-		${3}
-	})
-snippet jfind
-	${1:obj}.find('${2:selector expression}')
-snippet jfocus
-	${1:obj}.focus(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jfocusIn
-	${1:obj}.focusIn(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jfocusOut
-	${1:obj}.focusOut(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jget
-	${1:obj}.get(${2:element index})
-snippet jgetJSON
-	$.getJSON('${1:mydomain.com/url}',
-		${2:{ param1: value1 },}
-		function (data, textStatus, jqXHR) {
-			${0:// success callback}
-		}
-	);
-snippet jgetScript
-	$.getScript('${1:mydomain.com/url}', function (script, textStatus, jqXHR) {
-		${0:// callback}
-	});
-snippet jgrep
-	$.grep(${1:array}, function (item, index) {
-		${2}
-	}${0:, true});
-snippet jhasClass
-	${1:obj}.hasClass('${2:className}')
-snippet jhasData
-	$.hasData('${0:selector expression}');
-snippet jheight
-	${1:obj}.height(${2:integer})
-snippet jhide
-	${1:obj}.hide('${2:slow/400/fast}')
-snippet jhide-callback
-	${1:obj}.hide('${2:slow/400/fast}', function () {
-		${0:// callback}
-	});
-snippet jhover
-	${1:obj}.hover(function (${2:e}) {
-		${3:// event handler}
-	}, function ($2) {
-		${4:// event handler}
-	});
-snippet jhtml
-	${1:obj}.html('${2:Some text <b>and bold!</b>}')
-snippet jinArray
-	$.inArray(${1:value}, ${0:array});
-snippet jinsertAfter
-	${1:obj}.insertAfter('${2:selector expression}')
-snippet jinsertBefore
-	${1:obj}.insertBefore('${2:selector expression}')
-snippet jis
-	${1:obj}.is('${2:selector expression}')
-snippet jisArray
-	$.isArray(${1:obj})
-snippet jisEmptyObject
-	$.isEmptyObject(${1:obj})
-snippet jisFunction
-	$.isFunction(${1:obj})
-snippet jisNUmeric
-	$.isNumeric(${1:value})
-snippet jisPlainObject
-	$.isPlainObject(${1:obj})
-snippet jisWindow
-	$.isWindow(${1:obj})
-snippet jisXMLDoc
-	$.isXMLDoc(${1:node})
-snippet jjj
-	$('${1:selector}')
-snippet jkdown
-	${1:obj}.keydown(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jkpress
-	${1:obj}.keypress(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jkup
-	${1:obj}.keyup(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jlast
-	${1:obj}.last('${1:selector expression}')
-snippet jlive
-	${1:obj}.live('${2:events}', function (${3:e}) {
-		${0:// event handler}
-	});
-snippet jload
-	${1:obj}.load(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jloadf
-	${1:obj}.load('${2:mydomain.com/url}',
-		${2:{ param1: value1 },}
-		function (responseText, textStatus, xhr) {
-			${0:// success callback}
-		}
-	});
-snippet jmakearray
-	$.makeArray(${0:obj});
-snippet jmap
-	${1:obj}.map(function (${2:index}, ${3:element}) {
-		${0:// callback}
-	});
-snippet jmapp
-	$.map(${1:arrayOrObject}, function (${2:value}, ${3:indexOrKey}) {
-		${0:// callback}
-	});
-snippet jmerge
-	$.merge(${1:target}, ${0:original});
-snippet jmdown
-	${1:obj}.mousedown(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jmenter
-	${1:obj}.mouseenter(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jmleave
-	${1:obj}.mouseleave(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jmmove
-	${1:obj}.mousemove(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jmout
-	${1:obj}.mouseout(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jmover
-	${1:obj}.mouseover(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jmup
-	${1:obj}.mouseup(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jnext
-	${1:obj}.next('${2:selector expression}')
-snippet jnexta
-	${1:obj}.nextAll('${2:selector expression}')
-snippet jnextu
-	${1:obj}.nextUntil('${2:selector expression}'${3:, 'filter expression'})
-snippet jnot
-	${1:obj}.not('${2:selector expression}')
-snippet joff
-	${1:obj}.off('${2:events}', '${3:selector expression}'${4:, handler})
-snippet joffset
-	${1:obj}.offset()
-snippet joffsetp
-	${1:obj}.offsetParent()
-snippet jon
-	${1:obj}.on('${2:events}', '${3:selector expression}', function (${4:e}) {
-		${0:// event handler}
-	});
-snippet jone
-	${1:obj}.one('${2:event name}', function (${3:e}) {
-		${0:// event handler}
-	});
-snippet jouterh
-	${1:obj}.outerHeight()
-snippet jouterw
-	${1:obj}.outerWidth()
-snippet jparam
-	$.param(${1:obj})
-snippet jparent
-	${1:obj}.parent('${2:selector expression}')
-snippet jparents
-	${1:obj}.parents('${2:selector expression}')
-snippet jparent-until
-	${1:obj}.parentsUntil('${2:selector expression}'${3:, 'filter expression'})
-snippet jparseJSON
-	$.parseJSON(${1:data})
-snippet jparseXML
-	$.parseXML(${1:data})
-snippet jpositioon
-	${1:obj}.position()
-snippet jprepend
-	${1:obj}.prepend('${2:Some text <b>and bold!</b>}')
-snippet jprependTo
-	${1:obj}.prependTo('${2:selector expression}')
-snippet jprev
-	${1:obj}.prev('${2:selector expression}')
-snippet jprevAll
-	${1:obj}.prevAll('${2:selector expression}')
-snippet jprevUntil
-	${1:obj}.prevUntil('${2:selector expression}'${3:, 'filter expression'})
-snippet jpromise
-	${1:obj}.promise(${2:'fx'}, ${3:target})
-snippet jprop
-	${1:obj}.prop('${2:property name}')
-snippet jproxy
-	$.proxy(${1:function}, ${2:this})
-snippet jpushstack
-	${1:obj}.pushStack(${2:elements})
-snippet jqueue
-	${1:obj}.queue(${2:name}${3:, newQueue})
-snippet jqueuee
-	$.queue(${1:element}${2:, name}${3:, newQueue})
-snippet jready
-	$(function () {
-		${0}
-	});
-snippet jdocument
-	$(document).ready(function() {
-		${0}
-	});
-snippet jremove
-	${1:obj}.remove()
-snippet jremoveAttr
-	${1:obj}.removeAttr('${2:attribute name}')
-snippet jremoveClass
-	${1:obj}.removeClass('${2:class name}')
-snippet jremoveData
-	${1:obj}.removeData('${2:key name}')
-snippet jremoveData
-	$.removeData(${1:element}${2:, 'key name}')
-snippet jremoveProp
-	${1:obj}.removeProp('${2:property name}')
-snippet jreplaceAll
-	${1:obj}.replaceAll(${2:target})
-snippet jreplaceWith
-	${1:obj}.replaceWith(${2:content})
-snippet jreset
-	${1:obj}.reset(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jresize
-	${1:obj}.resize(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jscroll
-	${1:obj}.scroll(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jscrollLeft
-	${1:obj}.scrollLeft(${2:value})
-snippet jscrollTop
-	${1:obj}.scrollTop(${2:value})
-snippet jslideDown
-	${1:obj}.slideDown('${2:slow/400/fast}')
-snippet jslideDown-callback
-	${1:obj}.slideDown('${2:slow/400/fast}', function () {
-		${0:// callback};
-	});
-snippet jselect
-	${1:obj}.select(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jserialize
-	${1:obj}.serialize()
-snippet jserialize-array
-	${1:obj}.serializeArray()
-snippet jshow
-	${1:obj}.show('${2:slow/400/fast}')
-snippet jshow-callback
-	${1:obj}.show('${2:slow/400/fast}', function () {
-		${0:// callback}
-	});
-snippet jsiblings
-	${1:obj}.siblings('${2:selector expression}')
-snippet jsize
-	${1:obj}.size()
-snippet jslice
-	${1:obj}.slice(${2:start}${3:, end})
-snippet jslideToggle
-	${1:obj}.slideToggle('${2:slow/400/fast}')
-snippet jstop
-	${1:obj}.stop('${2:queue}', ${3:false}, ${4:false})
-snippet jsubmit
-	${1:obj}.submit(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet jslideUp
-	${1:obj}.slideUp('${2:slow/400/fast}')
-snippet jslideUp-callback
-	${1:obj}.slideUp('${2:slow/400/fast}', function () {
-		${0:// callback};
-	});
-snippet jtext
-	${1:obj}.text(${2:'some text'})
-snippet jthis
-	$(this)
-snippet jto-array
-	${0:obj}.toArray()
-snippet jtoggle
-	${1:obj}.toggle(function (${2:e}) {
-		${3:// event handler}
-	}, function ($2) {
-		${4:// event handler}
-	});
-	${0}
-snippet jtoggleclass
-	${1:obj}.toggleClass('${2:class name}')
-snippet jtogglesh
-	${1:obj}.toggle('${2:slow/400/fast}')
-snippet jtriger
-	${1:obj}.trigger('${2:event name}')
-snippet jtriggerHandler
-	${1:obj}.triggerHandler('${2:event name}')
-snippet j$trim
-	$.trim(${1:str})
-snippet j$type
-	$.type(${1:obj})
-snippet junbind
-	${1:obj}.unbind('${2:event name}')
-snippet jundele
-	${1:obj}.undelegate(${2:selector expression}, ${3:event}, ${4:handler})
-snippet juniq
-	$.unique(${1:array})
-snippet junload
-	${1:obj}.unload(function (${2:e}) {
-		${0:// event handler}
-	});
-snippet junwrap
-	${1:obj}.unwrap()
-snippet jval
-	${1:obj}.val('${2:text}')
-snippet jwidth
-	${1:obj}.width(${2:integer})
-snippet jwrap
-	${1:obj}.wrap('${2:&lt;div class="extra-wrapper"&gt;&lt;/div&gt;}')
-#end jquery
-
-#REACT
-snippet rcs
-	var cx = React.addons.classSet;
-snippet rcx
-	cx({
-		${1}: ${2}
-	});
-snippet rfu
-	forceUpdate(${1:callback});
-snippet rgdp
-	getDefaultProps: function() {
-		return {
-			${1}
-		};
-	},
-snippet rgis
-	getInitialState: function() {
-		return {
-			${1}: ${2}
-		};
-	},
-snippet rim
-	isMounted()
-snippet jsx
-	/**
-	 * @jsx React.DOM
-	 */
-
-	var React = require('react');
-
-	var ${1:ClassName} = React.createClass({
-
-		render: function() {
-			return (
-				${0:<div />}
-			);
-		}
-
-	});
-
-	module.exports = $1;
-snippet rpt
-	${1}.propTypes = {
-		${2}: React.PropTypes.${3:string|number}.${4:isRequired}
-	}
-snippet rccrender
-	let ${1:ClassName} = React.createClass({
-		render: () => {
-			return (
-				<div>
-					${0:jsx}
-				</div>
-			);
-		} 
-
-	});
-snippet rccr
-	let ${1:component} = React.createClass({
-		render() {
-			return (
-				<div>
-					${0:jsx}
-				</div>
-			);
-		}
-
-	});
-snippet rr
-	render() {
-		return (
-			<div>
-				${0:jsx}
-			</div>
-		);
-	}
-snippet rrf
-	render: function() {
-		return (
-			<div>
-				${0:jsx}
-			</div>
-		);
-	}
-snippet rss
-	this.setState({ ${1} : ${2:e.target.value}});
-snippet rscu
-	shouldComponentUpdate: function(nextProps, nextState) {
-		${1}
-	},
-snippet tp
-	{ this.props.${1} }
-snippet rp
-	{ this.props.${1} }
-snippet rprops
-	{ this.props.${1} }
-snippet rpropsc
-	{ this.props.children }
-snippet rpc
-	{ this.props.children }
-snippet tpc
-	{ this.props.children }
-snippet rtrp
-	transferPropsTo(${1});
-snippet R
-	React
-snippet rdr
-	ReactDOM.render(
-	  ${1:component},
-	  document.querySelector(${2:.class})
-	)
-snippet rcl
-	class ${1:MyComponent} extends React.Component {
-		render() {
-			return (
-				<div>
-					${2:jsx}
-				</div>
-			);
-		}
-	}
-snippet rclr
-	class ${1:MyComponent} extends React.Component {
-		render() {
-			return (
-				<div>
-					${2:jsx}
-				</div>
-			);
-		}
-	}
-snippet rccc
-	class ${1:MyComponent} extends React.Component {
-		constructor(){
-			super()
-			this.state = {
-				${2:currentState}: '${3:value}' 
-			}
-			this.${4:method} = this.update.bind(this)
-		}
-		render() {
-			return (
-				<div>
-					${5:jsx}
-				</div>
-			);
-		}
-	}
-snippet rclc
-	class ${1:MyComponent} extends React.Component {
-		constructor(){
-			super()
-			this.state = {
-				${2:currentState}: '${3:value}' 
-			}
-			this.${4:method} = this.update.bind(this)
-		}
-		render() {
-			return (
-				<div>
-					${5:jsx}
-				</div>
-			);
-		}
-	}
-snippet rco
-	constructor(){
-	  super()
-		this.state = {${1:currentState}: '${2:value}' }
-		this.state = this.update.bind(this)
-	}
-snippet rcon
-	constructor(){
-	  super()
-		this.state = {${1:currentState}: '${2:value}' }
-		this.state = this.update.bind(this)
-	}
-snippet rcons
-	constructor(){
-	  super()
-		this.state = {${1:currentState}: '${2:value}' }
-		this.state = this.update.bind(this)
-	}
-snippet jc
-	{/* ${1:A JSX comment} */}
-snippet rc
-	{/* ${1:A JSX comment} */}
-snippet rce
-	React.createElement('${1:h1}',null,'${2:hello}')
-snippet rptn
-	${1:prop} : React.PropTypes.number
-snippet rpts
-	${1:prop} : React.PropTypes.string
-snippet rpt
-	${1}.propTypes = {
-		${2}: React.PropTypes.${3:string|number}.${4:isRequired}
-		${0}
-	}
-snippet rcs
-	${1:prop} : React.PropTypes.string
-snippet ro
-	${1:this.state} = {
-		${2}
-	}
-snippet rstate
-	{ this.state.${1} }
-snippet rs
-	{ this.state.${1} }
-snippet rts
-	{ this.state.${1} }
-snippet re
-	export default ${1:Module}
-snippet ri
-	import ${1:React} from '${2:react}'
-snippet rir
-	import React from 'react'
-snippet rid
-	import ReactDOM from 'react-dom'
-snippet rird
-	import ReactDOM from 'react-dom'
-snippet rf
-	${1:function_name} = (${2}) => {
-		${0}
-	}
-snippet rff
-	${1:function_name} = (${2}) => {
-		${0}
-	}
-snippet rfs
-	${1:function_name} = (${2}) => {
-		this.state = {
-			${3:currentState}: '${4:value}' 
-		}
-		${0}
-	}
-snippet rfa
-	${1:function_name} = (${2}) => {
-		${0}
-	}
-snippet rfshort
-	${1:function_name} = () => ${0:this.method()}
-#lifecycle
-snippet rlc
-	${1:componentWillMount} () {
-	  //console.log('componentWillMount')
-		${0}
-	}
-snippet cwm
-	componentWillMount () {
-	  //console.log('componentWillMount')
-		${0}
-	}
-snippet rcwm
-	componentWillMount () {
-	  //console.log('componentWillMount')
-		${0}
-	}
-snippet cwu
-	componentWillUnmnmount () {
-	  //console.log('componentWillMount')
-		${0}
-	}
-snippet rcwu
-	componentWillUnmount () {
-	  //console.log('componentWillUnmount')
-		${0}
-	}
-snippet cdm
-	componentDidMount () {
-	  //console.log('componentDidMount')
-		${0}
-	}
-snippet rcdm
-	componentDidMount  () {
-	  //console.log('componentDidMount')
-		${0}
-	}
+snippet r
+	return ${0}
