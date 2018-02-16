@@ -180,7 +180,7 @@ snippet rcs
 		}
 	}
 snippet ref
-	ref={ (${1:input}) => this.${2:nameVar} = $1} 
+	ref={(${1:input}) => { this.${2:nameVar } = $1; }}
 snippet roc
 	onClick={${1:this.}} ${0}
 snippet ros
@@ -189,13 +189,13 @@ snippet roh
 	onHover={${1:this.}} ${0}
 snippet rcn
 	className="${1:name}"
+snippet re
+	on${1:Event}={${(e) => this.${2:function}}${0}
 snippet rb
 	this.${1:method} = this.$1.bind(this);
 snippet rbind
 	this.${1:method} = this.$1.bind(this);
 snippet red
-	export default ${1};
-snippet re
 	export default ${1};
 snippet rfj
 	function(props) {
@@ -1281,3 +1281,15 @@ snippet ::a
 	::after
 snippet ::b
 	::before
+
+#jsx with Emmet
+snippet input
+	input[type=text defaultValue=${2:val} placehoder=${3:val}]${0:Emmet}
+snippet textarea
+	textarea[placehoder=${3:val}]${0:Emmet}
+snippet select
+	select>option[value=${1:val}]${0:Emmet}
+snippet button
+	button.btn.btn-primary[type=submit]${0:Emmet}
+
+
