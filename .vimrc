@@ -137,6 +137,9 @@ Plugin 'godlygeek/tabular'
 "replace word in all project
 Plugin 'dkprice/vim-easygrep' 
 
+"indent code
+Plugin 'nathanaelkane/vim-indent-guides'  
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -160,7 +163,22 @@ syntax on
 "The system defined color schemes are located in $VIM/colors
 "to find the theme :echo $VIM in vim.
 colorscheme slate
-set bg=light 
+set background=dark
+"plugin indent code
+let g:indent_guides_enable_on_vim_startup = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
+":help indent-guides
+
+"set cursorcolumn
+"set colorcolumn=121
+"highlight ColorColumn ctermbg=red
+"call matchadd('ColorColumn',  '\%121v', 100)
+set wrap
+set linebreak
+"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmodtempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+"vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+"no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 set expandtab
 set tabstop=2
@@ -228,7 +246,6 @@ set hidden
 set history=256
 set matchtime=5
 set modeline
-set nowrap
 set report=0
 set shell=bash
 set shortmess=atI
@@ -698,3 +715,25 @@ vnoremap <CR> }
 
 
 nnoremap <silent> <F5> :silent !open -a /Applications/Google\ Chrome.app %<CR>
+
+"https://www.reddit.com/r/vim/comments/7yzblt/what_was_your_best_vimrc_addition/?st=JDWP6I49&sh=bdcde356
+"mm make a mark called m. gg go to beginning of file. =G format from current cursor position to end of file. `m move cursor to mark named m.
+"So it says "remember my current position, format the whole file, and move back to where I was".
+nnoremap g= mmgg=G`m
+inoremap ii <Esc>
+"inoremap jj <Esc>
+inoremap kj <Esc>
+
+"https://robots.thoughtbot.com/wrap-existing-text-at-80-characters-in-vim
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
+"https://robots.thoughtbot.com/wrap-existing-text-at-80-characters-in-vim
+"Fast single-line indent:
+nnoremap = ==
+nnoremap < <<
+nnoremap > >>
+
+
+"https://robots.thoughtbot.com/wrap-existing-text-at-80-characters-in-vim
+"Don't mash backspace when you realize you have made a typo. Just hit jj and and type it again. Never loose speed.
+inoremap jj <Esc>ciw
