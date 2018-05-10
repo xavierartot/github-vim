@@ -10,10 +10,11 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'rizzatti/funcoo.vim'
 
-"Hardtime helps you break that annoying habit vimmers have of scrolling up and down the page using jjjjj and kkkkk but 
+"Hardtime helps you break that annoying habit vimmers have of scrolling up and down the page using jjjjj and kkkkk but
 "without compromising the rest of our vim experience.
-Plugin 'takac/vim-hardtime' 
-Plugin 'suan/vim-instant-markdown' 
+"Plugin 'takac/vim-hardtime'
+
+Plugin 'suan/vim-instant-markdown'
 
 Plugin 'ragtag.vim'
 
@@ -41,9 +42,6 @@ Plugin 'wavded/vim-stylus'
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
-"YouCompleteMe: brew install cmake
-"autocompletion with the tab for all langage
-"Plugin 'ervandew/supertab'  
 
 "syntax
 
@@ -51,7 +49,7 @@ Plugin 'tmhedberg/matchit'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-obsession'
 "Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline' 
+Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 "html
@@ -61,27 +59,31 @@ Plugin 'mattn/emmet-vim'
 
 "javascripts
 Plugin 'marijnh/tern_for_vim'
-"help for the symtax color 
-Plugin 'jelera/vim-javascript-syntax' 
+" help for the symtax color
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
-"Plugin 'burnettk/vim-angular' 
+" Plugin 'burnettk/vim-angular'
 Plugin 'Valloric/MatchTagAlways'
-Plugin 'HerringtonDarkholme/yats.vim' 
+Plugin 'HerringtonDarkholme/yats.vim'
 
-"React  
-"https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
+" -------------------------------------------- REACT
+" https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
+" lint - https://drivy.engineering/setting-up-vim-for-react/
+" install locally
+" yarn add eslint babel-eslint eslint-plugin-react prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-import stylelint eslint-config-airbnb eslint-plugin-jsx-a11y
+" install globaly: npm i -g eslint babel-eslint eslint-plugin-react prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-import stylelint eslint-config-airbnb eslint-plugin-jsx-a11y
+"//--------------------------------------------
 Plugin 'mxw/vim-jsx'
-"https://drivy.engineering/setting-up-vim-for-react/
-Plugin 'w0rp/ale' 
+Plugin 'w0rp/ale'
 Plugin 'prettier/prettier'
 Plugin 'skywind3000/asyncrun.vim'
 
-"node
-Plugin 'moll/vim-node' 
+" node
+Plugin 'moll/vim-node'
 
-"browser in terminal with synchronisation
-Plugin 'jaxbot/browserlink.vim' 
+" browser in terminal with synchronisation
+Plugin 'jaxbot/browserlink.vim'
 
 Plugin 'scrooloose/nerdtree'
 
@@ -91,7 +93,7 @@ Plugin 'scrooloose/nerdcommenter'
 "Git
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Xuyuanp/nerdtree-git-plugin' 
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'fugitive.vim'
 
 "file
@@ -102,7 +104,7 @@ Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'digitaltoad/vim-pug'
 "daltoad/vim-jade
 
-"visual increment a column visual-increment.vim - 
+"visual increment a column visual-increment.vim -
 "use CTRL+A/X to create increasing sequence of numbers or letters via visual mode
 Plugin 'triglav/vim-visual-increment'
 
@@ -114,31 +116,34 @@ Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 
 "WordPress & PHP
-Plugin 'dsawardekar/wordpress.vim' 
+Plugin 'dsawardekar/wordpress.vim'
 Plugin 'StanAngeloff/php.vim'
 
 "open a word or a link in the browser
 Plugin 'tyru/open-browser.vim'
 
 "documentation
-Plugin 'keith/investigate.vim' 
+Plugin 'keith/investigate.vim'
 "devdoc.io
-Plugin 'rhysd/devdocs.vim'  
+Plugin 'rhysd/devdocs.vim'
 
 "multi cursor
 Plugin 'terryma/vim-multiple-cursors'
 "Translate
-"Plugin 'iadept/vim-gtranslate' 
+"Plugin 'iadept/vim-gtranslate'
 
+Plugin 'wellle/targets.vim'
 Plugin 'wincent/terminus'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'godlygeek/tabular'
 
 "replace word in all project
-Plugin 'dkprice/vim-easygrep' 
+Plugin 'dkprice/vim-easygrep'
 
 "indent code
-Plugin 'nathanaelkane/vim-indent-guides'  
+Plugin 'nathanaelkane/vim-indent-guides'
+
+Plugin 'jparise/vim-graphql'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -148,12 +153,12 @@ syntax on
 
 "CTAGS
 "https://github.com/craigemery/vim-autotag
-"Plugin 'craigemery/vim-autotag' 
+"Plugin 'craigemery/vim-autotag'
 "https://github.com/ludovicchabant/vim-gutentags
-"Plugin 'ludovicchabant/vim-gutentags' 
+"Plugin 'ludovicchabant/vim-gutentags'
 "
 "Arduino
-"Plugin '4Evergreen4/vim-hardy' 
+"Plugin '4Evergreen4/vim-hardy'
 "
 "https://github.com/xavierartot/spf13-vim/blob/3.0/.vimrc
 "set cursorline                  " Highlight current line
@@ -220,13 +225,17 @@ set novisualbell
 
 "set number
 set numberwidth=4
-set relativenumber 
-set number    
+set relativenumber
+set number
 
 set showcmd
 set showmatch
 
+"search color
 set hlsearch
+hi Search ctermbg=Gray
+hi Search ctermfg=LightGray
+
 set incsearch
 set ignorecase
 set smartcase
@@ -234,7 +243,7 @@ set smartcase
 set laststatus=2
 set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-"set statusline=\%L%m%r%h\ %w\ \ pwd:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+"set statusline=\%L%m%r%h\ %w\ \ pwd:\ %r%{getcwd()}%h\ \%{fugitive#statusline()}\ \ Line:\ %l
 
 set clipboard=unnamed
 
@@ -382,7 +391,7 @@ nnoremap + g,<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :bd<CR>
 "quit the windows no name
-nnoremap <Leader>1 :q<CR> 
+nnoremap <Leader>1 :q<CR>
 nnoremap <Leader>s :wq<CR>
 
 "create the tags file (may need to install Ctags first)
@@ -500,8 +509,8 @@ let g:vim_json_syntax_conceal = 0
 
 "let g:github_token = 'f4c7b9e07a1b7775ba6f16f419b717317be7b3ef'
 
-"let g:langpair="ru" 
-"let g:vtranslate="T" 
+"let g:langpair="ru"
+"let g:vtranslate="T"
 
 
 " Put at the very end of your .vimrc file.
@@ -550,10 +559,10 @@ let g:interestingWordsRandomiseColors = 1
 
 " OPEN BROWSER
 " http://www.vim.org/scripts/script.php?script_id=3133
-" Search word under cursor. 
-"nmap <leader>o <Plug>(openbrowser-search) 
+" Search word under cursor.
+"nmap <leader>o <Plug>(openbrowser-search)
 " open link
-nmap <leader>o  <Plug>(openbrowser-smart-search) 
+nmap <leader>o  <Plug>(openbrowser-smart-search)
 
 "OPEN JAVASCRIPT DOCUMENTATION plugin investigate.vim
 "nnoremap <leader>z :call investigate#Investigate('n')<CR>
@@ -575,7 +584,7 @@ command! -nargs=* DevDocsModernizr call devdocs#open_doc(<q-args>, 'modernizr')
 command! -nargs=* DevDocsHtml call devdocs#open_doc(<q-args>, 'html')
 command! -nargs=* DevDocsD3 call devdocs#open_doc(<q-args>, 'd3')
 
-""autocomplete 
+""autocomplete
 "let g:UltiSnipsExpandTrigger = "<nop>"
 "inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" : "\<CR>"
 
@@ -606,8 +615,8 @@ let javascript_ignore_javaScriptdoc =1
 "http://lanyrd.com/2013/insert-mode-features-and-ternvim/schpdr/#link-rpxy
 inoremap <C-Space> <C-x><C-o>
 imap <buffer> <Nul> <C-Space>
-smap <buffer> <Nul> <C-Space> 
-"other mapping 
+smap <buffer> <Nul> <C-Space>
+"other mapping
 ":TernDef
 ":TernDocBrowse  jump to the documentation
 
@@ -616,30 +625,13 @@ let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "<UP>", "<DOWN>", "<L
 let g:list_of_visual_keys = ["h", "j", "k", "l", "-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 "let g:list_of_disabled_keys = []
-let g:hardtime_timeout = 2000 "2 sec
+let g:hardtime_timeout = 1000 "2 sec
 let g:hardtime_showmsg = 1
+let g:hardtime_default_on = 0
 
 
 "Plugin 'fadein/vim-FIGlet'
 let g:filgetOpts = '/Library/Fonts'
-
-
-" AUTOCOMMANDS (autos)
-" """"""""""""
-
-" - Autocommand groups are good for organization but they can be useful
-"   for debugging too. Think of them as small namespaces that you
-"   can enable/disable at will.
-" - See ':help autocommand'.
-
-"sparkup
-"augroup sparkup_types
-  "" Remove ALL autocommands of the current group.
-  "autocmd!
-  "" Add sparkup to new filetypes
-  "autocmd FileType mustache,php,javascript,jsx runtime! ftplugin/html/sparkup.vim
-"augroup END
-"let g:sparkupNextMapping = '<tab>'
 
 autocmd FileType html,css,javascript,jsx EmmetInstall
 let g:user_emmet_install_global = 0
@@ -669,7 +661,9 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:ale_statusline_format = ['error', 'warning %d', '']
 "g:syntastic_javascript_checkers = ['eslint']
 let g:ale_linters = {
-\  'javascript': ['eslint'],
+\  'javascript': ['stylelint', 'eslint'],
+\  'css': ['stylelint'],
+\  'scss': ['stylelint'],
 \}
 let g:ale_sign_error = '⚠️' "Less aggressive than the default '>>'
 let g:ale_sign_warning = '💡'
@@ -679,18 +673,27 @@ let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 "run eslint in the backgrount with AsyncRun
 autocmd BufWritePost *.js AsyncRun -post=checktime eslint --fix %
 "autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
+"autocmd BufWritePost *.css AsyncRun -post=checktime stylelint --fix %
+"autocmd BufWritePost *.scss AsyncRun -post=checktime stylelint --fix %
 "~/node_modules/eslint/bin/eslint.js
 "
+let g:ale_css_stylelint_executable = 'stylelint'
+let g:ale_css_stylelint_options = ''
+let g:ale_css_stylelint_use_global = 1
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 
 "https://kinbiko.com/vim/my-shiniest-vim-gems/
+"Highlight ugly code
 "excessively long lines of code (120+ in most languages)
 match ErrorMsg '\%>120v.\+'
 "trailing whitespace
 match ErrorMsg '\s\+$'
+
+"Remove all trailing whitespace by pressing F6
+nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 "easymotion
 "<Leader>f{char} to move to {char}
@@ -712,9 +715,13 @@ vnoremap <BS> {
 nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 vnoremap <CR> }
+"doesn't work with macro
+"nnoremap q i'
+"nnoremap Q i"
+"onoremap ia i]
+"onoremap aa a]
 
-
-nnoremap <silent> <F5> :silent !open -a /Applications/Google\ Chrome.app %<CR>
+nnoremap <silent> <F5> :silent !open -a /Applications/Firefox.app %<CR>
 
 "https://www.reddit.com/r/vim/comments/7yzblt/what_was_your_best_vimrc_addition/?st=JDWP6I49&sh=bdcde356
 "mm make a mark called m. gg go to beginning of file. =G format from current cursor position to end of file. `m move cursor to mark named m.
