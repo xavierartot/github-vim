@@ -155,8 +155,8 @@ snippet rssf
 		${1:variable} : currentState.${0}
 	}))
 snippet rso
-	state = {
-	  ${0}
+	this.state = {
+	  ${1} : ${0}
 	}
 snippet sst
 	this.setState({
@@ -364,3 +364,21 @@ snippet riife
 		  ${0:<div>$2</div>}
 		}
 	})();
+snippet rmap
+	{${1:array}.map( ${2:item} => <li key={$2.id}}>{$2}</li> )}
+snippet rmapl
+	${1}.map( (${2:item}) => {
+		<li key={$2.id}}>{$2}</li>
+	})
+
+#API Context
+snippet acc
+	const Context = React.createContext()
+
+snippet mstp mapStateToProps
+	function mapStateToProps( { ${1:state} }, ${2:props} ) {
+		return {
+			
+		}
+	}
+

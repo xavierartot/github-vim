@@ -14,7 +14,11 @@ Plugin 'rizzatti/funcoo.vim'
 "without compromising the rest of our vim experience.
 "Plugin 'takac/vim-hardtime'
 
-Plugin 'suan/vim-instant-markdown'
+"replace this plugin by  https://github.com/shime/vim-livedown, is allow to
+"add image
+"Plugin 'suan/vim-instant-markdown'
+"npm install -g livedown
+Plugin 'shime/vim-livedown'
 
 Plugin 'ragtag.vim'
 
@@ -48,6 +52,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'tmhedberg/matchit'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-surround'
 "Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -128,7 +133,7 @@ Plugin 'keith/investigate.vim'
 Plugin 'rhysd/devdocs.vim'
 
 "multi cursor
-Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'terryma/vim-multiple-cursors'
 "Translate
 "Plugin 'iadept/vim-gtranslate'
 
@@ -144,6 +149,8 @@ Plugin 'dkprice/vim-easygrep'
 Plugin 'nathanaelkane/vim-indent-guides'
 
 Plugin 'jparise/vim-graphql'
+
+Plugin 'RRethy/vim-illuminate'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -300,9 +307,6 @@ noremap L $
 " pasting avoid to use p and o
 "nnoremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
 
-" clean whitespace
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
 augroup ShowMode
   autocmd!
   autocmd InsertLeave * hi Cursor guibg=red
@@ -336,7 +340,7 @@ autocmd User Node if &filetype == "javascript" | setlocal expandtab | endif
 
 "https://github.com/honza/vim-snippets/issues/517
 "augroup markdown
-  "au BufNewFile,BufRead *.md,*.markdown,*.mmd UltiSnipsAddFiletypes markdown
+"au BufNewFile,BufRead *.md,*.markdown,*.mmd UltiSnipsAddFiletypes markdown
 "augroup END
 
 "se deplace entre les fenetres
@@ -375,16 +379,20 @@ let g:airline_symbols.paste = 'Þ'
 "search down into subfolders
 "provide tab completion for all file related tasks
 set path+=**
+
 " manage by tab
-nmap tt :tabedit<Space>
+"nmap tt :tabedit<Space>
+nmap tt :NERDTreeToggle<CR>
 
 
 nnoremap Z :bp<CR>
 nnoremap X :bn<CR>
-nnoremap <Leader>[ :bp<CR>
-nnoremap <Leader>] :bn<CR>
+"nnoremap <Leader>[ :bp<CR>
+"nnoremap <Leader>] :bn<CR>
 
+" historic back
 nnoremap - g;<CR>
+" historic forward
 nnoremap + g,<CR>
 
 " type <Space>w to save file (lot faster than :w<Enter>):
@@ -392,14 +400,13 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :bd<CR>
 "quit the windows no name
 nnoremap <Leader>1 :q<CR>
-nnoremap <Leader>s :wq<CR>
 
 "create the tags file (may need to install Ctags first)
 command! MakeTags !ctags -R .
 "Now we can:
- "use ctrl ] to jump to tag under cursor
- "use g + ctrl] for ambigus tag under cursor
- "use t] to jump back up the tag stack
+"use ctrl ] to jump to tag under cursor
+"use g + ctrl] for ambigus tag under cursor
+"use t] to jump back up the tag stack
 
 "MatchTagAlways
 let g:mta_use_matchparen_group = 1
@@ -530,7 +537,7 @@ if exists("g:loaded_webdevicons")
 endif
 
 "Plugin javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'jquery,react,flux,underscore,flux,d3'
+let g:used_javascript_libs = 'jquery,react,flux,underscore,flux,d3,redux'
 
 " ----------------------------------------------------------------------------
 " Filetypes
@@ -561,8 +568,8 @@ let g:interestingWordsRandomiseColors = 1
 " http://www.vim.org/scripts/script.php?script_id=3133
 " Search word under cursor.
 "nmap <leader>o <Plug>(openbrowser-search)
-" open link
-nmap <leader>o  <Plug>(openbrowser-smart-search)
+" open in Google search
+nmap <leader>o <Plug>(openbrowser-smart-search)
 
 "OPEN JAVASCRIPT DOCUMENTATION plugin investigate.vim
 "nnoremap <leader>z :call investigate#Investigate('n')<CR>
@@ -575,11 +582,9 @@ nmap <leader>z <Plug>(devdocs-under-cursor)
 "open documentation only with react
 command! -nargs=* DevDocsReact call devdocs#open_doc(<q-args>, 'react')
 command! -nargs=* DevDocsJavascript call devdocs#open_doc(<q-args>, 'javascript')
-command! -nargs=* DevDocsUnderscore call devdocs#open_doc(<q-args>, 'underscore')
 command! -nargs=* DevDocsSass call devdocs#open_doc(<q-args>, 'sass')
 command! -nargs=* DevDocsGit call devdocs#open_doc(<q-args>, 'git')
-command! -nargs=* DevDocsjQuery call devdocs#open_doc(<q-args>, 'jquery')
-"command! -nargs=* DevDocsMarkdown call devdocs#open_doc(<q-args>, 'markdown')
+command! -nargs=* DevDocsMarkdown call devdocs#open_doc(<q-args>, 'markdown')
 command! -nargs=* DevDocsModernizr call devdocs#open_doc(<q-args>, 'modernizr')
 command! -nargs=* DevDocsHtml call devdocs#open_doc(<q-args>, 'html')
 command! -nargs=* DevDocsD3 call devdocs#open_doc(<q-args>, 'd3')
@@ -638,10 +643,10 @@ let g:user_emmet_install_global = 0
 "Note that the trailing , still needs to be entered, so the new keymap would be <C-e>,.
 let g:user_emmet_leader_key='<C-E>'
 let g:user_emmet_settings = {
-\  'javascript.jsx' : {
-\      'extends' : 'jsx',
-\  },
-\}
+      \  'javascript.jsx' : {
+      \      'extends' : 'jsx',
+      \  },
+      \}
 
 "remap viB and vaB
 noremap vib viB
@@ -650,10 +655,11 @@ noremap vab vaB
 "multi cursor pluggin
 "let g:multi_cursor_use_default_mapping=0
 " Default mapping
-let g:multi_cursor_next_key='<C-n>' "next
-let g:multi_cursor_prev_key='<C-k>' "prev
-let g:multi_cursor_skip_key='<C-x>' "skip
-let g:multi_cursor_quit_key='<Esc>' "quit
+"let g:multi_cursor_next_key='<C-n>' "next
+"let g:multi_cursor_prev_key='<C-k>' "prev
+"let g:multi_cursor_skip_key='<C-x>' "skip
+"let g:multi_cursor_quit_key='<Esc>' "quit
+"
 
 "LINT
 "React  https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
@@ -661,10 +667,10 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:ale_statusline_format = ['error', 'warning %d', '']
 "g:syntastic_javascript_checkers = ['eslint']
 let g:ale_linters = {
-\  'javascript': ['stylelint', 'eslint'],
-\  'css': ['stylelint'],
-\  'scss': ['stylelint'],
-\}
+      \  'javascript': ['stylelint', 'eslint'],
+      \  'css': ['stylelint'],
+      \  'scss': ['stylelint'],
+      \}
 let g:ale_sign_error = '⚠️' "Less aggressive than the default '>>'
 let g:ale_sign_warning = '💡'
 "let g:ale_echo_msg_warning_str = 'Warning 📣'
@@ -693,13 +699,18 @@ match ErrorMsg '\%>120v.\+'
 match ErrorMsg '\s\+$'
 
 "Remove all trailing whitespace by pressing F6
-nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+nnoremap <F6> :%s/\s\+$//e
+"https://howchoo.com/g/odg0mdyzmwr/vim-how-to-remove-trailing-whitespace-on-save
+"Then adding the following line to your .vimrc will ensure that every time you save a file (:w), it will remove all trailing whitespace.
+autocmd BufWritePre * :%s/\s\+$//e
+
 
 "easymotion
 "<Leader>f{char} to move to {char}
-nmap  <Leader>e <Plug>(easymotion-bd-f)
+nmap <Leader>e <Plug>(easymotion-bd-f)
 nmap <Leader>e <Plug>(easymotion-overwin-f)
-nmap F <Plug>(easymotion-prefix)s
+nmap F<Plug>(easymotion-prefix)s
+
 "Tabular
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
@@ -727,7 +738,7 @@ nnoremap <silent> <F5> :silent !open -a /Applications/Firefox.app %<CR>
 "mm make a mark called m. gg go to beginning of file. =G format from current cursor position to end of file. `m move cursor to mark named m.
 "So it says "remember my current position, format the whole file, and move back to where I was".
 nnoremap g= mmgg=G`m
-inoremap ii <Esc>
+"inoremap ii <Esc>
 "inoremap jj <Esc>
 inoremap kj <Esc>
 
@@ -742,5 +753,22 @@ nnoremap > >>
 
 
 "https://robots.thoughtbot.com/wrap-existing-text-at-80-characters-in-vim
-"Don't mash backspace when you realize you have made a typo. Just hit jj and and type it again. Never loose speed.
+"Don't mash BACKSPACE when you realize you have made a typo. Just hit jj and and type it again. Never loose speed.
 inoremap jj <Esc>ciw
+
+"turn word to uppercase
+"nnoremap ~ gUaWel
+"nnoremap ~ viWUel
+"
+
+":nnoremap <Leader>q" ciw""<Esc>P
+":nnoremap <Leader>q' ciw''<Esc>P
+":nnoremap <Leader>qd daW"=substitute(@@,"'\\\|\"","","g")<CR>P
+
+"markdown livedown plugin
+" should markdown preview get shown automatically upon opening markdown buffer
+let g:livedown_autorun = 1
+" should the browser window pop-up upon previewing
+let g:livedown_open = 1
+" the port on which Livedown server will run
+let g:livedown_port = 1337
