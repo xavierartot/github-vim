@@ -133,7 +133,7 @@ Plugin 'keith/investigate.vim'
 Plugin 'rhysd/devdocs.vim'
 
 "multi cursor
-"Plugin 'terryma/vim-multiple-cursors'
+Plugin 'terryma/vim-multiple-cursors'
 "Translate
 "Plugin 'iadept/vim-gtranslate'
 
@@ -374,6 +374,25 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 "let g:airline_symbols.paste = '∥'
 "let g:airline_symbols.whitespace = 'Ξ'
+"display number buffer
+let g:airline#extensions#tabline#enabled         = 1
+let g:airline#extensions#tabline#tab_nr_type     = 1 " tab number
+let g:airline#extensions#tabline#show_tab_nr     = 1
+let g:airline#extensions#tabline#formatter       = 'default'
+let g:airline#extensions#tabline#buffer_nr_show  = 1
+let g:airline#extensions#tabline#fnametruncate   = 16
+let g:airline#extensions#tabline#fnamecollapse   = 2
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+"display number buffer
+"nmap <leader>1 <Plug>AirlineSelectTab1
+"nmap <leader>2 <Plug>AirlineSelectTab2
+"nmap <leader>3 <Plug>AirlineSelectTab3
+"nmap <leader>4 <Plug>AirlineSelectTab4
+"nmap <leader>5 <Plug>AirlineSelectTab5
+"nmap <leader>6 <Plug>AirlineSelectTab6
+"nmap <leader>7 <Plug>AirlineSelectTab7
+"nmap <leader>8 <Plug>AirlineSelectTab8
+"nmap <leader>9 <Plug>AirlineSelectTab9
 
 "https://www.youtube.com/watch?v=XA2WjJbmmoM
 "search down into subfolders
@@ -570,6 +589,7 @@ let g:interestingWordsRandomiseColors = 1
 "nmap <leader>o <Plug>(openbrowser-search)
 " open in Google search
 nmap <leader>o <Plug>(openbrowser-smart-search)
+vmap o <Plug>(openbrowser-smart-search)
 
 "OPEN JAVASCRIPT DOCUMENTATION plugin investigate.vim
 "nnoremap <leader>z :call investigate#Investigate('n')<CR>
@@ -655,11 +675,10 @@ noremap vab vaB
 "multi cursor pluggin
 "let g:multi_cursor_use_default_mapping=0
 " Default mapping
-"let g:multi_cursor_next_key='<C-n>' "next
-"let g:multi_cursor_prev_key='<C-k>' "prev
-"let g:multi_cursor_skip_key='<C-x>' "skip
-"let g:multi_cursor_quit_key='<Esc>' "quit
-"
+let g:multi_cursor_next_key='<C-n>' "next
+let g:multi_cursor_prev_key='<C-k>' "prev
+let g:multi_cursor_skip_key='<C-x>' "skip
+let g:multi_cursor_quit_key='<Esc>' "quit
 
 "LINT
 "React  https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
@@ -709,7 +728,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 "<Leader>f{char} to move to {char}
 nmap <Leader>e <Plug>(easymotion-bd-f)
 nmap <Leader>e <Plug>(easymotion-overwin-f)
-nmap F<Plug>(easymotion-prefix)s
+"nmap <Leader>F<Plug>(easymotion-prefix)s
 
 "Tabular
 if exists(":Tabularize")
@@ -726,21 +745,12 @@ vnoremap <BS> {
 nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 vnoremap <CR> }
-"doesn't work with macro
-"nnoremap q i'
-"nnoremap Q i"
-"onoremap ia i]
-"onoremap aa a]
 
 nnoremap <silent> <F5> :silent !open -a /Applications/Firefox.app %<CR>
 
 "https://www.reddit.com/r/vim/comments/7yzblt/what_was_your_best_vimrc_addition/?st=JDWP6I49&sh=bdcde356
-"mm make a mark called m. gg go to beginning of file. =G format from current cursor position to end of file. `m move cursor to mark named m.
 "So it says "remember my current position, format the whole file, and move back to where I was".
 nnoremap g= mmgg=G`m
-"inoremap ii <Esc>
-"inoremap jj <Esc>
-inoremap kj <Esc>
 
 "https://robots.thoughtbot.com/wrap-existing-text-at-80-characters-in-vim
 au BufRead,BufNewFile *.md setlocal textwidth=80
@@ -751,24 +761,14 @@ nnoremap = ==
 nnoremap < <<
 nnoremap > >>
 
-
 "https://robots.thoughtbot.com/wrap-existing-text-at-80-characters-in-vim
 "Don't mash BACKSPACE when you realize you have made a typo. Just hit jj and and type it again. Never loose speed.
 inoremap jj <Esc>ciw
 
-"turn word to uppercase
-"nnoremap ~ gUaWel
-"nnoremap ~ viWUel
-"
-
-":nnoremap <Leader>q" ciw""<Esc>P
-":nnoremap <Leader>q' ciw''<Esc>P
-":nnoremap <Leader>qd daW"=substitute(@@,"'\\\|\"","","g")<CR>P
-
 "markdown livedown plugin
 " should markdown preview get shown automatically upon opening markdown buffer
 let g:livedown_autorun = 1
-" should the browser window pop-up upon previewing
-let g:livedown_open = 1
-" the port on which Livedown server will run
+let g:livedown_open = 1 " should the browser window pop-up upon previewing
 let g:livedown_port = 1337
+
+nnoremap <C-g> <C-1><C-g>
