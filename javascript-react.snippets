@@ -53,14 +53,6 @@ snippet dp
 	static defaultProps = {
 		${1}: ${2},
 	}
-snippet st
-	this.state = {
-		${1}: ${2},
-	}
-snippet rts
-	this.state = {
-		${1}: ${2},
-	}
 snippet pd
 	${1:Class}.defaultProps = {
 		${2:propsName}: PropTypes.${3:type},
@@ -68,15 +60,16 @@ snippet pd
 snippet rcc
 	import React, { Component } from 'react';
 
-	export default class ${1:ClassName} extends Component {
+	class ${1:ClassName} extends Component {
 		render() {
 			return (
 				<div className='$1'>
-					${0:}
+					$1
 				</div>
 			);
 		}
 	}
+	export default $1
 snippet rcf
 	export default function ${1:className}(props) {
 	  return (
@@ -90,7 +83,7 @@ snippet rfc
 		);
 	}
 snippet rsl
-	import React from 'react'; 
+	import React from 'react';
 	const ${1:className} = (${2:{props}}) => {
 		return (
 			<div className='$1'>
@@ -98,7 +91,7 @@ snippet rsl
 			</div>
 		);
 	}
-	export default $1; 
+	export default $1;
 snippet rslf
 	const ${1:className} = (${2:props}) => {
 		return (
@@ -107,7 +100,7 @@ snippet rslf
 			</div>
 		);
 	}
-	export default ${1}; 
+	export default ${1};
 snippet rfsl
 	const ${1:className} = (props) => {
 		return (
@@ -116,7 +109,7 @@ snippet rfsl
 			</div>
 		);
 	}
-	export default ${1}; 
+	export default ${1};
 snippet rdr
 	ReactDOM.render(${1}, ${2})
 snippet ercc
@@ -150,7 +143,7 @@ snippet rsso
 	this.setState({
 		${0:variable}
 	})
-snippet rssf
+snippet tssf
 	this.setState((currentState) => ({
 		${1:variable} : currentState.${0}
 	}))
@@ -169,11 +162,15 @@ snippet scu
 snippet prp i
 	this.props.${1}
 snippet rp
-	this.props.${1}
+	this.props${0}
 snippet ste i
+	this.state${0}
+snippet rts
 	this.state.${1}
 snippet rs
-	this.state.${1}
+	state = {
+		${1}
+	}
 snippet rpt
 	${1:component}.propTypes = {
 		${2:propName}: PropTypes.${3:type}.${4:isRequired},
@@ -201,18 +198,15 @@ snippet rcl
 				</div>
 			);
 		}
-
 snippet rc
 	{/* ${0} */}
-
 snippet rcj
 	{/* ${0} */}
-
 snippet rcs
 	constructor(props) {
 		super(props);
 		this.state = {
-			${0} 
+			${0}
 		}
 	}
 snippet ref
@@ -242,7 +236,7 @@ snippet rfj
 				{${1:props.}}
 		  </div>
 		);
-	} 
+	}
 snippet rd
 	<div className='${1:class}'>{${2:props.}}</div>
 snippet rr
@@ -356,7 +350,7 @@ snippet rcsl
 	)
 	export default $1;
 # wrap JSX with test in render() https://engineering.musefind.com/our-best-practices-for-writing-react-components-dec3eb5c3fc8
-snippet riife 
+snippet riife
 	(() => {
 		if (${1:1}) {
 			${2:<div>$1</div>}
@@ -378,7 +372,7 @@ snippet acc
 snippet mstp mapStateToProps
 	function mapStateToProps( { ${1:state} }, ${2:props} ) {
 		return {
-			
+
 		}
 	}
 

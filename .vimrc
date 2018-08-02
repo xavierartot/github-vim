@@ -88,7 +88,8 @@ Plugin 'skywind3000/asyncrun.vim'
 Plugin 'moll/vim-node'
 
 " browser in terminal with synchronisation
-Plugin 'jaxbot/browserlink.vim'
+" doesn't work with python3
+"Plugin 'jaxbot/browserlink.vim'
 
 Plugin 'scrooloose/nerdtree'
 

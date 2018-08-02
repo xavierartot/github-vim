@@ -210,6 +210,8 @@ snippet jsonp
 # JSON.stringify
 snippet jsons
 	JSON.stringify(${0:object});
+snippet js
+	JSON.stringify(${0:object});
 # DOM selectors
 # Get elements
 snippet get
@@ -233,51 +235,53 @@ snippet qsa
 snippet de
 	debugger;
 snippet cl "console.log"
-	console.log(${0});
+	console.log(${0})
 snippet cd "console.debug"
-	console.debug(${0});
+	console.debug(${0})
 snippet ce "console.error"
-	console.error(${0});
+	console.error(${0})
 snippet cw "console.warn"
-	console.warn(${0});
+	console.warn(${0})
 snippet ci "console.info"
-	console.info(${0});
+	console.info(${0})
 snippet ct "console.trace"
-	console.trace(${0:label});
+	console.trace(${0:label})
 snippet ctime "console.time ... console.timeEnd"
-	console.time("${1:label}");
+	console.time("${1:label}")
 	${0:${VISUAL}}
-	console.timeEnd("$1");
+	console.timeEnd("$1")
 snippet ctimestamp "console.timeStamp"
-	console.timeStamp("${1:label}");
+	console.timeStamp("${1:label}")
 snippet ca "console.assert"
-	console.assert(${1:expression}, ${0:obj});
+	console.assert(${1:expression}, ${0:obj})
 snippet cclear "console.clear"
-	console.clear();
+	console.clear()
 snippet cdir "console.dir"
-	console.dir(${0:obj});
+	console.dir(${0:obj})
 snippet cdirx "console.dirxml"
-	console.dirxml(${1:object});
+	console.dirxml(${1:object})
 snippet cgroup "console.group"
-	console.group("${1:label}");
+	console.group("${1:label}")
 	${0:${VISUAL}}
-	console.groupEnd();
+	console.groupEnd()
 snippet cgroupc "console.groupCollapsed"
-	console.groupCollapsed("${1:label}");
+	console.groupCollapsed("${1:label}")
 	${0:${VISUAL}}
-	console.groupEnd();
+	console.groupEnd()
 snippet cprof "console.profile"
-	console.profile("${1:label}");
+	console.profile("${1:label}")
 	${0:${VISUAL}}
-	console.profileEnd();
+	console.profileEnd()
 snippet ctable "console.table"
-	console.table(${1:"${2:value}"});
+	console.table(${1:"${2:value}"})
 # Misc
 # 'use strict';
 snippet us
 	'use strict';
 # setTimeout function
 snippet timeout
-	setTimeout(function () {${0}}${2}, ${1:10});
+	setTimeout(function () {${0}}${2}, ${1:10})
+snippet st
+	setTimeout( () => ${0}, ${1:10})
 snippet r
 	return ${0}
