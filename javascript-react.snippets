@@ -1,28 +1,46 @@
 #https://gist.github.com/xavierartot/a29b1d65bc81f8e7f3ff8a9958635a72
 snippet ic
-	import ${1:React} from './$1';
+	import ${1:name} from './components/$1';
+snippet is
+	import ${1:name} from './screens/$1';
+snippet il
+	import ${1:React} from '$1${0}';
 snippet ir
 	import React from 'react';
-snippet ird
-	import ReactDOM from 'react-dom';
-snippet is
-	import './${0:filename.css}';
-snippet icss
-	import './${0:filename.css}';
 snippet ri
 	import React${1:, { Component }} from 'react';
-snippet rid
+snippet ird
 	import ReactDOM from 'react-dom';
 	${0}
-snippet rir
+snippet ijpg
+	import './${1:filename}.jpg';
+snippet ijpeg
+	import './${0:filename}.jpeg';
+snippet ipng
+	import './${0:filename}.png';
+snippet iimg
+	import './${0:filename.jpeg}';
+snippet icss
+	import './${0:filename}.css';
+snippet ird
+	import ReactDOM from 'react-dom';
+	${0}
+snippet irr
 	import { ${1:Route} } from 'react-router-dom';
 	${0}
-snippet ric
-	import ${1:name} from './components/$1';
-	${0}
-snippet rip
+snippet ipt
 	import PropTypes from 'prop-types';
 	${0}
+snippet iredux
+	import { createStore } from 'redux'
+	import { connect } from 'react-redux'
+snippet inav
+	import { ${1:createBottomTabNavigator, createMaterialTopTabNavigator, createStackNavigator} } from 'react-navigation'
+snippet iexpoi
+	import { ${1:FontAwesome, Ionicons} } from '${2:@expo/vector-icons}'
+snippet iexpo
+	import { ${1:Constants} } from '${2:expo}'
+
 snippet cdm
 	componentDidMount() {
 		${1}
@@ -122,11 +140,6 @@ snippet ercc
 			);
 		}
 	}
-snippet ctor
-	constructor() {
-		super();
-		${1:this}
-	}
 snippet ren
 	render() {
 		return (
@@ -136,8 +149,8 @@ snippet ren
 		);
 	}
 snippet rss
-	this.setState((${1:prevState}, props) => ({
-		${2:variable} : $1${0}
+	this.setState(() => ({
+		${2:variable} : ${0}
 	}))
 snippet rsso
 	this.setState({
@@ -163,7 +176,11 @@ snippet prp i
 	this.props.${1}
 snippet rp
 	this.props${0}
+snippet rcp i
+	const {${1}} = this.props
 snippet ste i
+	this.state${0}
+snippet st i
 	this.state${0}
 snippet rts
 	this.state.${1}
@@ -218,7 +235,7 @@ snippet ros
 snippet roh
 	onHover={${1:this.}} ${0}
 snippet rcn
-	className="${1:name}"
+	className="${1}"
 snippet rcla
 	className="${1:name}"
 snippet re
@@ -237,8 +254,6 @@ snippet rfj
 		  </div>
 		);
 	}
-snippet rd
-	<div className='${1:class}'>{${2:props.}}</div>
 snippet rr
 	return (
 		<div>
@@ -321,7 +336,8 @@ snippet m=>
 		${0}
 	}
 snippet rf
-	${1} = (${2}) => {
+	${1} = (event) => {
+		event.preventDefault()
 		${0}
 	}
 snippet rf1
@@ -359,20 +375,207 @@ snippet riife
 		}
 	})();
 snippet rmap
-	{${1:array}.map( ${2:item} => <li key={$2.id}}>{$2}</li> )}
+	{${1:array}.map( ${2:item} => <li key={$2.id}>{$2.id}</li> )}
 snippet rmapl
-	${1}.map( (${2:item}) => {
-		<li key={$2.id}}>{$2}</li>
-	})
+	{${1}.map( (${2:item}) => (
+		<li key={$2.id}>{$2.id}</li>
+	))}
 
 #API Context
-snippet acc
+snippet racc
 	const Context = React.createContext()
 
-snippet mstp mapStateToProps
-	function mapStateToProps( { ${1:state} }, ${2:props} ) {
-		return {
-
+#redux
+snippet mstp
+	function mapStateToProps( { ${2:state} }${3: , props} ){
+	  return {
+		  $2${0:,}
 		}
 	}
+	export default connect(mapStateToProps)(${1})
+snippet mstpwr
+	function mapStateToProps( { ${2:state} }${3: , props} ){
+	  return {
+		  $2: ${0}
+		}
+	}
+	export default withRouter(connect(mapStateToProps)(${1}))
+snippet rdp
+	const { dispatch } = this.props
+snippet rd
+	const { dispatch } = this.props
+snippet connect
+	import { connect } from 'react-redux'
+snippet l
+	let ${1} = ${0}
 
+
+#REACT-NATIVE
+snippet rnt
+	<Text>
+	  ${0}
+	</Text>
+snippet rnv
+	<View>
+	  ${0}
+	</View>
+snippet rnvt
+	<View>
+		<Text>
+			${0}
+		</Text>
+	</View>
+snippet rncc
+	import React, { Component } from 'react';
+	import { View, Text } from 'react-native';
+	class ${1:ClassName} extends Component {
+		render() {
+			return (
+				<View>
+					<Text>
+						$1
+					</Text>
+				</View>
+			);
+		}
+	}
+	export default $1
+snippet irn
+	import React, { Component } from 'react';
+	import { View, Text } from 'react-native';
+snippet rj
+	return (
+	  ${0}
+	)
+
+snippet rk
+	key={${0}}
+#REACT CSS
+snippet stylesheet
+	const styles = StyleSheet.create({
+		${1:container}: {
+			${0}
+		},
+	})
+snippet ssc
+	const styles = StyleSheet.create({
+		${1:container}: {
+			${0}
+		},
+	})
+snippet h
+	height: ${0},
+snippet w
+	width: ${0},
+snippet bgc
+	backgroundColor: '${0:#fff}',
+snippet m
+	margin: ${0},
+snippet fl
+	flex: 1,
+snippet fd
+	flexDirection: '${0:row}',
+snippet fdc
+	flexDirection: 'column',
+snippet fdr
+	flexDirection: 'row',
+snippet jc
+	justifyContent: '${0:center}',
+snippet jcc
+	justifyContent: 'center',
+snippet jcsb
+	justifyContent: 'space-between',
+snippet jcsa
+	justifyContent: 'space-around',
+snippet jcfe
+	justifyContent: 'flex-end',
+snippet jcfs
+	justifyContent: 'flex-start',
+snippet jcse
+	justifyContent: 'space-evenly',
+snippet ai
+	alignItems: '${0:center}',
+snippet aic
+	alignItems: 'center',
+snippet aifs
+	alignItems: 'flex-start',
+snippet aife
+	alignItems: 'flex-end',
+snippet ais
+	alignItems: 'stretch',
+snippet bdr
+	borderRadius: ${0:50},
+snippet bdt
+	borderTop: ${0:1},
+snippet bdr
+	borderRight: ${0:1},
+snippet bdb
+	borderBottom: ${0:1},
+snippet bdl
+	borderLeft: ${0:1},
+snippet bdc
+	borderColor: ${0:red},
+snippet bw
+	borderWidth: ${0:1},
+snippet rns
+	style={styles.${0}}
+snippet ra
+	alert(${0})
+snippet fs
+	fontSize: ${0:20},
+snippet pt
+	paddingTop: ${0:2},
+snippet pr
+	paddingRight: ${0:2},
+snippet pl
+	paddingLeft: ${0:2},
+snippet pb
+	paddingBottom: ${0:2},
+snippet mb
+	marginBottom: ${0:2},
+snippet mt
+	marginTop: ${0:2},
+snippet mr
+	marginRight: ${0:2},
+snippet ml
+	marginLeft: ${0:2},
+snippet asc
+	alignSelf: 'center',
+snippet ass
+	alignSelf: 'strech',
+snippet asfs
+	alignSelf: 'flex-start',
+snippet asfe
+	alignSelf: 'flex-end',
+snippet asb
+	alignSelf: 'baseline',
+snippet ac
+	alignContent: 'stretch',
+snippet acfs
+	alignContent: 'flex-start',
+snippet acfe
+	alignContent: 'flex-end',
+snippet acc
+	alignContent: 'center',
+snippet acsb
+	alignContent: 'space-between',
+snippet acsa
+	alignContent: 'space-around',
+snippet rnstringify
+	JSON.stringify(${0})
+snippet rnstring
+	JSON.stringify(${0})
+snippet rnstr
+	JSON.stringify(${0})
+snippet rv
+	{${0}}
+snippet ttu
+	textTransform: 'uppercase'
+snippet as
+	alignSelf: 'center',
+snippet ttl
+	textTransform: 'lowercase'
+snippet rno
+	${1}: {
+		${0}
+	},
