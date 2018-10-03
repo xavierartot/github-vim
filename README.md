@@ -1,26 +1,20 @@
-## mercurial required - install if you don't already have it.
- brew install mercurial
+### Install
+- brew install mercurial && brew install vim && brew install ctags
+- install Vundle    : git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+- npm install livedown -g && npm install jshint -g
 
-## install Vim
- brew install vim
+## React
+- https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
+- lint - https://drivy.engineering/setting-up-vim-for-react/
+  - install locally
+  - yarn add eslint babel-eslint eslint-plugin-react prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-import stylelint eslint-config-airbnb eslint-plugin-jsx-a11y
+  - install globaly: npm i -g eslint babel-eslint eslint-plugin-react prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-import stylelint eslint-config-airbnb eslint-plugin-jsx-a11y
+- copy my snippets React and React Native
 
-## if /usr/bin is before /usr/local/bin in your $PATH,
-## hide the system Vim so the new version is found first
- sudo mv /usr/bin/vim /usr/bin/vim72
-
-## should return /usr/local/bin/vim
- which vim vim
-
-
-**Vim**
-- install Vundle                   : git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-- install Syntastic                : cd ~/.vim/bundle && git clone --depth=1 https://github.com/scrooloose/syntastic.git
-
-## Vimium configuration
+## Vimium(Chrome) configuration
 - unmap maj+x
 - unmap h
 - unmap l
-
 - map x cmd+w
 - map l nextTab
 - map h previousTab
