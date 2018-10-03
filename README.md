@@ -10,6 +10,7 @@
   - yarn add eslint babel-eslint eslint-plugin-react prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-import stylelint eslint-config-airbnb eslint-plugin-jsx-a11y
   - install globaly: npm i -g eslint babel-eslint eslint-plugin-react prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-import stylelint eslint-config-airbnb eslint-plugin-jsx-a11y
 - copy my snippets React and React Native
+  - https://github.com/xavierartot/github-vim/blob/master/javascript-react.snippets
 
 ## Vimium(Chrome) configuration
 - unmap maj+x
