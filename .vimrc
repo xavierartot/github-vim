@@ -1,11 +1,11 @@
-filetype off                  " required
-" set the runtime path to include Vundle and initialize
+filetype off "required
+"set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
+"alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+"let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'rizzatti/funcoo.vim'
@@ -14,11 +14,11 @@ Plugin 'rizzatti/funcoo.vim'
 "without compromising the rest of our vim experience.
 "Plugin 'takac/vim-hardtime'
 
-"replace this plugin by  https://github.com/shime/vim-livedown, is allow to
+"replace this plugin by  https://github.com/shime/vim-livedown is allow to
 "add image
-"Plugin 'suan/vim-instant-markdown'
+Plugin 'suan/vim-instant-markdown'
 "npm install -g livedown
-Plugin 'shime/vim-livedown'
+"Plugin 'shime/vim-livedown'
 
 Plugin 'ragtag.vim'
 
@@ -48,7 +48,6 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 "syntax
-
 Plugin 'tmhedberg/matchit'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-obsession'
@@ -63,7 +62,7 @@ Plugin 'mattn/emmet-vim'
 
 
 "javascripts
-Plugin 'marijnh/tern_for_vim'
+Plugin 'marijnh/tern_for_vim' "install tern
 " help for the symtax color
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'othree/javascript-libraries-syntax.vim'
@@ -153,6 +152,12 @@ Plugin 'jparise/vim-graphql'
 
 Plugin 'RRethy/vim-illuminate'
 
+Plugin 'aperezdc/vim-template'
+
+"Plugin 'ajh17/VimCompletesMe'
+
+"rest client
+Plugin 'diepm/vim-rest-console'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -326,6 +331,12 @@ augroup END
 let NERDTreeShowBookmarks = 1
 let NERDTreeWinSize       = 22
 let NERDTreeShowHidden    = 1
+"Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <C-w> <C-W>w
 "nnoremap <silent> n :NERDTreeToggle<CR>
 
 " powerline
@@ -680,6 +691,7 @@ let g:multi_cursor_next_key='<C-n>' "next
 let g:multi_cursor_prev_key='<C-k>' "prev
 let g:multi_cursor_skip_key='<C-x>' "skip
 let g:multi_cursor_quit_key='<Esc>' "quit
+set nocompatible
 
 "LINT
 "React  https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
@@ -728,7 +740,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 "easymotion
 "<Leader>f{char} to move to {char}
 nmap <Leader>e <Plug>(easymotion-bd-f)
-nmap <Leader>e <Plug>(easymotion-overwin-f)
+"nmap e <Plug>(easymotion-overwin-f)
 "nmap <Leader>F<Plug>(easymotion-prefix)s
 
 "Tabular
@@ -764,12 +776,30 @@ nnoremap > >>
 
 "https://robots.thoughtbot.com/wrap-existing-text-at-80-characters-in-vim
 "Don't mash BACKSPACE when you realize you have made a typo. Just hit jj and and type it again. Never loose speed.
-inoremap jj <Esc>ciw
+"inoremap jj <Esc>ciw
 
 "markdown livedown plugin
 " should markdown preview get shown automatically upon opening markdown buffer
-let g:livedown_autorun = 1
-let g:livedown_open = 1 " should the browser window pop-up upon previewing
-let g:livedown_port = 1337
+"let g:livedown_autorun = 0
+"let g:livedown_open = 1 " should the browser window pop-up upon previewing
+"let g:livedown_port = 1337
 
 nnoremap <C-g> <C-1><C-g>
+
+
+"Git
+nnoremap gw :Gwrite
+nnoremap gc :Gcommit
+
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+map N Nzz
+map n nzz
+
+"remap autoclompetion
+inoremap <C-o> <C-x><C-o>
+inoremap <C-n> <C-x><C-n>
+inoremap <C-p> <C-x><C-p>
+inoremap <C-l> <C-x><C-l>
+inoremap <C-f> <C-x><C-f>
+inoremap <C-]> <C-x><C-]>
