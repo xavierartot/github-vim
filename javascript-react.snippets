@@ -1,14 +1,22 @@
 #https://gist.github.com/xavierartot/a29b1d65bc81f8e7f3ff8a9958635a72
 snippet ic
 	import ${1:name} from './components/$1';
+snippet ip
+	import PropTypes from 'prop-types';
 snippet is
 	import ${1:name} from './screens/$1';
 snippet il
 	import ${1:React} from '$1${0}';
+snippet ia
+	import { ${1:action} } from '../actions/${0:file}';
+snippet ilodash
+	import ${1:action} from 'lodash/$1';
+snippet iredux
+	import { connect } from 'react-redux'
 snippet ir
-	import React from 'react';
+	import React, { Component } from 'react';
 snippet ri
-	import React${1:, { Component }} from 'react';
+	import React, { Component } from 'react';
 snippet ird
 	import ReactDOM from 'react-dom';
 	${0}
@@ -27,10 +35,8 @@ snippet ird
 	${0}
 snippet irr
 	import { ${1:Route} } from 'react-router-dom';
-	${0}
 snippet ipt
 	import PropTypes from 'prop-types';
-	${0}
 snippet iredux
 	import { createStore } from 'redux'
 	import { connect } from 'react-redux'
@@ -44,6 +50,19 @@ snippet iexpo
 snippet cdm
 	componentDidMount() {
 		${1}
+	}
+snippet cdu
+	componentDidUpdate(prevProps){
+		${1}
+	}
+snippet gdsfp
+	static getDerivedStateFromProps(nextProps, prevState){
+		if (this.state.visible === true && newProps.visible === false) {
+			registerLog('dialog is hidden');
+		}
+		return {
+			visible : nextProps.visible
+		};
 	}
 snippet cdup
 	componentDidUpdate(prevProps, prevState) {
@@ -517,7 +536,9 @@ snippet bdc
 	borderColor: ${0:red},
 snippet bw
 	borderWidth: ${0:1},
-snippet rns
+snippet rstyl
+	style={styles.${0}}
+snippet rstyle
 	style={styles.${0}}
 snippet ra
 	alert(${0})
